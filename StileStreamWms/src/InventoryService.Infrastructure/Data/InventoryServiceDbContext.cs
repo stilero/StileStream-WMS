@@ -11,6 +11,6 @@ public class InventoryServiceDbContext(DbContextOptions<InventoryServiceDbContex
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(InventoryServiceDbContext).Assembly);
-    }
+    }    
 }
 
