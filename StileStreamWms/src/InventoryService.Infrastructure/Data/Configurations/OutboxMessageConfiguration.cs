@@ -20,7 +20,7 @@ public class OutboxMessageConfiguration : IEntityTypeConfiguration<OutboxMessage
 
     }
 
-    private void ConfigureIndexes(EntityTypeBuilder<OutboxMessage> builder)
+    private static void ConfigureIndexes(EntityTypeBuilder<OutboxMessage> builder)
     {
         builder.HasIndex(p => p.Id).IsUnique();
         builder.HasIndex(p => p.IsProcessed);

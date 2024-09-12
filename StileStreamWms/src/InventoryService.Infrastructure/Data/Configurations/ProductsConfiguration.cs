@@ -24,7 +24,7 @@ public class ProductsConfiguration : IEntityTypeConfiguration<ProductEntity>
         ConfigureIndexes(builder);
     }
 
-    private void ConfigureIndexes(EntityTypeBuilder<ProductEntity> builder)
+    private static void ConfigureIndexes(EntityTypeBuilder<ProductEntity> builder)
     {
         builder.HasIndex(p => p.Sku).IsUnique();
     }
