@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InventoryService.Domain\InventoryService.Domain.csproj" />
-    <ProjectReference Include="..\InventoryService.FunctionApp\InventoryService.FunctionApp.csproj" />
   </ItemGroup>
 
 </Project>
