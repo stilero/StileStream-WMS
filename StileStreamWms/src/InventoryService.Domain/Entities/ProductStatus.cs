@@ -1,4 +1,4 @@
-﻿namespace InventoryService.Domain
+﻿namespace InventoryService.Domain.Entities
 {
     public enum ProductStatus
     {

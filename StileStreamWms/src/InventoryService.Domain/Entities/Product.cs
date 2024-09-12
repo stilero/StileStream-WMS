@@ -2,7 +2,7 @@
 using Shared.Domain.Events;
 using Shared.Domain.Models.Results;
 
-namespace InventoryService.Domain;
+namespace InventoryService.Domain.Entities;
 
 public class Product : Entity
 {
@@ -30,7 +30,7 @@ public class Product : Entity
             CreatedBy = createdBy ?? "system"
         };
 
-        product.RaiseDomainEvent(new ProductCreatedDomainEvent(product));
+        product.RaiseDomainEvent(new ProductCreatedEvent(product));
 
         return product;
     }
@@ -48,8 +48,8 @@ public class Product : Entity
             UpdatedBy = updatedBy ?? "system"
         };
 
-        product.RaiseDomainEvent(new ProductUpdatedDomainEvent(product));
+        product.RaiseDomainEvent(new ProductUpdatedEvent(product));
 
         return product;
-    }    
+    }
 }
