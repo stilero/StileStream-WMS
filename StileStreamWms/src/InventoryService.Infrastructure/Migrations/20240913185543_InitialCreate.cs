@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace InventoryService.Infrastructure.Data.Migrations
+namespace InventoryService.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -18,9 +18,9 @@ namespace InventoryService.Infrastructure.Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false, defaultValue: ""),
                     Data = table.Column<string>(type: "nvarchar(max)", nullable: false, defaultValue: ""),
-                    OccurredOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 9, 12, 20, 0, 0, 95, DateTimeKind.Utc).AddTicks(2734)),
+                    OccurredOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 9, 13, 18, 55, 42, 934, DateTimeKind.Utc).AddTicks(2411)),
                     IsProcessed = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    ProcessedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 9, 12, 20, 0, 0, 95, DateTimeKind.Utc).AddTicks(2999))
+                    ProcessedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 9, 13, 18, 55, 42, 934, DateTimeKind.Utc).AddTicks(2831))
                 },
                 constraints: table =>
                 {
@@ -37,9 +37,9 @@ namespace InventoryService.Infrastructure.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false, defaultValue: ""),
                     Category = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, defaultValue: ""),
                     Status = table.Column<int>(type: "int", maxLength: 50, nullable: false, defaultValue: 0),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 9, 12, 20, 0, 0, 95, DateTimeKind.Utc).AddTicks(5396)),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 9, 13, 18, 55, 42, 934, DateTimeKind.Utc).AddTicks(6299)),
                     CreatedBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, defaultValue: "system"),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 9, 12, 20, 0, 0, 95, DateTimeKind.Utc).AddTicks(5699)),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 9, 13, 18, 55, 42, 934, DateTimeKind.Utc).AddTicks(6737)),
                     UpdatedBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, defaultValue: "system")
                 },
                 constraints: table =>

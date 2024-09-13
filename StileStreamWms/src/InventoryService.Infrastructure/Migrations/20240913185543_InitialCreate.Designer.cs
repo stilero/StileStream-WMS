@@ -4,16 +4,19 @@ using InventoryService.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace InventoryService.Infrastructure.Data.Migrations
+namespace InventoryService.Infrastructure.Migrations
 {
     [DbContext(typeof(InventoryServiceDbContext))]
-    partial class InventoryServiceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240913185543_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,12 +45,12 @@ namespace InventoryService.Infrastructure.Data.Migrations
                     b.Property<DateTime>("OccurredOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 9, 12, 20, 0, 0, 95, DateTimeKind.Utc).AddTicks(2734));
+                        .HasDefaultValue(new DateTime(2024, 9, 13, 18, 55, 42, 934, DateTimeKind.Utc).AddTicks(2411));
 
                     b.Property<DateTime>("ProcessedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 9, 12, 20, 0, 0, 95, DateTimeKind.Utc).AddTicks(2999));
+                        .HasDefaultValue(new DateTime(2024, 9, 13, 18, 55, 42, 934, DateTimeKind.Utc).AddTicks(2831));
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -82,7 +85,7 @@ namespace InventoryService.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 9, 12, 20, 0, 0, 95, DateTimeKind.Utc).AddTicks(5396));
+                        .HasDefaultValue(new DateTime(2024, 9, 13, 18, 55, 42, 934, DateTimeKind.Utc).AddTicks(6299));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -117,7 +120,7 @@ namespace InventoryService.Infrastructure.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 9, 12, 20, 0, 0, 95, DateTimeKind.Utc).AddTicks(5699));
+                        .HasDefaultValue(new DateTime(2024, 9, 13, 18, 55, 42, 934, DateTimeKind.Utc).AddTicks(6737));
 
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
