@@ -9,15 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{233C69C7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryService.FunctionApp", "src\InventoryService.FunctionApp\InventoryService.FunctionApp.csproj", "{BE6815CE-96C6-4597-90F9-53C075BC9E1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StileStreamWms.AppHost", "StileStreamWms.AppHost\StileStreamWms.AppHost.csproj", "{A677B5B7-D341-4189-84D5-F8A205997BB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryService.Domain", "src\InventoryService.Domain\InventoryService.Domain.csproj", "{34F4095A-673A-4A1E-ACAA-92BF88F3A36B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StileStreamWms.ServiceDefaults", "StileStreamWms.ServiceDefaults\StileStreamWms.ServiceDefaults.csproj", "{F4305AFD-740C-4310-AE90-770DDA10A612}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Domain", "src\Shared.Domain\Shared.Domain.csproj", "{6329467F-DBEC-4A24-9A41-DEF07B321F81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService.Domain", "src\InventoryService.Domain\InventoryService.Domain.csproj", "{34F4095A-673A-4A1E-ACAA-92BF88F3A36B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryService.Infrastructure", "src\InventoryService.Infrastructure\InventoryService.Infrastructure.csproj", "{D7D69B45-D3C0-44B9-A4ED-47055611857B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Domain", "src\Shared.Domain\Shared.Domain.csproj", "{6329467F-DBEC-4A24-9A41-DEF07B321F81}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService.Infrastructure", "src\InventoryService.Infrastructure\InventoryService.Infrastructure.csproj", "{D7D69B45-D3C0-44B9-A4ED-47055611857B}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E060CD45-A4B6-440B-BC87-6C7851127B50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +27,6 @@ Global
 		{BE6815CE-96C6-4597-90F9-53C075BC9E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE6815CE-96C6-4597-90F9-53C075BC9E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE6815CE-96C6-4597-90F9-53C075BC9E1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A677B5B7-D341-4189-84D5-F8A205997BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A677B5B7-D341-4189-84D5-F8A205997BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A677B5B7-D341-4189-84D5-F8A205997BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A677B5B7-D341-4189-84D5-F8A205997BB5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4305AFD-740C-4310-AE90-770DDA10A612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4305AFD-740C-4310-AE90-770DDA10A612}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4305AFD-740C-4310-AE90-770DDA10A612}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4305AFD-740C-4310-AE90-770DDA10A612}.Release|Any CPU.Build.0 = Release|Any CPU
 		{34F4095A-673A-4A1E-ACAA-92BF88F3A36B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{34F4095A-673A-4A1E-ACAA-92BF88F3A36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34F4095A-673A-4A1E-ACAA-92BF88F3A36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,6 +39,10 @@ Global
 		{D7D69B45-D3C0-44B9-A4ED-47055611857B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7D69B45-D3C0-44B9-A4ED-47055611857B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7D69B45-D3C0-44B9-A4ED-47055611857B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E060CD45-A4B6-440B-BC87-6C7851127B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E060CD45-A4B6-440B-BC87-6C7851127B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E060CD45-A4B6-440B-BC87-6C7851127B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E060CD45-A4B6-440B-BC87-6C7851127B50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

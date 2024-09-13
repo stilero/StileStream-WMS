@@ -11,10 +11,12 @@ public static class DatabaseServiceCollectionExtension
     {
         services.AddDbContext<InventoryServiceDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("Values:ConnectionStrings:DefaultConnection"));
+            options.UseSqlServer(configuration.GetConnectionString("Values:ConnectionStrings:SqlServer"));
         });
 
 
         return services;
     }
 }
+
+

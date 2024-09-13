@@ -1,0 +1,65 @@
+version: '3.9'
+name: stile-stream
+services:
+   # SQL Server
+  sqlserver:
+    container_name: "sql-server"
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: ${SA_PASSWORD}
+    ports:
+      - "1433:1433"
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P ${SA_PASSWORD} -Q 'SELECT 1'"]
+      interval: 20s
+      retries: 3
+      start_period: 50s
+    volumes:
+      - ./init/sqlserver:/docker-entrypoint-initdb.d
+      - ./init/sqlserver/entrypoint.sh:/entrypoint.sh
+    entrypoint: ["/bin/bash", "/entrypoint.sh"] 
+    networks:
+      - default 
+   # Inventory Service
+  inventoryservice.functionapp:
+    container_name: "InventoryService"
+    image: ${DOCKER_REGISTRY-}inventoryservicefunctionapp
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Values:ConnectionStrings:SqlServer=${DB_CONNECTION_STRING}
+    depends_on:
+      sqlserver:
+         condition: service_healthy
+    build:
+      context: .
+      dockerfile: src/InventoryService.FunctionApp/Dockerfile
+      network: default
+  # Migration service for EF migrations
+  ef-migrations:
+    image: mcr.microsoft.com/dotnet/sdk:8.0
+    container_name: "ef-migrations" 
+    environment:
+      - ConnectionStrings__DefaultConnection=${DB_CONNECTION_STRING}
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    volumes:
+    - ./src:/app
+    - ./init/ef-migrations/run-migrations.sh:/run-migrations.sh
+    working_dir: /app/InventoryService.Infrastructure
+    entrypoint: ["/bin/bash", "/run-migrations.sh"]
+    healthcheck:
+      test: ["CMD", "test", "-f", "/tmp/migrations_done"]
+      interval: 10s
+      retries: 5
+      start_period: 50s
+    networks:
+    - default
+volumes:
+  sqlvolume:
+networks:
+  default:
+    driver: bridge
+
+  
