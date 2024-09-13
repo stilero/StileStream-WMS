@@ -8,7 +8,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/InventoryService.FunctionApp/InventoryService.FunctionApp.csproj", "src/InventoryService.FunctionApp/"]
-COPY ["StileStreamWms.ServiceDefaults/StileStreamWms.ServiceDefaults.csproj", "StileStreamWms.ServiceDefaults/"]
+COPY ["src/InventoryService.Infrastructure/InventoryService.Infrastructure.csproj", "src/InventoryService.Infrastructure/"]
+COPY ["src/InventoryService.Domain/InventoryService.Domain.csproj", "src/InventoryService.Domain/"]
+COPY ["src/Shared.Domain/Shared.Domain.csproj", "src/Shared.Domain/"]
 RUN dotnet restore "./src/InventoryService.FunctionApp/InventoryService.FunctionApp.csproj"
 COPY . .
 WORKDIR "/src/src/InventoryService.FunctionApp"

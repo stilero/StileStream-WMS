@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/StileStreamWms/sqlserver.env
+/StileStreamWms/sandbox.env
+/StileStreamWms/.env
