@@ -1,23 +1,23 @@
-﻿using InventoryService.Domain.Entities;
+using InventoryService.Domain.Entities;
 
 namespace InventoryService.Infrastructure.Data.Entities.Extensions;
 
 public static class ProductEntityExtension
 {
-    public static Product ToDomain(this ProductEntity entity) => new()
-    {
-        Id = entity.Id,
-        Name = entity.Name,
-        Sku = entity.Sku,
-        Description = entity.Description,
-        Category = entity.Category,
-        Status = entity.Status,
-        CreatedAt = entity.CreatedAt,
-        CreatedBy = entity.CreatedBy,
-        UpdatedAt = entity.UpdatedAt,
-        UpdatedBy = entity.UpdatedBy
-    };
-
+    public static Product ToDomain(this ProductEntity entity) => 
+        Product.Load(
+            id: entity.Id, 
+            name: entity.Name, 
+            sku: entity.Sku, 
+            description: entity.Description, 
+            manufacturer: entity.Manufacturer,
+            category: entity.Category, 
+            status: entity.Status, 
+            createdAt: entity.CreatedAt, 
+            createdBy: entity.CreatedBy, 
+            updatedAt: entity.UpdatedAt, 
+            updatedBy: entity.UpdatedBy);
+    
     public static ProductEntity ToEntity(this Product product) => new()
     {
         Id = product.Id,

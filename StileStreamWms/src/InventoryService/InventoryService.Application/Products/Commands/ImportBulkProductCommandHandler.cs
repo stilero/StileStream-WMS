@@ -3,8 +3,8 @@ using InventoryService.Application.Products.Responses;
 using InventoryService.Domain.Entities;
 using InventoryService.Domain.Repositories;
 
-using Shared.Application.MediatR.Interfaces;
-using Shared.Domain.Models.Results;
+using SharedKernel.Application.MediatR.Interfaces;
+using SharedKernel.Domain.Models.Results;
 
 namespace InventoryService.Application.Products.Commands;
 public sealed class ImportBulkProductCommandHandler : ICommandHandler<ImportBulkProductCommand, ImportBulkProductResponse>

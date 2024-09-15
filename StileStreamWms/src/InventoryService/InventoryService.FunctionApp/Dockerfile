@@ -7,13 +7,13 @@ EXPOSE 8080
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/InventoryService.FunctionApp/InventoryService.FunctionApp.csproj", "src/InventoryService.FunctionApp/"]
-COPY ["src/InventoryService.Infrastructure/InventoryService.Infrastructure.csproj", "src/InventoryService.Infrastructure/"]
-COPY ["src/InventoryService.Domain/InventoryService.Domain.csproj", "src/InventoryService.Domain/"]
-COPY ["src/Shared.Domain/Shared.Domain.csproj", "src/Shared.Domain/"]
-RUN dotnet restore "./src/InventoryService.FunctionApp/InventoryService.FunctionApp.csproj"
+COPY ["src/InventoryService/InventoryService.FunctionApp/InventoryService.FunctionApp.csproj", "src/InventoryService/InventoryService.FunctionApp/"]
+COPY ["src/InventoryService/InventoryService.Infrastructure/InventoryService.Infrastructure.csproj", "src/InventoryService/InventoryService.Infrastructure/"]
+COPY ["src/InventoryService/InventoryService.Domain/InventoryService.Domain.csproj", "src/InventoryService/InventoryService.Domain/"]
+COPY ["src/Shared/Shared.Domain/Shared.Domain.csproj", "src/Shared/Shared.Domain/"]
+RUN dotnet restore "./src/InventoryService/InventoryService.FunctionApp/InventoryService/InventoryService.FunctionApp.csproj"
 COPY . .
-WORKDIR "/src/src/InventoryService.FunctionApp"
+WORKDIR "/src/src/InventoryService/InventoryService.FunctionApp"
 RUN dotnet build "./InventoryService.FunctionApp.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish

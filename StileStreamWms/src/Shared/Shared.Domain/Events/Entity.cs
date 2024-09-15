@@ -1,6 +1,6 @@
-﻿using Shared.Domain.Interfaces;
+using SharedKernel.Domain.Interfaces;
 
-namespace Shared.Domain.Events;
+namespace SharedKernel.Domain.Events;
 
 public abstract class Entity : IEntity
 {

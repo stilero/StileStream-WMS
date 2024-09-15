@@ -1,4 +1,4 @@
-﻿namespace Shared.Domain.Interfaces
+﻿namespace SharedKernel.Domain.Interfaces
 {
     public interface IEntity
     {

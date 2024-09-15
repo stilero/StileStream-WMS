@@ -1,8 +1,9 @@
-﻿using System.Data;
+namespace SharedKernel.Domain.Interfaces;
 
-namespace Shared.Domain.Interfaces;
-
-public interface IUnitOfWork
+public interface IUnitOfWork<TDbContext>
 {
-    Task<int> Commit(CancellationToken cancellationToken = default);
+    Task BeginTransactionAsync();
+    Task CommitTransactionAsync();
+    Task RollbackTransactionAsync();
+    Task SaveChangesAsync();
 }

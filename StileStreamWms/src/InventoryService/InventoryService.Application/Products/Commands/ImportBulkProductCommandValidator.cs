@@ -3,7 +3,7 @@ using FluentValidation;
 using InventoryService.Application.Products.Errors;
 using InventoryService.Application.Products.Requests;
 
-using Shared.Application.Validators;
+using SharedKernel.Application.Validators;
 
 namespace InventoryService.Application.Products.Commands;
 public class ImportBulkProductCommandValidator : AbstractValidator<ImportBulkProductCommand>

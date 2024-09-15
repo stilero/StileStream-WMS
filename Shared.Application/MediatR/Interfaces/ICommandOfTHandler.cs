@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Shared.Domain.Models.Results;
+using SharedKernel.Domain.Models.Results;
 
-namespace Shared.Application.MediatR.Interfaces;
+namespace SharedKernel.Application.MediatR.Interfaces;
 
 public interface ICommandHandler<TCommand, TResult> : IRequestHandler<TCommand, Result<TResult>>
     where TCommand : ICommand<TResult>;

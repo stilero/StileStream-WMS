@@ -10,10 +10,6 @@ export PATH="$PATH:/root/.dotnet/tools"
 echo "PATH: $PATH"
 which dotnet-ef
 
-# Echo the connection string to verify it's set correctly
-echo "DB_CONNECTION_STRING: $ConnectionStrings__DefaultConnection"
-
-
 # Run the migrations
 dotnet ef database update -- "${ConnectionStrings__DefaultConnection}"
 

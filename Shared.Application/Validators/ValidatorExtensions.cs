@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Shared.Domain.Models.Results;
+using SharedKernel.Domain.Models.Results;
 
-namespace Shared.Application.Validators;
+namespace SharedKernel.Application.Validators;
 
 public static class ValidatorExtensions
 {

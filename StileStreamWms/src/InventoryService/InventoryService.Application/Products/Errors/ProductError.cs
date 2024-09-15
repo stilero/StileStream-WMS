@@ -1,4 +1,4 @@
-using Shared.Domain.Models.Results;
+using SharedKernel.Domain.Models.Results;
 
 namespace InventoryService.Application.Products.Errors;
 public static class ProductError

@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using InventoryService.Application.Products.Requests;
 using InventoryService.Application.Products.Responses;
 
-using Shared.Application.MediatR.Interfaces;
+using SharedKernel.Application.MediatR.Interfaces;
 
 namespace InventoryService.Application.Products.Commands;
 

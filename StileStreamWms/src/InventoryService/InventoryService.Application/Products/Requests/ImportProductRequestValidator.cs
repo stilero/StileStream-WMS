@@ -2,7 +2,7 @@ using FluentValidation;
 
 using InventoryService.Application.Products.Errors;
 
-using Shared.Application.Validators;
+using SharedKernel.Application.Validators;
 
 namespace InventoryService.Application.Products.Requests;
 public class ImportProductRequestValidator : AbstractValidator<ImportProductRequest>

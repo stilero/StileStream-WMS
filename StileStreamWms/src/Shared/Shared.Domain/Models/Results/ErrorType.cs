@@ -1,4 +1,4 @@
-﻿namespace Shared.Domain.Models.Results;
+﻿namespace SharedKernel.Domain.Models.Results;
 
 public enum ErrorType
 {

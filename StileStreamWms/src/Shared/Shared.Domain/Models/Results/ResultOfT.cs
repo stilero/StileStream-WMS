@@ -1,4 +1,4 @@
-﻿namespace Shared.Domain.Models.Results;
+namespace SharedKernel.Domain.Models.Results;
 
 public class Result<T> : Result
 {
@@ -20,7 +20,9 @@ public class Result<T> : Result
 
     public T Value => IsSuccess ? _value! : throw new InvalidOperationException();
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2225:Operator overloads have named alternates", Justification = "<Pending>")]
     public static implicit operator Result<T>(ErrorResult error) => new(error);
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2225:Operator overloads have named alternates", Justification = "<Pending>")]
     public static implicit operator Result<T>(T value) => new(value);
 }

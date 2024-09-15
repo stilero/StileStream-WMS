@@ -1,5 +1,6 @@
-﻿using InventoryService.Domain.Entities;
-using Shared.Domain.Interfaces;
+using InventoryService.Domain.Entities;
+
+using SharedKernel.Domain.Interfaces;
 
 namespace InventoryService.Domain.Events;
 

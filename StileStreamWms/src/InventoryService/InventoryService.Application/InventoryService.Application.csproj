@@ -13,8 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Shared.Application\Shared.Application.csproj" />
+    <ProjectReference Include="..\..\..\..\Shared.Application\SharedKernel.Application.csproj" />
+    <ProjectReference Include="..\..\Shared\Shared.Domain\SharedKernel.Domain.csproj" />
     <ProjectReference Include="..\InventoryService.Domain\InventoryService.Domain.csproj" />
+    <ProjectReference Include="..\InventoryService.Infrastructure\InventoryService.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

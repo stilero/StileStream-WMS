@@ -1,6 +1,6 @@
-﻿namespace InventoryService.Domain.Entities;
+namespace InventoryService.Domain.Entities;
 
-public class ProductStatus
+public static class ProductStatus
 {
     public const string Active = "Active";
     public const string Inactive = "Inactive";
