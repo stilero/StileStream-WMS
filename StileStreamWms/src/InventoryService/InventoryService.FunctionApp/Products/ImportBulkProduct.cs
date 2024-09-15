@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 using Newtonsoft.Json;
 
-namespace InventoryService.FunctionApp.Users;
+namespace InventoryService.FunctionApp.Products;
 
 public class ImportBulkProduct
 {
