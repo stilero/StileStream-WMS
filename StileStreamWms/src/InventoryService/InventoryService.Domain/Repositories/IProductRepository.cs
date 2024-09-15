@@ -1,12 +1,12 @@
-﻿using InventoryService.Domain.Entities;
+using InventoryService.Domain.Entities;
 
-namespace InventoryService.Domain.Repositories
+namespace InventoryService.Domain.Repositories;
+
+public interface IProductRepository
 {
-    public interface IProductRepository
-    {
-        Task Add(Product product, CancellationToken cancellationToken = default);
-        Task Delete(Guid id, CancellationToken cancellationToken = default);
-        Task<Product?> Get(Guid id, CancellationToken cancellationToken = default);
-        void Update(Product product);
-    }
+    Task Add(Product product, CancellationToken cancellationToken = default);
+    Task AddRange(IEnumerable<Product> products, CancellationToken cancellationToken = default);
+    Task Delete(Guid id, CancellationToken cancellationToken = default);
+    Task<Product?> GetAsync(Guid id, CancellationToken cancellationToken = default);
+    void Update(Product product);
 }

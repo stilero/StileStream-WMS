@@ -1,4 +1,4 @@
-﻿using InventoryService.Domain.Events;
+using InventoryService.Domain.Events;
 using Shared.Domain.Events;
 using Shared.Domain.Models.Results;
 
@@ -6,17 +6,17 @@ namespace InventoryService.Domain.Entities;
 
 public class Product : Entity
 {
-    public Guid Id { get; set; }
-    public required string Name { get; set; }
-    public required string Sku { get; set; }
-    public string Description { get; set; } = string.Empty;
-    public string Manufacturer { get; set; } = string.Empty;
-    public string Category { get; set; } = string.Empty;
-    public string Status { get; set; } = ProductStatus.Active;
-    public DateTime CreatedAt { get; set; }
-    public DateTime UpdatedAt { get; set; }
-    public string CreatedBy { get; set; } = string.Empty;
-    public string UpdatedBy { get; set; } = string.Empty;
+    public Guid Id { get; private set; }
+    public string Name { get; private set; } = string.Empty;
+    public string Sku { get; private set; } = string.Empty;
+    public string Description { get; private set; } = string.Empty;
+    public string Manufacturer { get; private set; } = string.Empty;
+    public string Category { get; private set; } = string.Empty;
+    public string Status { get; private set; } = ProductStatus.Active;
+    public DateTime CreatedAt { get; private set; }
+    public DateTime UpdatedAt { get; private set; }
+    public string CreatedBy { get; private set; } = string.Empty;
+    public string UpdatedBy { get; private set; } = string.Empty;
 
     public static Result<Product> Create(string name, string sku, string description, string category, string? createdBy = null)
     {
@@ -53,4 +53,19 @@ public class Product : Entity
 
         return product;
     }
+
+    public static Product Load(Guid id, string name, string sku, string description, string manufacturer, string category, string status, DateTime createdAt, DateTime updatedAt, string createdBy, string updatedBy) => new ()
+    {
+        Id = id,
+        Name = name,
+        Sku = sku,
+        Description = description,
+        Manufacturer = manufacturer,
+        Category = category,
+        Status = status,
+        CreatedAt = createdAt,
+        UpdatedAt = updatedAt,
+        CreatedBy = createdBy,
+        UpdatedBy = updatedBy
+    };
 }
