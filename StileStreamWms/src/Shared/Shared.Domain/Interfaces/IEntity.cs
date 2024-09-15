@@ -1,6 +1,4 @@
-﻿using Shared.Domain.Interfaces;
-
-namespace Shared.Domain.Events
+﻿namespace Shared.Domain.Interfaces
 {
     public interface IEntity
     {
