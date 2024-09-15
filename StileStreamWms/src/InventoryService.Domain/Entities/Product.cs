@@ -7,14 +7,15 @@ namespace InventoryService.Domain.Entities;
 public class Product : Entity
 {
     public Guid Id { get; set; }
-    public string Name { get; set; } = string.Empty;
-    public string Sku { get; set; } = string.Empty;
+    public required string Name { get; set; }
+    public required string Sku { get; set; }
     public string Description { get; set; } = string.Empty;
+    public string Manufacturer { get; set; } = string.Empty;
     public string Category { get; set; } = string.Empty;
-    public ProductStatus Status { get; set; } = ProductStatus.Active;
+    public string Status { get; set; } = ProductStatus.Active;
     public DateTime CreatedAt { get; set; }
-    public string CreatedBy { get; set; } = string.Empty;
     public DateTime UpdatedAt { get; set; }
+    public string CreatedBy { get; set; } = string.Empty;
     public string UpdatedBy { get; set; } = string.Empty;
 
     public static Result<Product> Create(string name, string sku, string description, string category, string? createdBy = null)

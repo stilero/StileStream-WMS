@@ -1,9 +1,7 @@
-﻿namespace InventoryService.Domain.Entities
+﻿namespace InventoryService.Domain.Entities;
+
+public class ProductStatus
 {
-    public enum ProductStatus
-    {
-        Active,
-        Inactive,
-        Discontinued
-    }
+    public const string Active = "Active";
+    public const string Inactive = "Inactive";
 }
