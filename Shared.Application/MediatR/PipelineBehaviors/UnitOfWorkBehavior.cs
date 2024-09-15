@@ -4,7 +4,7 @@ using SharedKernel.Domain.Interfaces;
 
 namespace SharedKernel.Application.MediatR.PipelineBehaviors;
 
-public class UnitOfWorkBehavior<TRequest, TResponse, TDbContext>(IUnitOfWork<TDbContext> unitOfWork) : IPipelineBehavior<TRequest, TResponse>
+public abstract class UnitOfWorkBehavior<TRequest, TResponse, TDbContext>(IUnitOfWork<TDbContext> unitOfWork) : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
     where TDbContext : DbContext
 {

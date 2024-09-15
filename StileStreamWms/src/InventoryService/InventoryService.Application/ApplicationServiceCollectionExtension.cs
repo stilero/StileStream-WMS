@@ -1,6 +1,6 @@
 using FluentValidation;
 
-using InventoryService.Infrastructure.Data;
+using InventoryService.Application.Shared.PipelineBehaviors;
 
 using MediatR;
 
@@ -15,10 +15,7 @@ public static class ApplicationServiceCollectionExtension
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddValidatorsFromAssembly(typeof(ApplicationServiceCollectionExtension).Assembly);
-        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnitOfWorkBehavior<,,>).MakeGenericType(
-            typeof(IRequest<>),
-            typeof(object),
-            typeof(InventoryServiceDbContext)));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(InventoryServiceUnitOfWorkBehavior<,>));
         services.AddMediatR(config =>
         {
             config.AddOpenBehavior(typeof(FluentValidationBehavior<,>));
