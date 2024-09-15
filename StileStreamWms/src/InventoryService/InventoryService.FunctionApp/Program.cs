@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using InventoryService.Infrastructure;
 using Microsoft.Extensions.Configuration;
+using InventoryService.Application;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
@@ -11,6 +12,7 @@ var host = new HostBuilder()
         services.ConfigureFunctionsApplicationInsights();
         var configuration = services.BuildServiceProvider().GetRequiredService<IConfiguration>();
         services.AddDatabase(configuration);
+        services.AddApplication();
     })
     .Build();
 

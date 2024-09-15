@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Shared.Domain.Models.Results;
 
-namespace Shared.Domain.Interfaces.MediatR;
+namespace Shared.Application.MediatR.Interfaces;
 
 public interface IQueryHandler<TQuery, TResponse>
     : IRequestHandler<TQuery, Result<TResponse>>
