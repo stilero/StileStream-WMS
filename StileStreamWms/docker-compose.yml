@@ -27,7 +27,7 @@ services:
     image: ${DOCKER_REGISTRY-}inventoryservicefunctionapp
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - Values:ConnectionStrings:SqlServer=${DB_CONNECTION_STRING}
+      - ConnectionStrings__SqlServer=${DB_CONNECTION_STRING}
     depends_on:
       sqlserver:
          condition: service_healthy

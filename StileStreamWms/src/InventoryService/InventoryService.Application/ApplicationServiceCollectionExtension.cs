@@ -1,10 +1,13 @@
 using FluentValidation;
 
+using InventoryService.Infrastructure.Data.Repositories;
+
 using MediatR;
 
 using Microsoft.Extensions.DependencyInjection;
 
 using SharedKernel.Application.MediatR.PipelineBehaviors;
+using SharedKernel.Domain.Interfaces;
 
 namespace InventoryService.Application;
 
@@ -17,8 +20,10 @@ public static class ApplicationServiceCollectionExtension
         services.AddMediatR(config =>
         {
             config.AddOpenBehavior(typeof(FluentValidationBehavior<,>));
+            //config.AddOpenBehavior(typeof(UnitOfWorkBehavior<,>));
             config.RegisterServicesFromAssembly(typeof(ApplicationServiceCollectionExtension).Assembly);
         });
+        
 
         return services;
     }
