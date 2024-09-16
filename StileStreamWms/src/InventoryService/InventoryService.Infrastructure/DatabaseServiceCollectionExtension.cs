@@ -15,9 +15,8 @@ public static class DatabaseServiceCollectionExtension
     public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<InventoryServiceDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Values:ConnectionStrings:SqlServer")));
-        services.AddScoped(typeof(IUnitOfWork<>), typeof(InventoryUnitOfWork));
+        services.AddScoped(typeof(IUnitOfWork), typeof(InventoryUnitOfWork));
         services.AddScoped(typeof(IProductRepository), typeof(ProductRepository));
-        services.AddScoped(typeof(DbContext), typeof(InventoryServiceDbContext));
         return services;
     }
 }

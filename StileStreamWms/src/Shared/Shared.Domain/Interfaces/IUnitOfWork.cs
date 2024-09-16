@@ -1,6 +1,6 @@
 namespace SharedKernel.Domain.Interfaces;
 
-public interface IUnitOfWork<TDbContext>
+public interface IUnitOfWork
 {
     Task BeginTransactionAsync();
     Task CommitTransactionAsync();

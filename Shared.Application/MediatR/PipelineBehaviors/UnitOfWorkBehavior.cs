@@ -1,14 +1,17 @@
 ﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
 using SharedKernel.Domain.Interfaces;
 
 namespace SharedKernel.Application.MediatR.PipelineBehaviors;
 
-public abstract class UnitOfWorkBehavior<TRequest, TResponse, TDbContext>(IUnitOfWork<TDbContext> unitOfWork) : IPipelineBehavior<TRequest, TResponse>
+public abstract class UnitOfWorkBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
-    where TDbContext : DbContext
 {
-    private readonly IUnitOfWork<TDbContext> _unitOfWork = unitOfWork;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public UnitOfWorkBehavior(IUnitOfWork unitOfWork)
+    {
+        _unitOfWork = unitOfWork;
+    }
 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
