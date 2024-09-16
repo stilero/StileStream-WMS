@@ -1,23 +1,23 @@
 using InventoryService.Domain.Entities;
 
-namespace InventoryService.Infrastructure.Data.Entities.Extensions;
+namespace StileStream.Wms.Inventory.Infrastructure.Data.Entities.Extensions;
 
 public static class ProductEntityExtension
 {
-    public static Product ToDomain(this ProductEntity entity) => 
+    public static Product ToDomain(this ProductEntity entity) =>
         Product.Load(
-            id: entity.Id, 
-            name: entity.Name, 
-            sku: entity.Sku, 
-            description: entity.Description, 
+            id: entity.Id,
+            name: entity.Name,
+            sku: entity.Sku,
+            description: entity.Description,
             manufacturer: entity.Manufacturer,
-            category: entity.Category, 
-            status: entity.Status, 
-            createdAt: entity.CreatedAt, 
-            createdBy: entity.CreatedBy, 
-            updatedAt: entity.UpdatedAt, 
+            category: entity.Category,
+            status: entity.Status,
+            createdAt: entity.CreatedAt,
+            createdBy: entity.CreatedBy,
+            updatedAt: entity.UpdatedAt,
             updatedBy: entity.UpdatedBy);
-    
+
     public static ProductEntity ToEntity(this Product product) => new()
     {
         Id = product.Id,
@@ -31,4 +31,4 @@ public static class ProductEntityExtension
         UpdatedAt = product.UpdatedAt,
         UpdatedBy = product.UpdatedBy
     };
- }
+}

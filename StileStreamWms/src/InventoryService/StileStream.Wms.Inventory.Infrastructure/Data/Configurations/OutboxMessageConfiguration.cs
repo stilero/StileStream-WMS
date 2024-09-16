@@ -1,8 +1,9 @@
-﻿using InventoryService.Infrastructure.Data.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace InventoryService.Infrastructure.Data.Configurations;
+using StileStream.Wms.Inventory.Infrastructure.Data.Entities;
+
+namespace StileStream.Wms.Inventory.Infrastructure.Data.Configurations;
 
 public class OutboxMessageConfiguration : IEntityTypeConfiguration<OutboxMessage>
 {

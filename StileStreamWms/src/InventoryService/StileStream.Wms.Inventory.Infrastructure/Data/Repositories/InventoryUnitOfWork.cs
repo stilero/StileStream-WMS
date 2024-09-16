@@ -1,5 +1,5 @@
 using SharedKernel.Domain.Interfaces;
-namespace InventoryService.Infrastructure.Data.Repositories;
+namespace StileStream.Wms.Inventory.Infrastructure.Data.Repositories;
 public class InventoryUnitOfWork : IUnitOfWork
 {
     private readonly InventoryServiceDbContext _dbContext;
@@ -29,4 +29,5 @@ public class InventoryUnitOfWork : IUnitOfWork
     public async Task CommitTransactionAsync() => await _dbContext.Database.CommitTransactionAsync();
     public async Task RollbackTransactionAsync() => await _dbContext.Database.RollbackTransactionAsync();
     public async Task SaveChangesAsync() => await _dbContext.SaveChangesAsync();
+       
 }

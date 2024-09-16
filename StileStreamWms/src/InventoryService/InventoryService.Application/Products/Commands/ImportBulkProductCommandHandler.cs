@@ -11,7 +11,11 @@ public sealed class ImportBulkProductCommandHandler : ICommandHandler<ImportBulk
 {
     private readonly IProductRepository _productRepository;
 
-    public ImportBulkProductCommandHandler(IProductRepository productRepository) => _productRepository = productRepository;
+    public ImportBulkProductCommandHandler(IProductRepository productRepository)
+    {
+
+        _productRepository = productRepository;
+     }
 
     public async Task<Result<ImportBulkProductResponse>> Handle(ImportBulkProductCommand request, CancellationToken cancellationToken){
         if(request is null)

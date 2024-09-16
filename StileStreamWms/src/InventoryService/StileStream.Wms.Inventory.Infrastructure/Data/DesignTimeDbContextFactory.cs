@@ -1,14 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
 
-namespace InventoryService.Infrastructure.Data;
+namespace StileStream.Wms.Inventory.Infrastructure.Data;
 
 public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<InventoryServiceDbContext>
 {
     public InventoryServiceDbContext CreateDbContext(string[] args)
     {
-        if (args.Length != 1) throw new ApplicationException("You need to provide an argument that contains the database connection string. Command could be \"dotnet ef database update -- \"<connection string>\" ");
+        if (args.Length != 1)
+            throw new ApplicationException("You need to provide an argument that contains the database connection string. Command could be \"dotnet ef database update -- \"<connection string>\" ");
 
         var connectionString = args[0];
 

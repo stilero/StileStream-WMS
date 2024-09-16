@@ -1,16 +1,20 @@
-﻿using InventoryService.Infrastructure.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace InventoryService.Infrastructure.Data;
+using StileStream.Wms.Inventory.Infrastructure.Data.Entities;
 
-public class InventoryServiceDbContext(DbContextOptions<InventoryServiceDbContext> options) : DbContext(options)
+namespace StileStream.Wms.Inventory.Infrastructure.Data;
+
+public class InventoryServiceDbContext : DbContext
 {
+    public InventoryServiceDbContext(DbContextOptions<InventoryServiceDbContext> options) : base(options)
+    {
+    }
     public DbSet<ProductEntity> Products { get; set; }
     public DbSet<OutboxMessage> OutboxMessages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(InventoryServiceDbContext).Assembly);
-    }    
+    }
 }
 

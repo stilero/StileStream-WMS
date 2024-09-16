@@ -1,6 +1,6 @@
 using InventoryService.Domain.Entities;
 
-namespace InventoryService.Infrastructure.Data.Entities;
+namespace StileStream.Wms.Inventory.Infrastructure.Data.Entities;
 
 public class ProductEntity
 {
