@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StileStream.Wms.SharedKerne
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StileStream.Wms.SharedKernel.Domain", "src\SharedKernel\StileStream.Wms.SharedKernel.Domain\StileStream.Wms.SharedKernel.Domain.csproj", "{CD49A23D-6BE1-435C-B5D1-CD2160BF1542}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StileStream.Wms.SharedKernel.Infra.Data", "src\SharedKernel\StileStream.Wms.SharedKernel.Infra.Data\StileStream.Wms.SharedKernel.Infra.Data.csproj", "{E0FB1817-8BBF-4F71-B818-485AEA81264E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{CD49A23D-6BE1-435C-B5D1-CD2160BF1542}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD49A23D-6BE1-435C-B5D1-CD2160BF1542}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD49A23D-6BE1-435C-B5D1-CD2160BF1542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0FB1817-8BBF-4F71-B818-485AEA81264E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0FB1817-8BBF-4F71-B818-485AEA81264E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0FB1817-8BBF-4F71-B818-485AEA81264E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0FB1817-8BBF-4F71-B818-485AEA81264E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{01E0D15A-B944-4603-996A-3DEF6E60F3A5} = {D89AB837-205F-49B1-A0AB-810D4E309E6D}
 		{78F41E50-0CE8-4946-8363-C9052BADF0F1} = {CDF12BCF-A505-46B0-BDC3-CA918044A6C6}
 		{CD49A23D-6BE1-435C-B5D1-CD2160BF1542} = {CDF12BCF-A505-46B0-BDC3-CA918044A6C6}
+		{E0FB1817-8BBF-4F71-B818-485AEA81264E} = {CDF12BCF-A505-46B0-BDC3-CA918044A6C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {70AC1086-E414-44D3-9D6F-EC87B98D66D0}
