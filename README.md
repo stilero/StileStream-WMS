@@ -1,6 +1,8 @@
 # StileStream-WMS
 
-**StileStream-WMS** is an open-source Warehouse Management System designed to streamline and optimize warehouse operations. Built with modern best practices, StileStream-WMS provides core features like product management, inventory tracking, order processing, and real-time integrations. Our goal is to drive innovation and set a new industry standard in warehouse management.
+**StileStream-WMS** is an open-source Warehouse Management System designed to streamline and optimize warehouse operations. Built with modern best practices, StileStream-WMS provides core features like product management, inventory tracking, order processing, and real-time integrations. 
+
+My goal is to drive innovation and set a new industry standard in warehouse management while keeping it OpenSource for the public.
 
 ## Key Features
 
