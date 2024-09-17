@@ -1,4 +1,4 @@
-﻿namespace StileStream.Wms.Inventory.Infrastructure.Data.Entities;
+﻿namespace StileStream.Wms.Inventory.Infrastructure.Data.OutboxMessages.Entities;
 
 public class OutboxMessage
 {

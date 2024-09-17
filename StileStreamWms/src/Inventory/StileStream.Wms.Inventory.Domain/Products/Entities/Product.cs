@@ -13,10 +13,6 @@ public class Product : Entity
     public string Manufacturer { get; private set; } = string.Empty;
     public string Category { get; private set; } = string.Empty;
     public string Status { get; private set; } = ProductStatus.Active;
-    public DateTime CreatedAt { get; private set; }
-    public DateTime UpdatedAt { get; private set; }
-    public string CreatedBy { get; private set; } = string.Empty;
-    public string UpdatedBy { get; private set; } = string.Empty;
 
     public static Result<Product> Create(string name, string sku, string description, string category, string? createdBy = null)
     {

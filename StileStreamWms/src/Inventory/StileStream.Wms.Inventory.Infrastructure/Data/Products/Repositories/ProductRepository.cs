@@ -1,15 +1,15 @@
 using StileStream.Wms.Inventory.Domain.Products.Entities;
 using StileStream.Wms.Inventory.Domain.Products.Repositories;
-using StileStream.Wms.Inventory.Infrastructure.Data.Entities.Extensions;
+using StileStream.Wms.Inventory.Infrastructure.Data.Products.Extensions;
 
-namespace StileStream.Wms.Inventory.Infrastructure.Data.Repositories;
+namespace StileStream.Wms.Inventory.Infrastructure.Data.Products.Repositories;
 
 public class ProductRepository : IProductRepository
 {
     private readonly InventoryServiceDbContext _dbContext;
 
-   public ProductRepository(InventoryServiceDbContext dbContext) =>
-        _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+    public ProductRepository(InventoryServiceDbContext dbContext) =>
+         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
 
     public async Task Add(Product product, CancellationToken cancellationToken = default) =>
         await _dbContext.Products.AddAsync(product.ToEntity(), cancellationToken);

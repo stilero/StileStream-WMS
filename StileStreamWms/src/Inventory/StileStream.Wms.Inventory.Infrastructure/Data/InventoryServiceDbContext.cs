@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 
-using StileStream.Wms.Inventory.Infrastructure.Data.Entities;
+using StileStream.Wms.Inventory.Infrastructure.Data.OutboxMessages.Entities;
+using StileStream.Wms.Inventory.Infrastructure.Data.Products;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data;
 

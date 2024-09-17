@@ -1,8 +1,9 @@
 using StileStream.Wms.Inventory.Domain.Products.Entities;
+using StileStream.Wms.SharedKernel.Infrastructure.Data.EntityBase;
 
-namespace StileStream.Wms.Inventory.Infrastructure.Data.Entities;
+namespace StileStream.Wms.Inventory.Infrastructure.Data.Products;
 
-public class ProductEntity
+public class ProductEntity : EntityBase
 {
     public Guid Id { get; set; }
     public required string Name { get; set; }
@@ -11,8 +12,4 @@ public class ProductEntity
     public string Category { get; set; } = string.Empty;
     public string Manufacturer { get; set; } = string.Empty;
     public string Status { get; set; } = ProductStatus.Active;
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    public string CreatedBy { get; set; } = "system";
-    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-    public string UpdatedBy { get; set; } = "system";
 }

@@ -1,6 +1,6 @@
 using StileStream.Wms.Inventory.Domain.Products.Entities;
 
-namespace StileStream.Wms.Inventory.Infrastructure.Data.Entities.Extensions;
+namespace StileStream.Wms.Inventory.Infrastructure.Data.Products.Extensions;
 
 public static class ProductEntityExtension
 {

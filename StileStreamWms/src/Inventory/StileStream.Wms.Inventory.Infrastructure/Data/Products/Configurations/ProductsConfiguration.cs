@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-using StileStream.Wms.Inventory.Infrastructure.Data.Entities;
 using StileStream.Wms.Inventory.Domain.Products.Entities;
+using StileStream.Wms.Inventory.Infrastructure.Data.Products;
 
-namespace StileStream.Wms.Inventory.Infrastructure.Data.Configurations;
+namespace StileStream.Wms.Inventory.Infrastructure.Data.Products.Configurations;
 
 public class ProductsConfiguration : IEntityTypeConfiguration<ProductEntity>
 {

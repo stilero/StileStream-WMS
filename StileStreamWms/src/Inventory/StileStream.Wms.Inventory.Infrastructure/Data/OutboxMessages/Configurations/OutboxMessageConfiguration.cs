@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-using StileStream.Wms.Inventory.Infrastructure.Data.Entities;
+using StileStream.Wms.Inventory.Infrastructure.Data.OutboxMessages.Entities;
 
-namespace StileStream.Wms.Inventory.Infrastructure.Data.Configurations;
+namespace StileStream.Wms.Inventory.Infrastructure.Data.OutboxMessages.Configurations;
 
 public class OutboxMessageConfiguration : IEntityTypeConfiguration<OutboxMessage>
 {

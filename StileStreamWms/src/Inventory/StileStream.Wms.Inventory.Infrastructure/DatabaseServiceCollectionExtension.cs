@@ -7,6 +7,7 @@ using StileStream.Wms.SharedKernel.Domain.Interfaces;
 using StileStream.Wms.Inventory.Infrastructure.Data;
 using StileStream.Wms.Inventory.Infrastructure.Data.Repositories;
 using StileStream.Wms.Inventory.Domain.Products.Repositories;
+using StileStream.Wms.Inventory.Infrastructure.Data.Products.Repositories;
 
 namespace StileStream.Wms.Inventory.Infrastructure;
 

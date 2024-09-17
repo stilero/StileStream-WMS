@@ -1,4 +1,4 @@
-﻿namespace StileStream.Wms.SharedKernel.Domain.Interfaces
+namespace StileStream.Wms.SharedKernel.Domain.Interfaces
 {
     public interface IEntity
     {
