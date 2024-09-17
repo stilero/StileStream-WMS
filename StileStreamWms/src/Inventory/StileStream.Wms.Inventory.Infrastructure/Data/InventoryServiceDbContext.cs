@@ -17,8 +17,8 @@ public class InventoryServiceDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         ArgumentNullException.ThrowIfNull(modelBuilder, nameof(modelBuilder));
+        base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(InventoryServiceDbContext).Assembly);
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(EntityBase).Assembly);
     }
 }
 

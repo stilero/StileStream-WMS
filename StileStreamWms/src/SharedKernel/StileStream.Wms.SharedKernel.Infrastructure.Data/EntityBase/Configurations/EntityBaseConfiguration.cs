@@ -2,9 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace StileStream.Wms.SharedKernel.Infrastructure.Data.EntityBase.Configurations;
-public class EntityBaseConfiguration : IEntityTypeConfiguration<EntityBase>
+public class EntityBaseConfiguration<TEntity> : IEntityTypeConfiguration<TEntity>
+    where TEntity : EntityBase
 {
-    public void Configure(EntityTypeBuilder<EntityBase> builder)
+    public void Configure(EntityTypeBuilder<TEntity> builder)
     {
         ArgumentNullException.ThrowIfNull(builder, nameof(builder));
         

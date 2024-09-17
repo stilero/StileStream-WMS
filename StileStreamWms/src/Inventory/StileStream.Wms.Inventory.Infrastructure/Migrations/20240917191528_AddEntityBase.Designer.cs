@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StileStream.Wms.Inventory.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using StileStream.Wms.Inventory.Infrastructure.Data;
 namespace InventoryService.Infrastructure.Migrations
 {
     [DbContext(typeof(InventoryServiceDbContext))]
-    partial class InventoryServiceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240917191528_AddEntityBase")]
+    partial class AddEntityBase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

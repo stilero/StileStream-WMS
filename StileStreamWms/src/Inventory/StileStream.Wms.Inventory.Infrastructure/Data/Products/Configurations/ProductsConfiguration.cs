@@ -2,14 +2,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using StileStream.Wms.Inventory.Domain.Products.Entities;
+using StileStream.Wms.SharedKernel.Infrastructure.Data.EntityBase.Configurations;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data.Products.Configurations;
 
-public class ProductsConfiguration : IEntityTypeConfiguration<ProductEntity>
+public class ProductsConfiguration : EntityBaseConfiguration<ProductEntity>
 {
     public void Configure(EntityTypeBuilder<ProductEntity> builder)
     {
         ArgumentNullException.ThrowIfNull(builder, nameof(builder));
+        base.Configure(builder);
         builder.ToTable("Products");
         builder.HasKey(p => p.Id);
         builder.Property(p => p.Description).HasMaxLength(255).HasDefaultValue(string.Empty);
