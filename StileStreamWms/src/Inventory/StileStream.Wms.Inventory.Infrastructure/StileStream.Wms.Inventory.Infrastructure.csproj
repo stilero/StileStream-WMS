@@ -24,4 +24,9 @@
     <ProjectReference Include="..\StileStream.Wms.Inventory.Domain\StileStream.Wms.Inventory.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\NewFolder1\" />
+    <Folder Include="Data\NewFolder\" />
+  </ItemGroup>
+
 </Project>
