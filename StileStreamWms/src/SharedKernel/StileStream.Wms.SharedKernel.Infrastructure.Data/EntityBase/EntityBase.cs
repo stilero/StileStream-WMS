@@ -1,4 +1,4 @@
-namespace StileStream.Wms.SharedKernel.Infra.Data.EntityBase;
+namespace StileStream.Wms.SharedKernel.Infrastructure.Data.EntityBase;
 
 public class EntityBase
 {

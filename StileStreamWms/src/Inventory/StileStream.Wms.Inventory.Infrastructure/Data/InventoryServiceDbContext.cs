@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 using StileStream.Wms.Inventory.Infrastructure.Data.OutboxMessages.Entities;
 using StileStream.Wms.Inventory.Infrastructure.Data.Products;
+using StileStream.Wms.SharedKernel.Infrastructure.Data.EntityBase;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data;
 
@@ -15,7 +16,9 @@ public class InventoryServiceDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        ArgumentNullException.ThrowIfNull(modelBuilder, nameof(modelBuilder));
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(InventoryServiceDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(EntityBase).Assembly);
     }
 }
 
