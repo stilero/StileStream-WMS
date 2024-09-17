@@ -1,5 +1,5 @@
 using StileStream.Wms.Inventory.Domain.Products.Entities;
-using StileStream.Wms.SharedKernel.Infra.Data;
+using StileStream.Wms.SharedKernel.Infra.Data.EntityBase;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data.Products;
 
