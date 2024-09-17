@@ -1,9 +1,8 @@
-using StileStream.Wms.Inventory.Domain.Entities;
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using StileStream.Wms.Inventory.Infrastructure.Data.Entities;
+using StileStream.Wms.Inventory.Domain.Products.Entities;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data.Configurations;
 

@@ -1,9 +1,8 @@
-using StileStream.Wms.Inventory.Domain.Events;
-
+using StileStream.Wms.Inventory.Domain.Products.Events;
 using StileStream.Wms.SharedKernel.Domain.Events;
 using StileStream.Wms.SharedKernel.Domain.Models.Results;
 
-namespace StileStream.Wms.Inventory.Domain.Entities;
+namespace StileStream.Wms.Inventory.Domain.Products.Entities;
 
 public class Product : Entity
 {

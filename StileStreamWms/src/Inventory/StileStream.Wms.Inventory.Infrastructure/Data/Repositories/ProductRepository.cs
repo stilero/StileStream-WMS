@@ -1,6 +1,5 @@
-using StileStream.Wms.Inventory.Domain.Entities;
-using StileStream.Wms.Inventory.Domain.Repositories;
-
+using StileStream.Wms.Inventory.Domain.Products.Entities;
+using StileStream.Wms.Inventory.Domain.Products.Repositories;
 using StileStream.Wms.Inventory.Infrastructure.Data.Entities.Extensions;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data.Repositories;

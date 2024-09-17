@@ -1,7 +1,6 @@
 using StileStream.Wms.SharedKernel.Domain.Interfaces;
+using StileStream.Wms.Inventory.Domain.Products.Entities;
 
-using StileStream.Wms.Inventory.Domain.Entities;
-
-namespace StileStream.Wms.Inventory.Domain.Events;
+namespace StileStream.Wms.Inventory.Domain.Products.Events;
 
 public record ProductCreatedEvent(Product Product) : IDomainEvent;

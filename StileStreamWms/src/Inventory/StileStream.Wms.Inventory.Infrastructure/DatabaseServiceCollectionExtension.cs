@@ -1,5 +1,3 @@
-using StileStream.Wms.Inventory.Domain.Repositories;
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +6,7 @@ using StileStream.Wms.SharedKernel.Domain.Interfaces;
 
 using StileStream.Wms.Inventory.Infrastructure.Data;
 using StileStream.Wms.Inventory.Infrastructure.Data.Repositories;
+using StileStream.Wms.Inventory.Domain.Products.Repositories;
 
 namespace StileStream.Wms.Inventory.Infrastructure;
 

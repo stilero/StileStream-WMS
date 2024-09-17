@@ -1,4 +1,4 @@
-namespace StileStream.Wms.Inventory.Domain.Entities;
+namespace StileStream.Wms.Inventory.Domain.Products.Entities;
 
 public static class ProductStatus
 {

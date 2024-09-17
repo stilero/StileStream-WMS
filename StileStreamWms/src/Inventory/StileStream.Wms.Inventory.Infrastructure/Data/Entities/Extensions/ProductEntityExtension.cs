@@ -1,4 +1,4 @@
-using StileStream.Wms.Inventory.Domain.Entities;
+using StileStream.Wms.Inventory.Domain.Products.Entities;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data.Entities.Extensions;
 

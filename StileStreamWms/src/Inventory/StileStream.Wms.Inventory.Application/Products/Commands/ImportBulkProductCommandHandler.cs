@@ -1,11 +1,10 @@
-using StileStream.Wms.Inventory.Domain.Entities;
-using StileStream.Wms.Inventory.Domain.Repositories;
-
 using StileStream.Wms.SharedKernel.Application.MediatR.Interfaces;
 using StileStream.Wms.SharedKernel.Domain.Models.Results;
 
 using StileStream.Wms.Inventory.Application.Products.Errors;
 using StileStream.Wms.Inventory.Application.Products.Responses;
+using StileStream.Wms.Inventory.Domain.Products.Repositories;
+using StileStream.Wms.Inventory.Domain.Products.Entities;
 
 namespace StileStream.Wms.Inventory.Application.Products.Commands;
 public sealed class ImportBulkProductCommandHandler : ICommandHandler<ImportBulkProductCommand, ImportBulkProductResponse>
