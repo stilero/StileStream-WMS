@@ -8,7 +8,7 @@ namespace StileStream.Wms.Inventory.Infrastructure.Data.Products.Configurations;
 
 public class ProductsConfiguration : EntityBaseConfiguration<ProductEntity>
 {
-    public void Configure(EntityTypeBuilder<ProductEntity> builder)
+    public override void Configure(EntityTypeBuilder<ProductEntity> builder)
     {
         ArgumentNullException.ThrowIfNull(builder, nameof(builder));
         base.Configure(builder);

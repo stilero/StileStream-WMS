@@ -5,7 +5,7 @@ namespace StileStream.Wms.SharedKernel.Infrastructure.Data.EntityBase.Configurat
 public class EntityBaseConfiguration<TEntity> : IEntityTypeConfiguration<TEntity>
     where TEntity : EntityBase
 {
-    public void Configure(EntityTypeBuilder<TEntity> builder)
+    public virtual void Configure(EntityTypeBuilder<TEntity> builder)
     {
         ArgumentNullException.ThrowIfNull(builder, nameof(builder));
         
