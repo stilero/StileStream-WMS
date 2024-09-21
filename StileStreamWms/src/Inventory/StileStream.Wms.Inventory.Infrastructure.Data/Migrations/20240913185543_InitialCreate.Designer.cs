@@ -13,7 +13,7 @@ using StileStream.Wms.Inventory.Infrastructure.Data;
 
 namespace InventoryService.Infrastructure.Migrations
 {
-    [DbContext(typeof(InventoryServiceDbContext))]
+    [DbContext(typeof(InventoryDbContext))]
     [Migration("20240913185543_InitialCreate")]
     partial class InitialCreate
     {

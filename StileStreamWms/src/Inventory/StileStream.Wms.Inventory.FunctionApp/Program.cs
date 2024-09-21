@@ -12,6 +12,7 @@ var host = new HostBuilder()
         services.ConfigureFunctionsApplicationInsights();
         var configuration = services.BuildServiceProvider().GetRequiredService<IConfiguration>();
         services.AddDatabase(configuration);
+        services.AddRepositories();
         services.AddApplication();
     })
     .Build();

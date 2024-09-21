@@ -2,10 +2,10 @@ using StileStream.Wms.SharedKernel.Domain.Interfaces;
 namespace StileStream.Wms.Inventory.Infrastructure.Data.Repositories;
 public class InventoryUnitOfWork : IUnitOfWork
 {
-    private readonly InventoryServiceDbContext _dbContext;
+    private readonly InventoryDbContext _dbContext;
     private readonly List<IAggregateRoot> _trackedEntities = [];
 
-    public InventoryUnitOfWork(InventoryServiceDbContext dbContext)
+    public InventoryUnitOfWork(InventoryDbContext dbContext)
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }

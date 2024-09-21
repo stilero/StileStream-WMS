@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data;
 
-public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<InventoryServiceDbContext>
+public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<InventoryDbContext>
 {
-    public InventoryServiceDbContext CreateDbContext(string[] args)
+    public InventoryDbContext CreateDbContext(string[] args)
     {
         if (args.Length != 1)
             throw new ApplicationException("You need to provide an argument that contains the database connection string. Command could be \"dotnet ef database update -- \"<connection string>\" ");
@@ -16,8 +16,8 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<InventoryS
         if (string.IsNullOrWhiteSpace(connectionString))
             throw new ApplicationException("Connection string cant be empty...");
 
-        var optionsBuilder = new DbContextOptionsBuilder<InventoryServiceDbContext>();
+        var optionsBuilder = new DbContextOptionsBuilder<InventoryDbContext>();
         optionsBuilder.UseSqlServer(connectionString);
-        return new InventoryServiceDbContext(optionsBuilder.Options);
+        return new InventoryDbContext(optionsBuilder.Options);
     }
 }

@@ -5,9 +5,9 @@ using StileStream.Wms.Inventory.Infrastructure.Data.Products;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data;
 
-public class InventoryServiceDbContext : DbContext
+public class InventoryDbContext : DbContext
 {
-    public InventoryServiceDbContext(DbContextOptions<InventoryServiceDbContext> options) : base(options)
+    public InventoryDbContext(DbContextOptions<InventoryDbContext> options) : base(options)
     {
     }
     public DbSet<ProductEntity> Products { get; set; }
@@ -17,7 +17,7 @@ public class InventoryServiceDbContext : DbContext
     {
         ArgumentNullException.ThrowIfNull(modelBuilder, nameof(modelBuilder));
         base.OnModelCreating(modelBuilder);
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(InventoryServiceDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(InventoryDbContext).Assembly);
     }
 }
 

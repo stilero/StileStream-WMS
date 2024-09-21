@@ -13,10 +13,16 @@ public static class DatabaseServiceCollectionExtension
 {
     public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
     {
+        ArgumentNullException.ThrowIfNull(configuration, nameof(configuration));
         var connectionString = configuration.GetConnectionString("SqlServer") ?? configuration["ConnectionStrings__SqlServer"] ?? throw new ArgumentNullException("Connection string not found");
-        services.AddDbContext<InventoryServiceDbContext>(options => options.UseSqlServer(connectionString));
+        services.AddDbContext<InventoryDbContext>(options => options.UseSqlServer(connectionString));
+        return services;
+    }
+
+    public static IServiceCollection AddRepositories(this IServiceCollection services)
+    {
         services.AddScoped<IUnitOfWork, InventoryUnitOfWork>();
-        services.AddScoped(typeof(IProductRepository), typeof(ProductRepository));
+        services.AddScoped<IProductRepository, ProductRepository>();
         return services;
     }
 }

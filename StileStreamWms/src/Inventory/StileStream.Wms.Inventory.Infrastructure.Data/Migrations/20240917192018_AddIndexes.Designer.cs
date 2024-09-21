@@ -11,7 +11,7 @@ using StileStream.Wms.Inventory.Infrastructure.Data;
 
 namespace InventoryService.Infrastructure.Migrations
 {
-    [DbContext(typeof(InventoryServiceDbContext))]
+    [DbContext(typeof(InventoryDbContext))]
     [Migration("20240917192018_AddIndexes")]
     partial class AddIndexes
     {

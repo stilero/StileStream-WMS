@@ -23,7 +23,7 @@ public class ImportBulkProduct
     }
 
     [Function(nameof(ImportBulkProduct))]
-    public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "api/products/import")] HttpRequest req)
+    public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "api/products/import")] HttpRequest req, CancellationToken cancellationToken)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
         if (req is null)
@@ -32,14 +32,14 @@ public class ImportBulkProduct
         }
 
         using var reader = new StreamReader(req.Body);
-        var requestBody = await reader.ReadToEndAsync();
+        var requestBody = await reader.ReadToEndAsync(cancellationToken);
         var command = JsonConvert.DeserializeObject<ImportBulkProductCommand>(requestBody);
         if (command is null)
         {
             return new BadRequestObjectResult("Invalid request");
         }
 
-        var result = await _mediator.Send(command);
+        var result = await _mediator.Send(command, cancellationToken);
         return result.IsFailure
             ? new BadRequestObjectResult(result.Error)
             : new OkObjectResult(result.Value);

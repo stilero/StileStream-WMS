@@ -7,10 +7,10 @@ namespace StileStream.Wms.Inventory.Infrastructure.Data.Products.Repositories;
 
 public class ProductRepository : IProductRepository
 {
-    private readonly InventoryServiceDbContext _dbContext;
+    private readonly InventoryDbContext _dbContext;
     private readonly IUnitOfWork _unitOfWork;
 
-    public ProductRepository(InventoryServiceDbContext dbContext, IUnitOfWork unitOfWork)
+    public ProductRepository(InventoryDbContext dbContext, IUnitOfWork unitOfWork)
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
