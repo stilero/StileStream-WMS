@@ -1,5 +1,3 @@
-using StileStream.Wms.Inventory.Application.Products.Commands;
-
 using MediatR;
 
 using Microsoft.AspNetCore.Http;
@@ -8,6 +6,8 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
 using Newtonsoft.Json;
+
+using StileStream.Wms.Inventory.Application.Products.ProductImport.Commands;
 
 namespace StileStream.Wms.Inventory.FunctionApp.Products;
 

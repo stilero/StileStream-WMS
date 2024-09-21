@@ -1,11 +1,10 @@
 using System.Collections.ObjectModel;
 
 using StileStream.Wms.SharedKernel.Application.MediatR.Interfaces;
+using StileStream.Wms.Inventory.Application.Products.ProductImport.Requests;
+using StileStream.Wms.Inventory.Application.Products.ProductImport.Responses;
 
-using StileStream.Wms.Inventory.Application.Products.Requests;
-using StileStream.Wms.Inventory.Application.Products.Responses;
-
-namespace StileStream.Wms.Inventory.Application.Products.Commands;
+namespace StileStream.Wms.Inventory.Application.Products.ProductImport.Commands;
 
 public sealed record class ImportBulkProductCommand : ICommand<ImportBulkProductResponse>
 {

@@ -1,7 +1,7 @@
 using StileStream.Wms.SharedKernel.Domain.Models.Results;
 
-namespace StileStream.Wms.Inventory.Application.Products.Errors;
-public static class ProductError
+namespace StileStream.Wms.Inventory.Application.Products.ProductImport.Errors;
+public static class ProductImportError
 {
     public static ErrorResult NoProductsToImport => ErrorResult.Validation("ProductError.NoProductsToImport", "No products to import");
     public static ErrorResult InvalidRequest => ErrorResult.Validation("ProductError.InvalidRequest", "Invalid Request");

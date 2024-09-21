@@ -14,13 +14,15 @@ public class Product : AggregateRoot
     public string Category { get; private set; } = string.Empty;
     public string Status { get; private set; } = ProductStatus.Active;
 
-    public static Result<Product> Create(string name, string sku, string description, string category, string? createdBy = null)
+    public static Result<Product> CreateNew(string name, string sku, string description, string manufacturer, string category, string? createdBy = null)
     {
         var product = new Product
         {
             Id = Guid.NewGuid(),
             Name = name,
             Sku = sku,
+            Manufacturer = manufacturer,
+            Status = ProductStatus.Active,
             Description = description,
             Category = category,
             CreatedAt = DateTime.UtcNow,
