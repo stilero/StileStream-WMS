@@ -2,10 +2,10 @@ using StileStream.Wms.SharedKernel.Domain.Interfaces;
 
 namespace StileStream.Wms.SharedKernel.Domain.Events;
 
-public abstract class Entity : IEntity
+public abstract class AggregateRoot : IAggregateRoot
 {
     private readonly List<IDomainEvent> _domainEvents = [];
-    public DateTime CreatedAt { get; protected set; }
+   public DateTime CreatedAt { get; protected set; }
     public DateTime UpdatedAt { get; protected set; }
     public string CreatedBy { get; protected set; } = string.Empty;
     public string UpdatedBy { get; protected set; } = string.Empty;

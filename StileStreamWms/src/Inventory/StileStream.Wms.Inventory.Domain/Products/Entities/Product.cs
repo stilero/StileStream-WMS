@@ -4,7 +4,7 @@ using StileStream.Wms.SharedKernel.Domain.Models.Results;
 
 namespace StileStream.Wms.Inventory.Domain.Products.Entities;
 
-public class Product : Entity
+public class Product : AggregateRoot
 {
     public Guid Id { get; private set; }
     public string Name { get; private set; } = string.Empty;

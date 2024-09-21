@@ -1,6 +1,6 @@
 namespace StileStream.Wms.SharedKernel.Domain.Interfaces
 {
-    public interface IEntity
+    public interface IAggregateRoot
     {
         IReadOnlyList<IDomainEvent> DomainEvents { get; }
 
