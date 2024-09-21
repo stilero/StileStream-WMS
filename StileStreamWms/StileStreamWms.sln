@@ -19,13 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StileStream.Wms.Inventory.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StileStream.Wms.Inventory.FunctionApp", "src\Inventory\StileStream.Wms.Inventory.FunctionApp\StileStream.Wms.Inventory.FunctionApp.csproj", "{BBEC880A-6B26-4F00-B00C-5C6FE465A7DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StileStream.Wms.Inventory.Infrastructure", "src\Inventory\StileStream.Wms.Inventory.Infrastructure\StileStream.Wms.Inventory.Infrastructure.csproj", "{01E0D15A-B944-4603-996A-3DEF6E60F3A5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StileStream.Wms.SharedKernel.Application", "src\SharedKernel\StileStream.Wms.SharedKernel.Application\StileStream.Wms.SharedKernel.Application.csproj", "{78F41E50-0CE8-4946-8363-C9052BADF0F1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StileStream.Wms.SharedKernel.Domain", "src\SharedKernel\StileStream.Wms.SharedKernel.Domain\StileStream.Wms.SharedKernel.Domain.csproj", "{CD49A23D-6BE1-435C-B5D1-CD2160BF1542}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StileStream.Wms.SharedKernel.Infrastructure.Data", "src\SharedKernel\StileStream.Wms.SharedKernel.Infrastructure.Data\StileStream.Wms.SharedKernel.Infrastructure.Data.csproj", "{11677E80-E17F-46AA-91EC-D4DD35D48E23}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StileStream.Wms.Inventory.Infrastructure.Data", "src\Inventory\StileStream.Wms.Inventory.Infrastructure.Data\StileStream.Wms.Inventory.Infrastructure.Data.csproj", "{2D8BD4D0-E14B-4E0F-8E8E-BF06805F642E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,6 @@ Global
 		{BBEC880A-6B26-4F00-B00C-5C6FE465A7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBEC880A-6B26-4F00-B00C-5C6FE465A7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBEC880A-6B26-4F00-B00C-5C6FE465A7DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01E0D15A-B944-4603-996A-3DEF6E60F3A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01E0D15A-B944-4603-996A-3DEF6E60F3A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01E0D15A-B944-4603-996A-3DEF6E60F3A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01E0D15A-B944-4603-996A-3DEF6E60F3A5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{78F41E50-0CE8-4946-8363-C9052BADF0F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78F41E50-0CE8-4946-8363-C9052BADF0F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F41E50-0CE8-4946-8363-C9052BADF0F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,6 +61,10 @@ Global
 		{11677E80-E17F-46AA-91EC-D4DD35D48E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11677E80-E17F-46AA-91EC-D4DD35D48E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11677E80-E17F-46AA-91EC-D4DD35D48E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D8BD4D0-E14B-4E0F-8E8E-BF06805F642E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D8BD4D0-E14B-4E0F-8E8E-BF06805F642E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D8BD4D0-E14B-4E0F-8E8E-BF06805F642E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D8BD4D0-E14B-4E0F-8E8E-BF06805F642E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,10 +75,10 @@ Global
 		{73A4895E-371A-4062-9B2F-474A58E257F7} = {D89AB837-205F-49B1-A0AB-810D4E309E6D}
 		{DDAC63FD-2E2E-4F03-8AA1-CEB65430AF3A} = {D89AB837-205F-49B1-A0AB-810D4E309E6D}
 		{BBEC880A-6B26-4F00-B00C-5C6FE465A7DD} = {D89AB837-205F-49B1-A0AB-810D4E309E6D}
-		{01E0D15A-B944-4603-996A-3DEF6E60F3A5} = {D89AB837-205F-49B1-A0AB-810D4E309E6D}
 		{78F41E50-0CE8-4946-8363-C9052BADF0F1} = {CDF12BCF-A505-46B0-BDC3-CA918044A6C6}
 		{CD49A23D-6BE1-435C-B5D1-CD2160BF1542} = {CDF12BCF-A505-46B0-BDC3-CA918044A6C6}
 		{11677E80-E17F-46AA-91EC-D4DD35D48E23} = {CDF12BCF-A505-46B0-BDC3-CA918044A6C6}
+		{2D8BD4D0-E14B-4E0F-8E8E-BF06805F642E} = {D89AB837-205F-49B1-A0AB-810D4E309E6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {70AC1086-E414-44D3-9D6F-EC87B98D66D0}

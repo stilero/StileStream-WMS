@@ -12,7 +12,7 @@ COPY ["Inventory/StileStream.Wms.Inventory.Application/StileStream.Wms.Inventory
 COPY ["SharedKernel/StileStream.Wms.SharedKernel.Application/StileStream.Wms.SharedKernel.Application.csproj", "SharedKernel/StileStream.Wms.SharedKernel.Application/"]
 COPY ["SharedKernel/StileStream.Wms.SharedKernel.Domain/StileStream.Wms.SharedKernel.Domain.csproj", "SharedKernel/StileStream.Wms.SharedKernel.Domain/"]
 COPY ["Inventory/StileStream.Wms.Inventory.Domain/StileStream.Wms.Inventory.Domain.csproj", "Inventory/StileStream.Wms.Inventory.Domain/"]
-COPY ["Inventory/StileStream.Wms.Inventory.Infrastructure/StileStream.Wms.Inventory.Infrastructure.csproj", "Inventory/StileStream.Wms.Inventory.Infrastructure/"]
+COPY ["Inventory/StileStream.Wms.Inventory.Infrastructure/StileStream.Wms.Inventory.Infrastructure.Data.csproj", "Inventory/StileStream.Wms.Inventory.Infrastructure.Data/"]
 RUN dotnet restore "./Inventory/StileStream.Wms.Inventory.FunctionApp/StileStream.Wms.Inventory.FunctionApp.csproj"
 COPY . .
 WORKDIR "/src/Inventory/StileStream.Wms.Inventory.FunctionApp"

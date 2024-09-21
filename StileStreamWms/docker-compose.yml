@@ -47,7 +47,7 @@ services:
     volumes:
     - ./src:/app
     - ./init/ef-migrations/run-migrations.sh:/run-migrations.sh
-    working_dir: /app/Inventory/StileStream.Wms.Inventory.Infrastructure
+    working_dir: /app/Inventory/StileStream.Wms.Inventory.Infrastructure.Data
     entrypoint: ["/bin/bash", "/run-migrations.sh"]
     healthcheck:
       test: ["CMD", "test", "-f", "/tmp/migrations_done"]

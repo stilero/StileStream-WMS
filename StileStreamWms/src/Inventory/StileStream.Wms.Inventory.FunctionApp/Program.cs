@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using StileStream.Wms.Inventory.Application;
-using StileStream.Wms.Inventory.Infrastructure;
+using StileStream.Wms.Inventory.Infrastructure.Data;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
