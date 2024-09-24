@@ -23,7 +23,7 @@ public class ImportBulkProduct
     }
 
     [Function(nameof(ImportBulkProduct))]
-    public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "api/products/import")] HttpRequest req, CancellationToken cancellationToken)
+    public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "products/import")] HttpRequest req, CancellationToken cancellationToken)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
         if (req is null)

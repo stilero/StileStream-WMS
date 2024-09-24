@@ -21,6 +21,21 @@ services:
     entrypoint: ["/bin/bash", "/entrypoint.sh"] 
     networks:
       - default 
+ # API Gateway
+  apigateway:
+    container_name: "ApiGateway"
+    image: ${DOCKER_REGISTRY-}apigateway
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      sqlserver:
+         condition: service_healthy
+    ports:
+      - "5000:8080"
+    build:
+      context: .
+      dockerfile: src/ApiGateway/StileStream.Api.Gateway/Dockerfile
+      network: default
    # Inventory Service
   inventoryservice.functionapp:
     container_name: "InventoryService"
