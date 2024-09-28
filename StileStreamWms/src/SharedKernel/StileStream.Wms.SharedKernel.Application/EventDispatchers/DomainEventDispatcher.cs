@@ -7,7 +7,7 @@ public static class DomainEventDispatcher
 {
     public static async Task DispatchDomainEventsAsync(IEnumerable<AggregateRoot> aggregates, IMediator mediator, CancellationToken cancellationToken)
     {
-        var domainEvents = aggregates.SelectMany(aggregate => aggregate.DomainEvents).ToList();
+        var domainEvents = aggregates.SelectMany(aggregate => aggregate.GetDomainEvents()).ToList();
        
 
         var tasks = domainEvents.Select(async domainEvent =>

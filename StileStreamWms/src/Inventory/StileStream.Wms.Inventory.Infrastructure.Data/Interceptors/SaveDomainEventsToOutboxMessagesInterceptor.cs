@@ -1,5 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
-
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 using Newtonsoft.Json;
@@ -23,10 +21,10 @@ public sealed class SaveDomainEventsToOutboxMessagesInterceptor : SaveChangesInt
         }
 
         var domainEntities = dbContext.ChangeTracker.Entries<AggregateRoot>()
-            .Where(x => x.Entity.DomainEvents != null && x.Entity.DomainEvents.Any())
+            .Where(x => x.Entity.GetDomainEvents().Any())
             .ToList();
 
-        var domainEvents = domainEntities.SelectMany(x => x.Entity.DomainEvents).ToList();
+        var domainEvents = domainEntities.SelectMany(x => x.Entity.GetDomainEvents()).ToList();
 
         domainEntities.ForEach(entity => entity.Entity.ClearDomainEvents());
 
@@ -38,30 +36,10 @@ public sealed class SaveDomainEventsToOutboxMessagesInterceptor : SaveChangesInt
                 Type = domainEvent.GetType().Name,
                 Data = JsonConvert.SerializeObject(
                     domainEvent,
-                    new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All }),
+                    new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All, ReferenceLoopHandling = ReferenceLoopHandling.Ignore }),
             })
             .ToList();
-        
-        //var events = dbContext.ChangeTracker.Entries<AggregateRoot>()
-        //    .Select(x => x.Entity)
-        //    .SelectMany(aggregateRoot =>
-        //    {
-        //        var domainEvents = aggregateRoot.DomainEvents;
-        //        aggregateRoot.ClearDomainEvents();
-        //        return domainEvents;
-        //    })
-        //    .Select(domainEvent => 
-        //    new OutboxMessage
-        //    {
-        //        Id = Guid.NewGuid(),
-        //        TenantId = Guid.NewGuid(),
-        //        Type = domainEvent.GetType().Name,
-        //        Data = JsonConvert.SerializeObject(
-        //            domainEvent,
-        //            new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All }),
-        //    })
-        //    .ToList();
-
+       
         dbContext.Set<OutboxMessage>().AddRange(outboxMessages);
         return base.SavingChangesAsync(eventData, result, cancellationToken);
     }

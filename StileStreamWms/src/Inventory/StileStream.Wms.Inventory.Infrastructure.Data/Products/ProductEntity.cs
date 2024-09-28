@@ -26,7 +26,7 @@ public class ProductEntity : Product, IAuditable, ISoftDeleteable
         Category = product.Category;
         Status = product.Status;
 
-        AddDomainEvents(product.DomainEvents);
+        AddDomainEvents(product.GetDomainEvents());
     }
 
     public static ProductEntity FromProduct(Product product) => new(product);
