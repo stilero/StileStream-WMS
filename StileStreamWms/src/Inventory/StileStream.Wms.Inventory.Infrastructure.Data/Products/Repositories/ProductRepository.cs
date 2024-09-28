@@ -1,6 +1,5 @@
 using StileStream.Wms.Inventory.Domain.Products.Entities;
 using StileStream.Wms.Inventory.Domain.Products.Repositories;
-using StileStream.Wms.Inventory.Infrastructure.Data.Products.Extensions;
 using StileStream.Wms.SharedKernel.Domain.Interfaces;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data.Products.Repositories;
@@ -19,14 +18,14 @@ public class ProductRepository : IProductRepository
 
     public async Task Add(Product product, CancellationToken cancellationToken = default)
     {
-        await _dbContext.Products.AddAsync(product.ToEntity(), cancellationToken);
+        await _dbContext.Products.AddAsync(ProductEntity.FromProduct(product), cancellationToken);
         _unitOfWork.TrackEntity(product);
     }
         
 
     public async Task AddRange(IEnumerable<Product> products, CancellationToken cancellationToken = default)
     {
-        var productEntities = products.Select(p => p.ToEntity()).ToList();
+        var productEntities = products.Select(p => ProductEntity.FromProduct(p)).ToList();
         await _dbContext.Products.AddRangeAsync(productEntities, cancellationToken);
         _unitOfWork.TranckEntities(products);
     }
@@ -39,7 +38,7 @@ public class ProductRepository : IProductRepository
 
     public void Update(Product product)
     {
-        _dbContext.Products.Update(product.ToEntity());
+        _dbContext.Products.Update(ProductEntity.FromProduct(product));
         _unitOfWork.TrackEntity(product);
     }
 

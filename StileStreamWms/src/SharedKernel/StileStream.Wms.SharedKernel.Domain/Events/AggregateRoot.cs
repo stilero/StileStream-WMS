@@ -11,4 +11,5 @@ public abstract class AggregateRoot : IAggregateRoot
     public void ClearDomainEvents() => _domainEvents.Clear();
 
     public void RaiseDomainEvent(IDomainEvent domainEvent) => _domainEvents.Add(domainEvent);
+    public void AddDomainEvents(IEnumerable<IDomainEvent> domainEvents) => _domainEvents.AddRange(domainEvents);
 }

@@ -25,8 +25,6 @@ builder.Services.AddLogging(logging =>
 
 var app = builder.Build();
 
-
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -38,8 +36,6 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty;
     });
 }
-
-
 
 app.UseHttpsRedirection();
 

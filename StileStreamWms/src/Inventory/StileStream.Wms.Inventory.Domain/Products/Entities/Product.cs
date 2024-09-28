@@ -6,13 +6,13 @@ namespace StileStream.Wms.Inventory.Domain.Products.Entities;
 
 public class Product : AggregateRoot
 {
-    public Guid Id { get; private set; }
-    public string Name { get; private set; } = string.Empty;
-    public string Sku { get; private set; } = string.Empty;
-    public string Description { get; private set; } = string.Empty;
-    public string Manufacturer { get; private set; } = string.Empty;
-    public string Category { get; private set; } = string.Empty;
-    public string Status { get; private set; } = ProductStatus.Active;
+    public Guid Id { get; protected internal set; }
+    public string Name { get; protected internal set; } = string.Empty;
+    public string Sku { get; protected internal set; } = string.Empty;
+    public string Description { get; protected internal set; } = string.Empty;
+    public string Manufacturer { get; protected internal set; } = string.Empty;
+    public string Category { get; protected internal set; } = string.Empty;
+    public string Status { get; protected internal set; } = ProductStatus.Active;
 
     public static Result<Product> CreateNew(string name, string sku, string description, string manufacturer, string category)
     {

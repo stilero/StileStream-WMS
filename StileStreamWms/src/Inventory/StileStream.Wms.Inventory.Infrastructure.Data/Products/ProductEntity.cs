@@ -11,4 +11,25 @@ public class ProductEntity : Product, IAuditable, ISoftDeleteable
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     public string? UpdatedBy { get; set; }
     public bool IsDeleted { get; set; }
+
+    private ProductEntity()
+    {
+    }
+
+    private ProductEntity(Product product)
+    {
+        Id = product.Id;
+        Name = product.Name;
+        Sku = product.Sku;
+        Description = product.Description;
+        Manufacturer = product.Manufacturer;
+        Category = product.Category;
+        Status = product.Status;
+
+        AddDomainEvents(product.DomainEvents);
+    }
+
+    public static ProductEntity FromProduct(Product product) => new(product);
+
+    public Product ToDomain() => Product.Load(Id, Name, Sku, Description, Manufacturer, Category, Status);
 }
