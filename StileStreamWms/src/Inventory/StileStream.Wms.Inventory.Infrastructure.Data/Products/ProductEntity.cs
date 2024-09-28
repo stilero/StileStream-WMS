@@ -1,15 +1,14 @@
 using StileStream.Wms.Inventory.Domain.Products.Entities;
-using StileStream.Wms.SharedKernel.Infrastructure.Data.EntityBase;
+using StileStream.Wms.SharedKernel.Infrastructure.Data.Interfaces;
 
 namespace StileStream.Wms.Inventory.Infrastructure.Data.Products;
 
-public class ProductEntity : EntityBase
+public class ProductEntity : Product, IAuditable, ISoftDeleteable
 {
-    public Guid Id { get; set; }
-    public required string Name { get; set; }
-    public required string Sku { get; set; }
-    public string Description { get; set; } = string.Empty;
-    public string Category { get; set; } = string.Empty;
-    public string Manufacturer { get; set; } = string.Empty;
-    public string Status { get; set; } = ProductStatus.Active;
+    public Guid TenantId { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public string CreatedBy { get; set; } = string.Empty;
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    public string? UpdatedBy { get; set; }
+    public bool IsDeleted { get; set; }
 }

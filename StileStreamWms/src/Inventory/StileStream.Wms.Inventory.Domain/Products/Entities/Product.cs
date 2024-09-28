@@ -14,7 +14,7 @@ public class Product : AggregateRoot
     public string Category { get; private set; } = string.Empty;
     public string Status { get; private set; } = ProductStatus.Active;
 
-    public static Result<Product> CreateNew(string name, string sku, string description, string manufacturer, string category, string? createdBy = null)
+    public static Result<Product> CreateNew(string name, string sku, string description, string manufacturer, string category)
     {
         var product = new Product
         {
@@ -24,9 +24,7 @@ public class Product : AggregateRoot
             Manufacturer = manufacturer,
             Status = ProductStatus.Active,
             Description = description,
-            Category = category,
-            CreatedAt = DateTime.UtcNow,
-            CreatedBy = createdBy ?? "system"
+            Category = category
         };
 
         product.RaiseDomainEvent(new ProductCreatedEvent(product));
@@ -34,7 +32,7 @@ public class Product : AggregateRoot
         return product;
     }
 
-    public static Result<Product> Update(Guid id, string name, string sku, string description, string category, string? updatedBy = null)
+    public static Result<Product> Update(Guid id, string name, string sku, string description, string category)
     {
         var product = new Product
         {
@@ -43,8 +41,6 @@ public class Product : AggregateRoot
             Sku = sku,
             Description = description,
             Category = category,
-            UpdatedAt = DateTime.UtcNow,
-            UpdatedBy = updatedBy ?? "system"
         };
 
         product.RaiseDomainEvent(new ProductUpdatedEvent(product));
@@ -52,7 +48,7 @@ public class Product : AggregateRoot
         return product;
     }
 
-    public static Product Load(Guid id, string name, string sku, string description, string manufacturer, string category, string status, DateTime createdAt, DateTime updatedAt, string createdBy, string updatedBy) => new()
+    public static Product Load(Guid id, string name, string sku, string description, string manufacturer, string category, string status) => new()
     {
         Id = id,
         Name = name,
@@ -60,10 +56,6 @@ public class Product : AggregateRoot
         Description = description,
         Manufacturer = manufacturer,
         Category = category,
-        Status = status,
-        CreatedAt = createdAt,
-        UpdatedAt = updatedAt,
-        CreatedBy = createdBy,
-        UpdatedBy = updatedBy
+        Status = status
     };
 }

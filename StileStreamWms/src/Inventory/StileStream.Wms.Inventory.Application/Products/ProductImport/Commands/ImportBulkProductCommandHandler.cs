@@ -28,8 +28,7 @@ public sealed class ImportBulkProductCommandHandler : ICommandHandler<ImportBulk
             sku: p.Sku,
             description: p.Description,
             manufacturer: p.Manufacturer,
-            category: p.Category,
-            createdBy: p.CreatedBy
+            category: p.Category
             )).ToList();
         if(productsResult.Any(p => p.IsFailure))
         {

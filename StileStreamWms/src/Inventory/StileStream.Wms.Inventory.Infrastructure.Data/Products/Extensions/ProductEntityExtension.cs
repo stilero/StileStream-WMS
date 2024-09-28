@@ -12,24 +12,8 @@ public static class ProductEntityExtension
             description: entity.Description,
             manufacturer: entity.Manufacturer,
             category: entity.Category,
-            status: entity.Status,
-            createdAt: entity.CreatedAt,
-            createdBy: entity.CreatedBy,
-            updatedAt: entity.UpdatedAt,
-            updatedBy: entity.UpdatedBy);
+            status: entity.Status);
 
-    public static ProductEntity ToEntity(this Product product) => new()
-    {
-        Id = product.Id,
-        Name = product.Name,
-        Sku = product.Sku,
-        Description = product.Description,
-        Category = product.Category,
-        Status = product.Status,
-        Manufacturer = product.Manufacturer,
-        CreatedAt = product.CreatedAt,
-        CreatedBy = product.CreatedBy,
-        UpdatedAt = product.UpdatedAt,
-        UpdatedBy = product.UpdatedBy
-    };
+    public static ProductEntity ToEntity(this Product product) => 
+        (ProductEntity)Product.Load(product.Id, product.Name, product.Sku, product.Description, product.Manufacturer, product.Category, product.Status);
 }
