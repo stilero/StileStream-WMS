@@ -55,14 +55,14 @@ services:
     image: mcr.microsoft.com/dotnet/sdk:8.0
     container_name: "ef-migrations" 
     environment:
-      - ConnectionStrings__DefaultConnection=${DB_CONNECTION_STRING}
+      - ConnectionStrings__DefaultConnection=${PRODUCT_DB_CONNECTION_STRING}
     depends_on:
       sqlserver:
         condition: service_healthy
     volumes:
     - ./src:/app
     - ./init/ef-migrations/run-migrations.sh:/run-migrations.sh
-    working_dir: /app/Inventory/StileStream.Wms.Inventory.Infrastructure.Data
+    working_dir: /app/Product/StileStream.Wms.Product
     entrypoint: ["/bin/bash", "/run-migrations.sh"]
     healthcheck:
       test: ["CMD", "test", "-f", "/tmp/migrations_done"]
@@ -71,6 +71,19 @@ services:
       start_period: 50s
     networks:
     - default
+## Product Service
+  stilestream.wms.product:
+    image: ${DOCKER_REGISTRY-}stilestreamwmsproduct
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__SqlServer=${PRODUCT_DB_CONNECTION_STRING}
+    depends_on:
+      sqlserver:
+         condition: service_healthy
+    build:
+      context: .
+      dockerfile: src/Product/StileStream.Wms.Product/Dockerfile
+      network: default
 volumes:
   sqlvolume:
 networks:
@@ -78,3 +91,4 @@ networks:
     driver: bridge
 
   
+

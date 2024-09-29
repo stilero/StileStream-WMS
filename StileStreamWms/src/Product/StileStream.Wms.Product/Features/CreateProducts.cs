@@ -1,5 +1,7 @@
 using System.Collections.ObjectModel;
 
+using Carter;
+
 using MediatR;
 
 using StileStream.Wms.Product.Contracts;
@@ -47,5 +49,17 @@ public static class CreateProducts
     {
         public static ErrorResult InvalidRequest => ErrorResult.Validation("ProductError.InvalidRequest", "Invalid Request");
     }
-
+}
+public class CreateProductsEndpoint : ICarterModule
+{
+    public void AddRoutes(IEndpointRouteBuilder app)
+    {
+        app.MapPost("api/products", async (IMediator mediator, CreateProducts.Command command) =>
+        {
+            var result = await mediator.Send(command);
+            return result.IsSuccess ? Results.Ok(result.Value) : Results.BadRequest(result.Error);
+        })
+            .WithName("CreateProducts")
+            .WithOpenApi();
+    }
 }

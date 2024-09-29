@@ -4,7 +4,6 @@ using StileStream.Wms.SharedKernel.Domain.Interfaces;
 using StileStream.Wms.SharedKernel.Infrastructure.Data.Interceptors;
 using StileStream.Wms.Product.Interfaces;
 using StileStream.Wms.Product.Database.Products.Repositories;
-using StileStream.Wms.SharedKernel.Infrastructure.Data.Repositories;
 using StileStream.Wms.SharedKernel.Application.MediatR.PipelineBehaviors;
 using System.Reflection;
 using FluentValidation;

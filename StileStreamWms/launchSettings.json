@@ -4,7 +4,11 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "inventoryservice.functionapp": "StartDebugging"
+        "inventoryservice.functionapp": "DoNotStart",
+        "stilestream.wms.product": "StartDebugging",
+        "apigateway": "StartDebugging",
+        "ef-migrations": "StartWithoutDebugging",
+        "sqlserver": "StartWithoutDebugging"
       }
     }
   }

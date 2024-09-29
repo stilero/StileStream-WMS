@@ -5,6 +5,9 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
     <ProjectGuid>e060cd45-a4b6-440b-bc87-6c7851127b50</ProjectGuid>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
+    <DockerServiceName>stilestream.wms.product</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="sample.env" />
