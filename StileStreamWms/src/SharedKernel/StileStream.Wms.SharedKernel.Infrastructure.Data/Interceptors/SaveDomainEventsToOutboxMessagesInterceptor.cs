@@ -2,20 +2,19 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 using Newtonsoft.Json;
 
-using StileStream.Wms.Inventory.Infrastructure.Data.OutboxMessages.Entities;
+using StileStream.Wms.SharedKernel.Domain.Entities;
 using StileStream.Wms.SharedKernel.Domain.Primitives;
 
-namespace StileStream.Wms.Inventory.Infrastructure.Data.Interceptors;
+
+namespace StileStream.Wms.SharedKernel.Infrastructure.Data.Interceptors;
 
 public sealed class SaveDomainEventsToOutboxMessagesInterceptor : SaveChangesInterceptor
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA2326:Do not use TypeNameHandling values other than None", Justification = "From known source")]
     public override ValueTask<InterceptionResult<int>> SavingChangesAsync(
-        DbContextEventData eventData, 
-        InterceptionResult<int> result, 
+        DbContextEventData eventData,
+        InterceptionResult<int> result,
         CancellationToken cancellationToken = default)
     {
-        ArgumentNullException.ThrowIfNull(eventData, nameof(eventData));
         var dbContext = eventData!.Context;
         if (dbContext == null)
         {
@@ -30,7 +29,7 @@ public sealed class SaveDomainEventsToOutboxMessagesInterceptor : SaveChangesInt
 
         domainEntities.ForEach(entity => entity.Entity.ClearDomainEvents());
 
-        var outboxMessages = domainEvents.Select(domainEvent => 
+        var outboxMessages = domainEvents.Select(domainEvent =>
             new OutboxMessage
             {
                 Id = Guid.NewGuid(),
@@ -38,10 +37,10 @@ public sealed class SaveDomainEventsToOutboxMessagesInterceptor : SaveChangesInt
                 Type = domainEvent.GetType().Name,
                 Data = JsonConvert.SerializeObject(
                     domainEvent,
-                    new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All }),
+                    new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All, ReferenceLoopHandling = ReferenceLoopHandling.Ignore }),
             })
             .ToList();
-       
+
         dbContext.Set<OutboxMessage>().AddRange(outboxMessages);
         return base.SavingChangesAsync(eventData, result, cancellationToken);
     }

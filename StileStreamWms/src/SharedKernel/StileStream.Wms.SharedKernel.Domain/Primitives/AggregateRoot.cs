@@ -1,9 +1,6 @@
-
-using System.Text.Json.Serialization;
-
 using StileStream.Wms.SharedKernel.Domain.Interfaces;
 
-namespace StileStream.Wms.SharedKernel.Domain.Events;
+namespace StileStream.Wms.SharedKernel.Domain.Primitives;
 
 public abstract class AggregateRoot : IAggregateRoot
 {

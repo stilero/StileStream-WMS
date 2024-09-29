@@ -1,6 +1,6 @@
 using StileStream.Wms.Inventory.Domain.Products.Events;
-using StileStream.Wms.SharedKernel.Domain.Events;
 using StileStream.Wms.SharedKernel.Domain.Models.Results;
+using StileStream.Wms.SharedKernel.Domain.Primitives;
 
 namespace StileStream.Wms.Inventory.Domain.Products.Entities;
 
