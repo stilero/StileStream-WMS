@@ -399,3 +399,4 @@ FodyWeavers.xsd
 /StileStreamWms/sqlserver.env
 /StileStreamWms/sandbox.env
 /StileStreamWms/.env
+/StileStreamWms/src/Product/StileStream.Wms.Product/appsettings.Local.json
