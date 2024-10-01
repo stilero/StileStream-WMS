@@ -21,6 +21,14 @@ public class ProductsDbContext : DbContext
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductsDbContext).Assembly);
         modelBuilder.ApplyConfiguration(new OutboxMessageConfiguration());
+        ConfigureShadowProperties(modelBuilder);
+    }
+
+    private static void ConfigureShadowProperties(ModelBuilder modelBuilder)
+    {
+        AuditConfiguration.Configure<Product>(modelBuilder);
+        TenantConfiguration.Configure<Product>(modelBuilder);
+        SoftDeleteConfiguration.Configure<Product>(modelBuilder);
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

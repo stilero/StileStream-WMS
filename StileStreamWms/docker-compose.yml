@@ -55,14 +55,14 @@ services:
     image: mcr.microsoft.com/dotnet/sdk:8.0
     container_name: "ef-migrations" 
     environment:
-      - ConnectionStrings__DefaultConnection=${DB_CONNECTION_STRING}
+      - ConnectionStrings__DefaultConnection=${PRODUCT_DB_CONNECTION_STRING}
     depends_on:
       sqlserver:
         condition: service_healthy
     volumes:
     - ./src:/app
     - ./init/ef-migrations/run-migrations.sh:/run-migrations.sh
-    working_dir: /app/Inventory/StileStream.Wms.Inventory.Infrastructure.Data
+    working_dir: /app/Products/StileStream.Wms.Products.Infrastructure
     entrypoint: ["/bin/bash", "/run-migrations.sh"]
     healthcheck:
       test: ["CMD", "test", "-f", "/tmp/migrations_done"]

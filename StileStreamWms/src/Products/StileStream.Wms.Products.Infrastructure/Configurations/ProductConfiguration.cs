@@ -1,29 +1,28 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
+using StileStream.Wms.Products.Domain.Entities;
 using StileStream.Wms.Products.Domain.Enums;
-using StileStream.Wms.SharedKernel.Infrastructure.Data.EntityBase.Configurations;
 
-namespace StileStream.Wms.Products.Infrastructure.Entities.Products;
+namespace StileStream.Wms.Products.Infrastructure.Configurations;
 
-public class ProductsConfiguration : EntityBaseConfiguration<ProductEntity>
+public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {
-    public override void Configure(EntityTypeBuilder<ProductEntity> builder)
+    public void Configure(EntityTypeBuilder<Product> builder)
     {
         ArgumentNullException.ThrowIfNull(builder, nameof(builder));
-        base.Configure(builder);
         builder.ToTable("Products");
         builder.HasKey(p => p.Id);
         builder.Property(p => p.Description).HasMaxLength(255).HasDefaultValue(string.Empty);
         builder.Property(p => p.Category).HasMaxLength(50).HasDefaultValue(string.Empty);
-        builder.Property(p => p.Status).HasMaxLength(50).HasConversion<string>().HasDefaultValue(ProductStatus.Active.ToString());
+        builder.Property(p => p.Status).HasMaxLength(50).HasConversion<string>().HasDefaultValue(ProductStatus.Active);
         builder.Property(p => p.Sku).HasMaxLength(50).IsRequired();
         builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
 
         ConfigureIndexes(builder);
     }
 
-    private static void ConfigureIndexes(EntityTypeBuilder<ProductEntity> builder)
+    private static void ConfigureIndexes(EntityTypeBuilder<Product> builder)
     {
         builder.HasIndex(p => p.Sku).IsUnique();
         builder.HasIndex(p => p.Name);
