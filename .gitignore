@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/StileStreamWms/src/Inventory/StileStream.Wms.Inventory.FunctionApp/local.settings.json
+/StileStreamWms/src/Product/StileStream.Wms.Product/appsettings.Local.json
+/StileStreamWms/.env
