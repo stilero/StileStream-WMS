@@ -26,10 +26,7 @@ public static class ProductEntityExtension
         Description = product.Description,
         Category = product.Category,
         Status = product.Status,
-        Manufacturer = product.Manufacturer,
-        CreatedAt = product.CreatedAt,
-        CreatedBy = product.CreatedBy,
-        UpdatedAt = product.UpdatedAt,
-        UpdatedBy = product.UpdatedBy
+        Manufacturer = product.Manufacturer
+        
     };
 }

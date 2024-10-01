@@ -35,11 +35,7 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasDefaultValue("");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
                         .HasDefaultValue("system");
@@ -47,7 +43,7 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 35, 25, 231, DateTimeKind.Utc).AddTicks(5439));
+                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(3979));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -83,11 +79,7 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                     b.Property<Guid>("TenantId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(max)")
                         .HasDefaultValue("system");
@@ -95,7 +87,7 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                     b.Property<DateTime>("UpdatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 35, 25, 231, DateTimeKind.Utc).AddTicks(5754));
+                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(4402));
 
                     b.HasKey("Id");
 
@@ -135,12 +127,12 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                     b.Property<DateTime>("OccurredOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 35, 25, 231, DateTimeKind.Utc).AddTicks(4467));
+                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(2612));
 
                     b.Property<DateTime>("ProcessedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 35, 25, 231, DateTimeKind.Utc).AddTicks(4741));
+                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(2967));
 
                     b.Property<string>("Properties")
                         .IsRequired()

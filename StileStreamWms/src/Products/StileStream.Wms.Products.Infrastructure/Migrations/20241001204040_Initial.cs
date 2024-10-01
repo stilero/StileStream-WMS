@@ -21,9 +21,9 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                     Type = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false, defaultValue: ""),
                     Data = table.Column<string>(type: "nvarchar(max)", nullable: false, defaultValue: ""),
                     Properties = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OccurredOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 10, 1, 20, 35, 25, 231, DateTimeKind.Utc).AddTicks(4467)),
+                    OccurredOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(2612)),
                     IsProcessed = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    ProcessedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 10, 1, 20, 35, 25, 231, DateTimeKind.Utc).AddTicks(4741))
+                    ProcessedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(2967))
                 },
                 constraints: table =>
                 {
@@ -41,14 +41,12 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                     Manufacturer = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, defaultValue: ""),
                     Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false, defaultValue: "Active"),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 10, 1, 20, 35, 25, 231, DateTimeKind.Utc).AddTicks(5439)),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "system"),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(3979)),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     TenantId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 10, 1, 20, 35, 25, 231, DateTimeKind.Utc).AddTicks(5754)),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false, defaultValue: "system"),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false, defaultValue: "system")
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValue: "system"),
+                    UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(4402))
                 },
                 constraints: table =>
                 {

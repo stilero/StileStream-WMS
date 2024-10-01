@@ -25,8 +25,7 @@ public class Product : AggregateRoot
             Status = ProductStatus.Active,
             Description = description,
             Category = category,
-            CreatedAt = DateTime.UtcNow,
-            CreatedBy = createdBy ?? "system"
+            
         };
 
         product.RaiseDomainEvent(new ProductCreatedEvent(product));
@@ -43,8 +42,7 @@ public class Product : AggregateRoot
             Sku = sku,
             Description = description,
             Category = category,
-            UpdatedAt = DateTime.UtcNow,
-            UpdatedBy = updatedBy ?? "system"
+            
         };
 
         product.RaiseDomainEvent(new ProductUpdatedEvent(product));
@@ -61,9 +59,6 @@ public class Product : AggregateRoot
         Manufacturer = manufacturer,
         Category = category,
         Status = status,
-        CreatedAt = createdAt,
-        UpdatedAt = updatedAt,
-        CreatedBy = createdBy,
-        UpdatedBy = updatedBy
+       
     };
 }
