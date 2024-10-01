@@ -1,9 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-using StileStream.Wms.Inventory.Infrastructure.Data.OutboxMessages.Entities;
-
-namespace StileStream.Wms.Inventory.Infrastructure.Data.OutboxMessages.Configurations;
+namespace StileStream.Wms.SharedKernel.Infrastructure.Data.Entities.OutboxMessages;
 
 public class OutboxMessageConfiguration : IEntityTypeConfiguration<OutboxMessage>
 {
@@ -26,5 +24,7 @@ public class OutboxMessageConfiguration : IEntityTypeConfiguration<OutboxMessage
     {
         builder.HasIndex(p => p.Id).IsUnique();
         builder.HasIndex(p => p.IsProcessed);
+        builder.HasIndex(p => p.TenantId);
+        builder.HasIndex(p => p.CorrelationId);
     }
 }

@@ -1,9 +1,7 @@
-using StileStream.Wms.Inventory.Domain.Products.Events;
-using StileStream.Wms.SharedKernel.Domain.Models.Results;
+using StileStream.Wms.Products.Domain.Enums;
+using StileStream.Wms.Products.Domain.Events;
 using StileStream.Wms.SharedKernel.Domain.Primitives;
-
-namespace StileStream.Wms.Inventory.Domain.Products.Entities;
-
+namespace StileStream.Wms.Products.Domain.Entities;
 public class Product : AggregateRoot
 {
     public Guid Id { get; private set; }
@@ -12,9 +10,9 @@ public class Product : AggregateRoot
     public string Description { get; private set; } = string.Empty;
     public string Manufacturer { get; private set; } = string.Empty;
     public string Category { get; private set; } = string.Empty;
-    public string Status { get; private set; } = ProductStatus.Active;
+    public ProductStatus Status { get; private set; } = ProductStatus.Active;
 
-    public static Result<Product> CreateNew(string name, string sku, string description, string manufacturer, string category, string? createdBy = null)
+    public static Product CreateNew(string name, string sku, string description, string manufacturer, string category)
     {
         var product = new Product
         {
@@ -25,8 +23,6 @@ public class Product : AggregateRoot
             Status = ProductStatus.Active,
             Description = description,
             Category = category,
-            CreatedAt = DateTime.UtcNow,
-            CreatedBy = createdBy ?? "system"
         };
 
         product.RaiseDomainEvent(new ProductCreatedEvent(product));
@@ -34,17 +30,17 @@ public class Product : AggregateRoot
         return product;
     }
 
-    public static Result<Product> Update(Guid id, string name, string sku, string description, string category, string? updatedBy = null)
+    public static Product Update(Guid id, string name, string sku, ProductStatus status, string manufacturer, string description, string category)
     {
         var product = new Product
         {
             Id = id,
             Name = name,
             Sku = sku,
+            Status = status,
+            Manufacturer = manufacturer,
             Description = description,
             Category = category,
-            UpdatedAt = DateTime.UtcNow,
-            UpdatedBy = updatedBy ?? "system"
         };
 
         product.RaiseDomainEvent(new ProductUpdatedEvent(product));
@@ -52,7 +48,7 @@ public class Product : AggregateRoot
         return product;
     }
 
-    public static Product Load(Guid id, string name, string sku, string description, string manufacturer, string category, string status, DateTime createdAt, DateTime updatedAt, string createdBy, string updatedBy) => new()
+    public static Product Load(Guid id, string name, string sku, string description, string manufacturer, string category, ProductStatus status) => new()
     {
         Id = id,
         Name = name,
@@ -60,10 +56,6 @@ public class Product : AggregateRoot
         Description = description,
         Manufacturer = manufacturer,
         Category = category,
-        Status = status,
-        CreatedAt = createdAt,
-        UpdatedAt = updatedAt,
-        CreatedBy = createdBy,
-        UpdatedBy = updatedBy
+        Status = status
     };
 }

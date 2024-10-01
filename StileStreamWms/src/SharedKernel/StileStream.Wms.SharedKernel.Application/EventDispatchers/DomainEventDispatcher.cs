@@ -1,6 +1,6 @@
 using MediatR;
 
-using StileStream.Wms.SharedKernel.Domain.Events;
+using StileStream.Wms.SharedKernel.Domain.Primitives;
 
 namespace StileStream.Wms.SharedKernel.Application.EventDispatchers;
 public static class DomainEventDispatcher
