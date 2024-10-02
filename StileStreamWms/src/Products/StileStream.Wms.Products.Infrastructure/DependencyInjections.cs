@@ -5,10 +5,11 @@ using Microsoft.Extensions.DependencyInjection;
 using StileStream.Wms.Products.Domain.Repositories;
 using StileStream.Wms.Products.Infrastructure.Repositories;
 using StileStream.Wms.SharedKernel.Domain.Interfaces;
+using StileStream.Wms.SharedKernel.Infrastructure.Data.Interceptors;
 
 namespace StileStream.Wms.Products.Infrastructure;
 
-public static class DatabaseServiceCollectionExtension
+public static class DependencyInjections
 {
     public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
     {
@@ -18,7 +19,11 @@ public static class DatabaseServiceCollectionExtension
             ?? configuration["ConnectionStrings__SqlServer"]
             ?? throw new ArgumentException("Connection string not found");
 
-        services.AddDbContext<ProductsDbContext>(options => options.UseSqlServer(connectionString));
+        services.AddDbContext<ProductsDbContext>((sp, options) => {
+            var domainEventsToOutboxInterceptor = sp.GetRequiredService<SaveDomainEventsToOutboxMessagesInterceptor>();
+            options.UseSqlServer(connectionString)
+                .AddInterceptors(domainEventsToOutboxInterceptor);
+            });
         return services;
     }
 
