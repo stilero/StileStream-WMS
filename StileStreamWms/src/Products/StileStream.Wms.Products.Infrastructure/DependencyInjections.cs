@@ -11,6 +11,17 @@ namespace StileStream.Wms.Products.Infrastructure;
 
 public static class DependencyInjections
 {
+
+    public static IServiceCollection AddProductsInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    {
+        ArgumentNullException.ThrowIfNull(configuration, nameof(configuration));
+
+        services.AddDatabase(configuration);
+        services.AddRepositories();
+
+        return services;
+    }
+
     public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
     {
         ArgumentNullException.ThrowIfNull(configuration, nameof(configuration));

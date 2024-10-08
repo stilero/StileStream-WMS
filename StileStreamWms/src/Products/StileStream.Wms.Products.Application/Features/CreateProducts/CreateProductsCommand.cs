@@ -1,4 +1,5 @@
-using StileStream.Wms.Products.ApiContracts.CreateProducts;
+
+using StileStream.Wms.Products.Application.Features.CreateProducts.Contracts;
 using StileStream.Wms.SharedKernel.Application.MediatR.Interfaces;
 
 namespace StileStream.Wms.Products.Application.Features.CreateProducts;

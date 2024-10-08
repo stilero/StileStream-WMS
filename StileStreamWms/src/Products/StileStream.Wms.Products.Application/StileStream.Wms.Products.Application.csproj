@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.10.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\SharedKernel\StileStream.Wms.SharedKernel.Application\StileStream.Wms.SharedKernel.Application.csproj" />
-    <ProjectReference Include="..\StileStream.Wms.Products.ApiContracts\StileStream.Wms.Products.ApiContracts.csproj" />
     <ProjectReference Include="..\StileStream.Wms.Products.Domain\StileStream.Wms.Products.Domain.csproj" />
   </ItemGroup>
 
