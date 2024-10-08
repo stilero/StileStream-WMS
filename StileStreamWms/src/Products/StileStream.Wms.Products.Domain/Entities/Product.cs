@@ -10,7 +10,7 @@ public class Product : AggregateRoot
     public string Description { get; private set; } = string.Empty;
     public string Manufacturer { get; private set; } = string.Empty;
     public string Category { get; private set; } = string.Empty;
-    public ProductStatus Status { get; private set; } = ProductStatus.Active;
+    public string Status { get; private set; } = ProductStatus.Active;
 
     public static Product CreateNew(string name, string sku, string description, string manufacturer, string category)
     {
@@ -30,7 +30,7 @@ public class Product : AggregateRoot
         return product;
     }
 
-    public static Product Update(Guid id, string name, string sku, ProductStatus status, string manufacturer, string description, string category)
+    public static Product Update(Guid id, string name, string sku, string status, string manufacturer, string description, string category)
     {
         var product = new Product
         {
@@ -57,7 +57,7 @@ public class Product : AggregateRoot
         product.RaiseDomainEvent(new ProductDeletedEvent(id));
     }
 
-    public static Product Load(Guid id, string name, string sku, string description, string manufacturer, string category, ProductStatus status) => new()
+    public static Product Load(Guid id, string name, string sku, string description, string manufacturer, string category, string status) => new()
     {
         Id = id,
         Name = name,

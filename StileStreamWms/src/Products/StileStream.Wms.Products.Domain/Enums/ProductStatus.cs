@@ -1,8 +1,9 @@
 namespace StileStream.Wms.Products.Domain.Enums;
-public enum ProductStatus
+
+public static class ProductStatus
 {
-    Active,
-    Inactive,
-    Discontinued,
-    Archived
+    public const string Active = "Active";
+    public const string Inactive = "Inactive";
+    public const string Discontinued = "Discontinued";
+    public const string Archived = "Archived";
 }

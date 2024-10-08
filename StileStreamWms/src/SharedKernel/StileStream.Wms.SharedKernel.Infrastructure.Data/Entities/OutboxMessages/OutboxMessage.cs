@@ -2,6 +2,8 @@ namespace StileStream.Wms.SharedKernel.Infrastructure.Data.Entities.OutboxMessag
 
 public class OutboxMessage
 {
+    //TODO: Add EntityId property
+    //TODO: Add entity type property
     public Guid Id { get; set; }
     public Guid TenantId { get; set; }
     public string CorrelationId { get; set; } = string.Empty;

@@ -36,7 +36,7 @@ public sealed class SaveDomainEventsToOutboxMessagesInterceptor : SaveChangesInt
                 Type = domainEvent.GetType().Name,
                 Data = JsonConvert.SerializeObject(
                     domainEvent,
-                    new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All }),
+                    new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.None }),
             })
             .ToList();
 

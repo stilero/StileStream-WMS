@@ -16,7 +16,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.Property(p => p.Description).HasMaxLength(255).HasDefaultValue(string.Empty);
         builder.Property(p => p.Manufacturer).HasMaxLength(50).HasDefaultValue(string.Empty);
         builder.Property(p => p.Category).HasMaxLength(50).HasDefaultValue(string.Empty);
-        builder.Property(p => p.Status).HasMaxLength(50).HasConversion<string>().HasDefaultValue(ProductStatus.Active);
+        builder.Property(p => p.Status).HasMaxLength(50).HasDefaultValue(ProductStatus.Active);
         builder.Property(p => p.Sku).HasMaxLength(50).IsRequired();
         builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
 
