@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
+using Newtonsoft.Json;
+
 using StileStream.Wms.Products.Application.Features.CreateProducts;
 using StileStream.Wms.Products.Application.Features.CreateProducts.Contracts;
 
@@ -34,13 +36,13 @@ public class CreateProductsFunction
 
         using var reader = new StreamReader(req.Body);
         var requestBody = await reader.ReadToEndAsync(cancellationToken);
-        var createProductsRequest = JsonSerializer.Deserialize<IReadOnlyCollection<CreateProductRequest>>(requestBody);
+        var createProductsRequest = JsonConvert.DeserializeObject<CreateProductsRequest>(requestBody);
         if (createProductsRequest is null)
         {
             return new BadRequestObjectResult("Invalid request");
         }
 
-        var command = new CreateProductsCommand(createProductsRequest);
+        var command = new CreateProductsCommand(createProductsRequest.Products);
 
         var result = await _mediator.Send(command, cancellationToken);
         return result.IsFailure

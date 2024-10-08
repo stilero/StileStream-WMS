@@ -78,7 +78,7 @@ services:
       dockerfile: src/Products/StileStream.Wms.Products.FunctionApp/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__SqlServer=${DB_CONNECTION_STRING}
+      - ConnectionStrings__SqlServer=${PRODUCT_DB_CONNECTION_STRING}
     depends_on:
       sqlserver:
          condition: service_healthy
