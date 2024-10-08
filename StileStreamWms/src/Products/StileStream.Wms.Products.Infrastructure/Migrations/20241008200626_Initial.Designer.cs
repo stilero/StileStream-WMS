@@ -12,7 +12,7 @@ using StileStream.Wms.Products.Infrastructure;
 namespace StileStream.Wms.Products.Infrastructure.Migrations
 {
     [DbContext(typeof(ProductsDbContext))]
-    [Migration("20241008194909_Initial")]
+    [Migration("20241008200626_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -40,13 +40,14 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
 
                     b.Property<string>("CreatedBy")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
                         .HasDefaultValue("system");
 
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 8, 19, 49, 9, 118, DateTimeKind.Utc).AddTicks(5443));
+                        .HasDefaultValue(new DateTime(2024, 10, 8, 20, 6, 26, 103, DateTimeKind.Utc).AddTicks(543));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -56,11 +57,16 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                         .HasDefaultValue("");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasDefaultValue("");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -84,13 +90,14 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
 
                     b.Property<string>("UpdatedBy")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
                         .HasDefaultValue("system");
 
                     b.Property<DateTime>("UpdatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 8, 19, 49, 9, 118, DateTimeKind.Utc).AddTicks(6028));
+                        .HasDefaultValue(new DateTime(2024, 10, 8, 20, 6, 26, 103, DateTimeKind.Utc).AddTicks(1146));
 
                     b.HasKey("Id");
 
@@ -130,12 +137,12 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                     b.Property<DateTime>("OccurredOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 8, 19, 49, 9, 118, DateTimeKind.Utc).AddTicks(3704));
+                        .HasDefaultValue(new DateTime(2024, 10, 8, 20, 6, 26, 102, DateTimeKind.Utc).AddTicks(7193));
 
                     b.Property<DateTime>("ProcessedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 8, 19, 49, 9, 118, DateTimeKind.Utc).AddTicks(4196));
+                        .HasDefaultValue(new DateTime(2024, 10, 8, 20, 6, 26, 102, DateTimeKind.Utc).AddTicks(7616));
 
                     b.Property<string>("Properties")
                         .IsRequired()

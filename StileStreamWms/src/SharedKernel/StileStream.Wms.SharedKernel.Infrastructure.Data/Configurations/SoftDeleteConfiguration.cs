@@ -8,6 +8,6 @@ public static class SoftDeleteConfiguration
     public static void Configure<TEntity>(ModelBuilder builder) where TEntity : class
     {
         ArgumentNullException.ThrowIfNull(builder, nameof(builder));
-        builder.Entity<TEntity>().Property<bool>(IsDeleted);
+        builder.Entity<TEntity>().Property<bool>(IsDeleted).HasDefaultValue(false);
     }
 }

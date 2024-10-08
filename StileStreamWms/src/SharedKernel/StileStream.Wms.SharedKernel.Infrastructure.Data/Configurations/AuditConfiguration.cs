@@ -13,8 +13,8 @@ public static class AuditConfiguration
         ArgumentNullException.ThrowIfNull(builder, nameof(builder));
         builder.Entity<TEntity>().Property<DateTime>(CreatedOn).HasDefaultValue(DateTime.UtcNow);
         builder.Entity<TEntity>().Property<DateTime>(UpdatedOn).HasDefaultValue(DateTime.UtcNow);
-        builder.Entity<TEntity>().Property<string>(CreatedBy).HasDefaultValue("system");
-        builder.Entity<TEntity>().Property<string>(UpdatedBy).HasDefaultValue("system");
+        builder.Entity<TEntity>().Property<string>(CreatedBy).HasMaxLength(100).HasDefaultValue("system");
+        builder.Entity<TEntity>().Property<string>(UpdatedBy).HasMaxLength(100).HasDefaultValue("system");
 
     }
 }

@@ -14,6 +14,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
         builder.ToTable("Products");
         builder.HasKey(p => p.Id);
         builder.Property(p => p.Description).HasMaxLength(255).HasDefaultValue(string.Empty);
+        builder.Property(p => p.Manufacturer).HasMaxLength(50).HasDefaultValue(string.Empty);
         builder.Property(p => p.Category).HasMaxLength(50).HasDefaultValue(string.Empty);
         builder.Property(p => p.Status).HasMaxLength(50).HasConversion<string>().HasDefaultValue(ProductStatus.Active);
         builder.Property(p => p.Sku).HasMaxLength(50).IsRequired();
