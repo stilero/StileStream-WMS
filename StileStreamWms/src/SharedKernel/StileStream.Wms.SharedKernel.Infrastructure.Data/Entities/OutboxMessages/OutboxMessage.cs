@@ -4,6 +4,7 @@ public class OutboxMessage
 {
     //TODO: Add EntityId property
     //TODO: Add entity type property
+    //TODO: Remove CorrelationId property
     public Guid Id { get; set; }
     public Guid TenantId { get; set; }
     public string CorrelationId { get; set; } = string.Empty;
