@@ -37,19 +37,19 @@ services:
       dockerfile: src/ApiGateway/StileStream.Api.Gateway/Dockerfile
       network: default
    # Inventory Service
-  inventoryservice.functionapp:
-    container_name: "InventoryService"
-    image: ${DOCKER_REGISTRY-}inventoryservicefunctionapp
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__SqlServer=${DB_CONNECTION_STRING}
-    depends_on:
-      sqlserver:
-         condition: service_healthy
-    build:
-      context: .
-      dockerfile: src/Inventory/StileStream.Wms.Inventory.FunctionApp/Dockerfile
-      network: default
+  # inventoryservice.functionapp:
+  #   container_name: "InventoryService"
+  #   image: ${DOCKER_REGISTRY-}inventoryservicefunctionapp
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #     - ConnectionStrings__SqlServer=${DB_CONNECTION_STRING}
+  #   depends_on:
+  #     sqlserver:
+  #        condition: service_healthy
+  #   build:
+  #     context: .
+  #     dockerfile: src/Inventory/StileStream.Wms.Inventory.FunctionApp/Dockerfile
+  #     network: default
   # Migration service for EF migrations
   ef-migrations:
     image: mcr.microsoft.com/dotnet/sdk:8.0
@@ -71,6 +71,18 @@ services:
       start_period: 50s
     networks:
     - default
+  stilestream.wms.products.functionapp:
+    image: ${DOCKER_REGISTRY-}stilestreamwmsproductsfunctionapp
+    build:
+      context: .
+      dockerfile: src/Products/StileStream.Wms.Products.FunctionApp/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__SqlServer=${DB_CONNECTION_STRING}
+    depends_on:
+      sqlserver:
+         condition: service_healthy
+
 volumes:
   sqlvolume:
 networks:
@@ -78,3 +90,4 @@ networks:
     driver: bridge
 
   
+

@@ -1,16 +1,15 @@
 
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 using StileStream.Wms.Products.Domain.Entities;
 using StileStream.Wms.SharedKernel.Infrastructure.Data.Configurations;
 using StileStream.Wms.SharedKernel.Infrastructure.Data.Entities.OutboxMessages;
-using StileStream.Wms.SharedKernel.Infrastructure.Data.Interceptors;
 
 namespace StileStream.Wms.Products.Infrastructure;
 
 public class ProductsDbContext : DbContext
 {
+
     public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options)
     {
     }
@@ -32,13 +31,5 @@ public class ProductsDbContext : DbContext
         TenantConfiguration.Configure<Product>(modelBuilder);
         SoftDeleteConfiguration.Configure<Product>(modelBuilder);
     }
-
-    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-    {
-        ChangeTracker.DetectChanges();
-        ShadowPropertyUpdater.UpdateShadowProperties(ChangeTracker);
-
-        return base.SaveChangesAsync(cancellationToken);
-    }
-}
+ }
 

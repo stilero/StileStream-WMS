@@ -13,6 +13,7 @@ public sealed class SaveDomainEventsToOutboxMessagesInterceptor : SaveChangesInt
         InterceptionResult<int> result,
         CancellationToken cancellationToken = default)
     {
+        ArgumentNullException.ThrowIfNull(eventData, nameof(eventData));
         var dbContext = eventData!.Context;
         if (dbContext == null)
         {
@@ -31,7 +32,7 @@ public sealed class SaveDomainEventsToOutboxMessagesInterceptor : SaveChangesInt
             new OutboxMessage
             {
                 Id = Guid.NewGuid(),
-                TenantId = Guid.NewGuid(),
+                TenantId = Guid.Empty,
                 Type = domainEvent.GetType().Name,
                 Data = JsonConvert.SerializeObject(
                     domainEvent,

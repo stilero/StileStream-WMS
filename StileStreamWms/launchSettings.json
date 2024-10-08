@@ -4,7 +4,7 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "inventoryservice.functionapp": "StartDebugging"
+        "stilestream.wms.products.functionapp": "StartDebugging"
       }
     }
   }

@@ -19,10 +19,14 @@ public static class DependencyInjections
             ?? configuration["ConnectionStrings__SqlServer"]
             ?? throw new ArgumentException("Connection string not found");
 
+        services.AddSingleton<SaveDomainEventsToOutboxMessagesInterceptor>();
+        services.AddSingleton<AuditSaveChangesInterceptor>();
+
         services.AddDbContext<ProductsDbContext>((sp, options) => {
             var domainEventsToOutboxInterceptor = sp.GetRequiredService<SaveDomainEventsToOutboxMessagesInterceptor>();
+            var auditSaveChangesInterceptor = sp.GetRequiredService<AuditSaveChangesInterceptor>();
             options.UseSqlServer(connectionString)
-                .AddInterceptors(domainEventsToOutboxInterceptor);
+                .AddInterceptors(domainEventsToOutboxInterceptor, auditSaveChangesInterceptor);
             });
         return services;
     }

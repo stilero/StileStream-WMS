@@ -43,7 +43,7 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(3979));
+                        .HasDefaultValue(new DateTime(2024, 10, 8, 19, 49, 9, 118, DateTimeKind.Utc).AddTicks(5443));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -87,7 +87,7 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                     b.Property<DateTime>("UpdatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(4402));
+                        .HasDefaultValue(new DateTime(2024, 10, 8, 19, 49, 9, 118, DateTimeKind.Utc).AddTicks(6028));
 
                     b.HasKey("Id");
 
@@ -127,12 +127,12 @@ namespace StileStream.Wms.Products.Infrastructure.Migrations
                     b.Property<DateTime>("OccurredOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(2612));
+                        .HasDefaultValue(new DateTime(2024, 10, 8, 19, 49, 9, 118, DateTimeKind.Utc).AddTicks(3704));
 
                     b.Property<DateTime>("ProcessedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 1, 20, 40, 40, 204, DateTimeKind.Utc).AddTicks(2967));
+                        .HasDefaultValue(new DateTime(2024, 10, 8, 19, 49, 9, 118, DateTimeKind.Utc).AddTicks(4196));
 
                     b.Property<string>("Properties")
                         .IsRequired()
