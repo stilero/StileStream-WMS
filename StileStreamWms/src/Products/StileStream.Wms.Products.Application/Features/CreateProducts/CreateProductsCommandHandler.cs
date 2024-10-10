@@ -1,6 +1,6 @@
 using StileStream.Wms.Products.Application.Features.CreateProducts.Contracts;
+using StileStream.Wms.Products.Application.Repositories;
 using StileStream.Wms.Products.Domain.Entities;
-using StileStream.Wms.Products.Domain.Repositories;
 using StileStream.Wms.SharedKernel.Application.MediatR.Interfaces;
 using StileStream.Wms.SharedKernel.Domain.Models.Results;
 

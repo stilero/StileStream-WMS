@@ -1,6 +1,6 @@
 using StileStream.Wms.Products.Domain.Entities;
 
-namespace StileStream.Wms.Products.Domain.Repositories;
+namespace StileStream.Wms.Products.Application.Repositories;
 
 public interface IProductRepository
 {
