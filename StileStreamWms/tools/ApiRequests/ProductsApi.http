@@ -1,0 +1,55 @@
+### VARIABLES
+@BaseURL=http://localhost:5000
+### CREATE PRODUCTS
+POST {{BaseURL}}/api/products/import
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "name": "Product 1",
+      "sku": "P1",
+      "description": "Product 1 description",
+      "manufacturer": "Manufacturer 1",
+      "category": "Category 1",
+      "status": "Active",
+      "createdBy": "testsuite",
+      "updatedBy": "testsuite",
+    },
+    {
+      "name": "Product 2",
+      "sku": "P2",
+      "description": "Product 2 description",
+      "manufacturer": "Manufacturer 2",
+      "category": "Category 2",
+      "status": "Active",
+      "createdBy": "testsuite",
+      "updatedBy": "testsuite",
+    },
+    {
+      "name": "Product 3",
+      "sku": "P3",
+      "description": "Product 3 description",
+      "manufacturer": "Manufacturer 3",
+      "category": "Category 3",
+      "status": "Active",
+      "createdBy": "testsuite",
+      "updatedBy": "testsuite",
+    }
+  ]
+}
+
+###
+
+### DELETE PRODUCTS
+DELETE {{BaseURL}}/api/productsd9994fe5-9769-491b-8abd-bbf7781efe80
+Content-Type: application/json
+
+###
+DELETE {{BaseURL}}/api/products/2c20694e-58c4-4f91-ba4d-366e5de82a6b
+Content-Type: application/json
+
+
+###
+DELETE {{BaseURL}}/api/products/6c4ea9df-b9b6-429b-b1d4-882b05ef7282
+Content-Type: application/json
