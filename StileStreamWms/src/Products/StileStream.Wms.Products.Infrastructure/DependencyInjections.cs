@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using StileStream.Wms.Products.Application.Repositories;
 using StileStream.Wms.Products.Domain.Repositories;
 using StileStream.Wms.Products.Infrastructure.Repositories;
 using StileStream.Wms.SharedKernel.Domain.Interfaces;
