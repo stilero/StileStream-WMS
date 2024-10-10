@@ -18,7 +18,6 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\SharedKernel\StileStream.Wms.SharedKernel.Domain\StileStream.Wms.SharedKernel.Domain.csproj" />
 	  <ProjectReference Include="..\..\SharedKernel\StileStream.Wms.SharedKernel.Infrastructure.Data\StileStream.Wms.SharedKernel.Infrastructure.Data.csproj" />
 	  <ProjectReference Include="..\StileStream.Wms.Products.Application\StileStream.Wms.Products.Application.csproj" />
 	</ItemGroup>

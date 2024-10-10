@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-using StileStream.Wms.Products.Domain.Entities;
+using StileStream.Wms.Products.Domain.Aggregates;
 using StileStream.Wms.Products.Domain.Enums;
 
 namespace StileStream.Wms.Products.Infrastructure.Configurations;
