@@ -399,3 +399,4 @@ FodyWeavers.xsd
 /StileStreamWms/src/Inventory/StileStream.Wms.Inventory.FunctionApp/local.settings.json
 /StileStreamWms/src/Product/StileStream.Wms.Product/appsettings.Local.json
 /StileStreamWms/.env
+/StileStreamWms/src/Products/StileStream.Wms.Products.FunctionApp/local.settings.json
