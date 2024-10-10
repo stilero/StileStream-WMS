@@ -2,7 +2,7 @@ using StileStream.Wms.Products.Application.Features.CreateProducts.Contracts;
 using StileStream.Wms.Products.Application.Repositories;
 using StileStream.Wms.Products.Domain.Aggregates;
 using StileStream.Wms.SharedKernel.Application.MediatR.Interfaces;
-using StileStream.Wms.SharedKernel.Domain.Models.Results;
+using StileStream.Wms.SharedKernel.Application.Models.Results;
 
 namespace StileStream.Wms.Products.Application.Features.CreateProducts;
 

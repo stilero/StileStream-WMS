@@ -1,4 +1,4 @@
-namespace StileStream.Wms.SharedKernel.Domain.Models.Results;
+namespace StileStream.Wms.SharedKernel.Application.Models.Results;
 
 public class ErrorResult
 {

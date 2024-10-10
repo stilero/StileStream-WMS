@@ -1,6 +1,6 @@
 using StileStream.Wms.Products.Application.Repositories;
 using StileStream.Wms.SharedKernel.Application.MediatR.Interfaces;
-using StileStream.Wms.SharedKernel.Domain.Models.Results;
+using StileStream.Wms.SharedKernel.Application.Models.Results;
 
 namespace StileStream.Wms.Products.Application.Features.DeleteProduct;
 public sealed class DeleteProductCommandHandler 

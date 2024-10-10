@@ -1,6 +1,6 @@
 using FluentValidation;
 
-using StileStream.Wms.SharedKernel.Domain.Models.Results;
+using StileStream.Wms.SharedKernel.Application.Models.Results;
 
 namespace StileStream.Wms.SharedKernel.Application.Validators;
 

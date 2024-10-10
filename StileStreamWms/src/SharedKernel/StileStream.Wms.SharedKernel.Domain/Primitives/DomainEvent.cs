@@ -13,7 +13,6 @@ public abstract class DomainEvent : IDomainEvent
 
     public string EventType { get; private set; } = string.Empty;
 
-
     protected DomainEvent(Guid aggregateId, string aggregateType, string eventType)
     {
         Id = Guid.NewGuid();
