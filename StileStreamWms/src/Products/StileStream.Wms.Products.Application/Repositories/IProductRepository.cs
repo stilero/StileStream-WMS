@@ -1,4 +1,4 @@
-using StileStream.Wms.Products.Domain.Entities;
+using StileStream.Wms.Products.Domain.Aggregates;
 
 namespace StileStream.Wms.Products.Application.Repositories;
 

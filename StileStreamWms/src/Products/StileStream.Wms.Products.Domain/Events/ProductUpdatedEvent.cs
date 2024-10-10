@@ -1,4 +1,4 @@
-using StileStream.Wms.Products.Domain.Entities;
+using StileStream.Wms.Products.Domain.Aggregates;
 using StileStream.Wms.SharedKernel.Domain.Primitives;
 
 namespace StileStream.Wms.Products.Domain.Events;
