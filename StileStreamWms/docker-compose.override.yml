@@ -1,6 +1,10 @@
 version: '3.4'
 name: stile-stream
+# services:
+#   # inventoryservice.functionapp:
+#   #   environment:
+#   #     - ASPNETCORE_ENVIRONMENT=Development
 services:
-  inventoryservice.functionapp:
+  stilestream.wms.products.functionapp:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
