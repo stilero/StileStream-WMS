@@ -48,10 +48,7 @@ public class Product : AggregateRoot
         return product;
     }
 
-    public void Delete()
-    {
-        RaiseDomainEvent(new ProductDeletedEvent(Id));
-    }
+    public void Delete() => RaiseDomainEvent(new ProductDeletedEvent(Id));
 
     public static Product Load(Guid id, string name, string sku, string description, string manufacturer, string category, string status) => new()
     {
