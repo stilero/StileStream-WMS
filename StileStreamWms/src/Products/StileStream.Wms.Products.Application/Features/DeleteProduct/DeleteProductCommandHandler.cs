@@ -16,6 +16,7 @@ public sealed class DeleteProductCommandHandler
         {
             return ErrorResult.Validation("DeleteProductError.InvalidRequest", "Request is null");
         }
+
         var product = await _productRepository.GetAsync(request.Id, cancellationToken);
         if(product is null)
         {
