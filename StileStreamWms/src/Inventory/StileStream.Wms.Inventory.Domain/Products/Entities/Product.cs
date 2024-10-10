@@ -1,69 +1,64 @@
-using StileStream.Wms.Inventory.Domain.Products.Events;
-using StileStream.Wms.SharedKernel.Domain.Events;
-using StileStream.Wms.SharedKernel.Domain.Models.Results;
+//using StileStream.Wms.Inventory.Domain.Products.Events;
+//using StileStream.Wms.SharedKernel.Domain.Models.Results;
+//using StileStream.Wms.SharedKernel.Domain.Primitives;
 
-namespace StileStream.Wms.Inventory.Domain.Products.Entities;
+//namespace StileStream.Wms.Inventory.Domain.Products.Entities;
 
-public class Product : AggregateRoot
-{
-    public Guid Id { get; private set; }
-    public string Name { get; private set; } = string.Empty;
-    public string Sku { get; private set; } = string.Empty;
-    public string Description { get; private set; } = string.Empty;
-    public string Manufacturer { get; private set; } = string.Empty;
-    public string Category { get; private set; } = string.Empty;
-    public string Status { get; private set; } = ProductStatus.Active;
+//public class Product : AggregateRoot
+//{
+//    public Guid Id { get; private set; }
+//    public string Name { get; private set; } = string.Empty;
+//    public string Sku { get; private set; } = string.Empty;
+//    public string Description { get; private set; } = string.Empty;
+//    public string Manufacturer { get; private set; } = string.Empty;
+//    public string Category { get; private set; } = string.Empty;
+//    public string Status { get; private set; } = ProductStatus.Active;
 
-    public static Result<Product> CreateNew(string name, string sku, string description, string manufacturer, string category, string? createdBy = null)
-    {
-        var product = new Product
-        {
-            Id = Guid.NewGuid(),
-            Name = name,
-            Sku = sku,
-            Manufacturer = manufacturer,
-            Status = ProductStatus.Active,
-            Description = description,
-            Category = category,
-            CreatedAt = DateTime.UtcNow,
-            CreatedBy = createdBy ?? "system"
-        };
+//    public static Result<Product> CreateNew(string name, string sku, string description, string manufacturer, string category, string? createdBy = null)
+//    {
+//        var product = new Product
+//        {
+//            Id = Guid.NewGuid(),
+//            Name = name,
+//            Sku = sku,
+//            Manufacturer = manufacturer,
+//            Status = ProductStatus.Active,
+//            Description = description,
+//            Category = category,
+            
+//        };
 
-        product.RaiseDomainEvent(new ProductCreatedEvent(product));
+//        product.RaiseDomainEvent(new ProductCreatedEvent(product));
 
-        return product;
-    }
+//        return product;
+//    }
 
-    public static Result<Product> Update(Guid id, string name, string sku, string description, string category, string? updatedBy = null)
-    {
-        var product = new Product
-        {
-            Id = id,
-            Name = name,
-            Sku = sku,
-            Description = description,
-            Category = category,
-            UpdatedAt = DateTime.UtcNow,
-            UpdatedBy = updatedBy ?? "system"
-        };
+//    public static Result<Product> Update(Guid id, string name, string sku, string description, string category, string? updatedBy = null)
+//    {
+//        var product = new Product
+//        {
+//            Id = id,
+//            Name = name,
+//            Sku = sku,
+//            Description = description,
+//            Category = category,
+            
+//        };
 
-        product.RaiseDomainEvent(new ProductUpdatedEvent(product));
+//        product.RaiseDomainEvent(new ProductUpdatedEvent(product));
 
-        return product;
-    }
+//        return product;
+//    }
 
-    public static Product Load(Guid id, string name, string sku, string description, string manufacturer, string category, string status, DateTime createdAt, DateTime updatedAt, string createdBy, string updatedBy) => new()
-    {
-        Id = id,
-        Name = name,
-        Sku = sku,
-        Description = description,
-        Manufacturer = manufacturer,
-        Category = category,
-        Status = status,
-        CreatedAt = createdAt,
-        UpdatedAt = updatedAt,
-        CreatedBy = createdBy,
-        UpdatedBy = updatedBy
-    };
-}
+//    public static Product Load(Guid id, string name, string sku, string description, string manufacturer, string category, string status, DateTime createdAt, DateTime updatedAt, string createdBy, string updatedBy) => new()
+//    {
+//        Id = id,
+//        Name = name,
+//        Sku = sku,
+//        Description = description,
+//        Manufacturer = manufacturer,
+//        Category = category,
+//        Status = status,
+       
+//    };
+//}

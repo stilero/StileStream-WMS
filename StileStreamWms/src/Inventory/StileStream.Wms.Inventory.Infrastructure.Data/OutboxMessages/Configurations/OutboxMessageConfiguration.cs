@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using StileStream.Wms.Inventory.Infrastructure.Data.OutboxMessages.Entities;
@@ -9,6 +9,7 @@ public class OutboxMessageConfiguration : IEntityTypeConfiguration<OutboxMessage
 {
     public void Configure(EntityTypeBuilder<OutboxMessage> builder)
     {
+        ArgumentNullException.ThrowIfNull(builder, nameof(builder));
         builder.ToTable("OutboxMessages");
         builder.HasKey(p => p.Id);
         builder.Property(p => p.Type).HasMaxLength(255).HasDefaultValue(string.Empty);

@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "StileStream.Wms.Products.FunctionApp": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7094"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "DockerfileRunArguments": "--init",
+      "httpPort": 33930,
+      "useSSL": false
+    }
+  }
+}

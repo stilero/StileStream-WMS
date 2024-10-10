@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\SharedKernel\StileStream.Wms.SharedKernel.Domain\StileStream.Wms.SharedKernel.Domain.csproj" />
     <ProjectReference Include="..\..\SharedKernel\StileStream.Wms.SharedKernel.Infrastructure.Data\StileStream.Wms.SharedKernel.Infrastructure.Data.csproj" />
-    <ProjectReference Include="..\StileStream.Wms.Inventory.Domain\StileStream.Wms.Inventory.Domain.csproj" />
   </ItemGroup>
 
 </Project>

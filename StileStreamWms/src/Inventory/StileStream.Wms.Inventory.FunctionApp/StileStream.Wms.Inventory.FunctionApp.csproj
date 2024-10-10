@@ -21,7 +21,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StileStream.Wms.Inventory.Application\StileStream.Wms.Inventory.Application.csproj" />
     <ProjectReference Include="..\StileStream.Wms.Inventory.Infrastructure.Data\StileStream.Wms.Inventory.Infrastructure.Data.csproj" />
   </ItemGroup>
   <ItemGroup>

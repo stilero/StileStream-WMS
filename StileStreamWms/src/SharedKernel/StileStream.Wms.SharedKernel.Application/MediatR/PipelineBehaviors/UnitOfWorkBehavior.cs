@@ -32,7 +32,7 @@ public class UnitOfWorkBehavior<TRequest, TResponse>(IUnitOfWork unitOfWork, IMe
     private async Task DispatchDomainEvents(CancellationToken cancellationToken)
     {
         var domainEntities = _unitOfWork.GetTrackedEntities();
-        var domainEvents = domainEntities.SelectMany(x => x.DomainEvents).ToList();
+        var domainEvents = domainEntities.SelectMany(x => x.GetDomainEvents()).ToList();
         domainEntities.ToList().ForEach(entity => entity.ClearDomainEvents());
 
         var tasks = domainEvents.Select(async domainEvent => await _mediator.Publish(domainEvent, cancellationToken));
