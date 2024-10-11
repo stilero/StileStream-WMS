@@ -1,4 +1,4 @@
-namespace StileStream.Wms.Products.Domain.Enums;
+namespace StileStream.Wms.Products.Domain.Products.ValueObjects;
 
 public static class ProductStatus
 {

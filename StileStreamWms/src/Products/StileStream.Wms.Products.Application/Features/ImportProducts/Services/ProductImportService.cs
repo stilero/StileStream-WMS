@@ -1,6 +1,7 @@
 using StileStream.Wms.Products.Application.Features.ImportProducts.Contracts;
-using StileStream.Wms.Products.Application.Repositories;
-using StileStream.Wms.Products.Domain.Aggregates.ProductImports;
+using StileStream.Wms.Products.Domain.ProductImport;
+using StileStream.Wms.Products.Domain.ProductImport.Entities;
+using StileStream.Wms.Products.Domain.Products.Repositories;
 using StileStream.Wms.SharedKernel.Application.Models.Results;
 
 namespace StileStream.Wms.Products.Application.Features.ImportProducts.Services;

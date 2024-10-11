@@ -1,7 +1,7 @@
-using StileStream.Wms.Products.Domain.Enums;
 using StileStream.Wms.Products.Domain.Events;
+using StileStream.Wms.Products.Domain.Products.ValueObjects;
 using StileStream.Wms.SharedKernel.Domain.Primitives;
-namespace StileStream.Wms.Products.Domain.Aggregates;
+namespace StileStream.Wms.Products.Domain.Products;
 public class Product : AggregateRoot
 {
     public Guid Id { get; private set; }

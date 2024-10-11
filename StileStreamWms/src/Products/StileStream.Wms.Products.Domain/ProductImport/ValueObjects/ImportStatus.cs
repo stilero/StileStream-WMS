@@ -1,4 +1,4 @@
-﻿namespace StileStream.Wms.Products.Domain.Aggregates.ProductImports;
+﻿namespace StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
 
 public enum ImportStatus
 {

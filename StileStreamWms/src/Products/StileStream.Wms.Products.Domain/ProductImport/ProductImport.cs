@@ -1,7 +1,10 @@
 using StileStream.Wms.Products.Domain.Events;
+using StileStream.Wms.Products.Domain.ProductImport.Entities;
+using StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
+using StileStream.Wms.Products.Domain.Products;
 using StileStream.Wms.SharedKernel.Domain.Primitives;
 
-namespace StileStream.Wms.Products.Domain.Aggregates.ProductImports;
+namespace StileStream.Wms.Products.Domain.ProductImport;
 public sealed class ProductImport : AggregateRoot
 {
     public Guid Id { get; private set; }

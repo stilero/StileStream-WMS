@@ -1,4 +1,6 @@
-﻿namespace StileStream.Wms.Products.Domain.Aggregates.ProductImports;
+﻿using StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
+
+namespace StileStream.Wms.Products.Domain.ProductImport.Entities;
 
 public sealed class StagedProductData
 {

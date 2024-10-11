@@ -1,7 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-using StileStream.Wms.Products.Domain.Aggregates;
+using StileStream.Wms.Products.Domain.Products;
 using StileStream.Wms.SharedKernel.Infrastructure.Data.Configurations;
 using StileStream.Wms.SharedKernel.Infrastructure.Data.Entities.OutboxMessages;
 

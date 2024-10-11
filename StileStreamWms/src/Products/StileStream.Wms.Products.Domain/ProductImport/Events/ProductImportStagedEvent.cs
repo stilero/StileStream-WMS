@@ -1,7 +1,6 @@
-using StileStream.Wms.Products.Domain.Aggregates.ProductImports;
 using StileStream.Wms.SharedKernel.Domain.Primitives;
 
-namespace StileStream.Wms.Products.Domain.Events;
+namespace StileStream.Wms.Products.Domain.ProductImport.Events;
 
 public sealed class ProductImportStagedEvent : DomainEvent
 {

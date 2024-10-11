@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 using StileStream.Wms.Products.Application.Repositories;
-using StileStream.Wms.Products.Domain.Aggregates;
+using StileStream.Wms.Products.Domain.Products;
 
 namespace StileStream.Wms.Products.Infrastructure.Repositories;
 

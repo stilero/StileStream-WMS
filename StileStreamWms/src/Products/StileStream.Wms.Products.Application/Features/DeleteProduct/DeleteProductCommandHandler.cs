@@ -1,4 +1,4 @@
-using StileStream.Wms.Products.Application.Repositories;
+using StileStream.Wms.Products.Domain.Products.Repositories;
 using StileStream.Wms.SharedKernel.Application.MediatR.Interfaces;
 using StileStream.Wms.SharedKernel.Application.Models.Results;
 
