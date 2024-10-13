@@ -1,4 +1,4 @@
-﻿namespace StileStream.Wms.Products.Application.Features.CreateProducts.Contracts;
+﻿namespace StileStream.Wms.Products.Application.Features.Products.CreateProducts.Contracts;
 
 public sealed record CreateProductRequest(
 string Name,

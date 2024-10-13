@@ -1,4 +1,4 @@
-﻿using StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
+using StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
 
 namespace StileStream.Wms.Products.Domain.ProductImport.Entities;
 
@@ -13,19 +13,24 @@ public sealed class StagedProductData
     public string ProductStatus { get; private set; } = string.Empty;
     public StagingStatus Status { get; private set; } = StagingStatus.Pending;
     public string Message { get; private set; } = string.Empty;
+    public ProductImport ProductImport { get; private set; }
+    public Guid ProductImportId { get; private set; }
 
-    public StagedProductData(string productName, string productSku, string productDescription, string productManufacturer, string productCategory, string productStatus)
+    public StagedProductData(string productName, string productSku, string productDescription, string productManufacturer, string productCategory, string productStatus, ProductImport productImport)
     {
+        ArgumentNullException.ThrowIfNull(productImport, nameof(productImport));
         ProductName = productName;
         ProductSku = productSku;
         ProductDescription = productDescription;
         ProductManufacturer = productManufacturer;
         ProductCategory = productCategory;
         ProductStatus = productStatus;
+        ProductImport = productImport;
+        ProductImportId = productImport.Id;
     }
 
-    public static StagedProductData CreateNew(string productName, string productSku, string productDescription, string productManufacturer, string productCategory, string productStatus)
-        => new(productName, productSku, productDescription, productManufacturer, productCategory, productStatus);
+    public static StagedProductData CreateNew(string productName, string productSku, string productDescription, string productManufacturer, string productCategory, string productStatus, ProductImport productImport)
+        => new(productName, productSku, productDescription, productManufacturer, productCategory, productStatus, productImport);
 
     public void Validate()
     {

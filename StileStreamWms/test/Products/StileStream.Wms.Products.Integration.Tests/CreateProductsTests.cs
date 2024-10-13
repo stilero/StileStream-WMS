@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Newtonsoft.Json;
 
-using StileStream.Wms.Products.Application.Features.CreateProducts.Contracts;
+using StileStream.Wms.Products.Application.Features.Products.CreateProducts.Contracts;
 using StileStream.Wms.Products.Domain.Products.Events;
 using StileStream.Wms.Products.Infrastructure;
 using StileStream.Wms.Products.Integration.Tests.Fakers;

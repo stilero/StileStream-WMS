@@ -1,6 +1,6 @@
 using Bogus;
 
-using StileStream.Wms.Products.Application.Features.CreateProducts.Contracts;
+using StileStream.Wms.Products.Application.Features.Products.CreateProducts.Contracts;
 
 namespace StileStream.Wms.Products.Integration.Tests.Fakers;
 public static class RequestFaker

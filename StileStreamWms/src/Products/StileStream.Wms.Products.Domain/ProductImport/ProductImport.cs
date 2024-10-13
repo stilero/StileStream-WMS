@@ -1,5 +1,5 @@
-using StileStream.Wms.Products.Domain.Events;
 using StileStream.Wms.Products.Domain.ProductImport.Entities;
+using StileStream.Wms.Products.Domain.ProductImport.Events;
 using StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
 using StileStream.Wms.Products.Domain.Products;
 using StileStream.Wms.SharedKernel.Domain.Primitives;
@@ -40,12 +40,20 @@ public sealed class ProductImport : AggregateRoot
         }
 
         Status = StagedDatas.Any(x => x.Status == StagingStatus.Invalid) ? ImportStatus.Failed : ImportStatus.Completed;
-        RaiseDomainEvent(new ProductImportValidatedEvent(this));
+        if (Status == ImportStatus.Completed)
+        {
+            RaiseDomainEvent(new ProductImportValidatedEvent(this));
+        }else
+        {
+            RaiseDomainEvent(new ProductImportValidationFailedEvent(this));
+        }
+       
     }
 
-    public void ProcessStagedData()
+    public IEnumerable<Product> ProcessImportAndReturnProducts()
     {
         ValidateStagedData();
+        var products = new List<Product>();
         if (Type == ImportType.New)
         {
 
@@ -54,7 +62,7 @@ public sealed class ProductImport : AggregateRoot
                 if (stagedData.Status == StagingStatus.Validated)
                 {
                     var product = Product.CreateNew(stagedData.ProductName, stagedData.ProductSku, stagedData.ProductDescription, stagedData.ProductManufacturer, stagedData.ProductCategory);
-                    RaiseDomainEvent(new ProductCreatedEvent(product));
+                    products.Add(product);
                 }
             }
         }
@@ -65,9 +73,10 @@ public sealed class ProductImport : AggregateRoot
                 if (stagedData.Status == StagingStatus.Validated)
                 {
                     var product = Product.Update(Guid.NewGuid(), stagedData.ProductName, stagedData.ProductSku, stagedData.ProductStatus, stagedData.ProductManufacturer, stagedData.ProductDescription, stagedData.ProductCategory);
-                    RaiseDomainEvent(new ProductUpdatedEvent(product));
+                    products.Add(product);
                 }
             }
         }
+        return products;
     }
 }

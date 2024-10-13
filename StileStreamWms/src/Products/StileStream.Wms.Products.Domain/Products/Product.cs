@@ -1,8 +1,8 @@
-using StileStream.Wms.Products.Domain.Events;
+using StileStream.Wms.Products.Domain.Products.Events;
 using StileStream.Wms.Products.Domain.Products.ValueObjects;
 using StileStream.Wms.SharedKernel.Domain.Primitives;
 namespace StileStream.Wms.Products.Domain.Products;
-public class Product : AggregateRoot
+public sealed class Product : AggregateRoot
 {
     public Guid Id { get; private set; }
     public string Name { get; private set; } = string.Empty;

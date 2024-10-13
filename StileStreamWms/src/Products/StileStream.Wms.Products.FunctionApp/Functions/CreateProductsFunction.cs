@@ -7,8 +7,8 @@ using Microsoft.Extensions.Logging;
 
 using Newtonsoft.Json;
 
-using StileStream.Wms.Products.Application.Features.CreateProducts;
-using StileStream.Wms.Products.Application.Features.CreateProducts.Contracts;
+using StileStream.Wms.Products.Application.Features.Products.CreateProducts;
+using StileStream.Wms.Products.Application.Features.Products.CreateProducts.Contracts;
 
 namespace StileStream.Wms.Products.FunctionApp.Functions;
 

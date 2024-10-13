@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
-using StileStream.Wms.Products.Application.Features.DeleteProduct;
+using StileStream.Wms.Products.Application.Features.Products.DeleteProduct;
 
 namespace StileStream.Wms.Products.FunctionApp.Functions;
 

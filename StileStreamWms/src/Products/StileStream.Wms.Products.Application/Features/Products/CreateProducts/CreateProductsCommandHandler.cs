@@ -1,10 +1,10 @@
-using StileStream.Wms.Products.Application.Features.CreateProducts.Contracts;
+using StileStream.Wms.Products.Application.Features.Products.CreateProducts.Contracts;
+using StileStream.Wms.Products.Application.Features.Products.Repositories;
 using StileStream.Wms.Products.Domain.Products;
-using StileStream.Wms.Products.Domain.Products.Repositories;
 using StileStream.Wms.SharedKernel.Application.MediatR.Interfaces;
 using StileStream.Wms.SharedKernel.Application.Models.Results;
 
-namespace StileStream.Wms.Products.Application.Features.CreateProducts;
+namespace StileStream.Wms.Products.Application.Features.Products.CreateProducts;
 
 public sealed class CreateProductsCommandHandler(IProductRepository productRepository) : ICommandHandler<CreateProductsCommand, CreateProductsResponse>
 {
