@@ -1,15 +1,13 @@
-using System.Threading;
-
 using MediatR;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
+
 using Newtonsoft.Json;
 
-using StileStream.Wms.Products.Application.Features.Products.CreateProducts.Contracts;
-using StileStream.Wms.Products.Application.Features.Products.ImportProducts;
+using StileStream.Wms.Products.Application.Features.Products.ImportProducts.Commands;
 using StileStream.Wms.Products.Application.Features.Products.ImportProducts.Contracts;
 
 namespace StileStream.Wms.Products.FunctionApp.Functions;

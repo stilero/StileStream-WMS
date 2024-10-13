@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 
 using StileStream.Wms.Products.Application.Features.Products.CreateProducts.Contracts;
 using StileStream.Wms.Products.Application.Features.Products.ImportProducts.Contracts;
+using StileStream.Wms.Products.Domain.ProductImport.Events;
 using StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
 using StileStream.Wms.Products.Domain.Products.Events;
 using StileStream.Wms.Products.Infrastructure;
@@ -29,12 +30,12 @@ public class ProductImportTests : IClassFixture<AzureFunctionFixture>
     }
 
     [Fact]
-    public async Task Request_GivenValidData_StoresProductToDatabaseSuccessfully()
+    public async Task Request_GivenValidData_PersistsProductImportAndOutboxMessages_Successfully()
     {
         //Arrange
         var dbContext = _fixture.Host!.Services.GetRequiredService<ProductsDbContext>();
         var productCount = 5;
-        var requestContent = RequestFaker.ProductImportRequestFaker(ImportType.New, 5).Generate();
+        var requestContent = RequestFaker.ProductImportRequestFaker(ImportType.Add, 5).Generate();
 
         using var request = new HttpRequestMessage(HttpMethod.Post, "api/products/import")
         {
@@ -52,6 +53,7 @@ public class ProductImportTests : IClassFixture<AzureFunctionFixture>
         productImports.Should().HaveCount(1);      
         var outboxMessages = await dbContext.OutboxMessages.ToListAsync();
         outboxMessages.Should().NotBeNullOrEmpty();
-        outboxMessages.Where(o => o.Type == nameof(ProductCreatedEvent)).Should().HaveCount(productCount);
+        outboxMessages.Where(o => o.Type == nameof(ProductImportCreatedEvent)).Should().HaveCount(1);
+        outboxMessages.Where(o => o.Type == nameof(ProductImportStagedEvent)).Should().HaveCount(1);
     }
 }

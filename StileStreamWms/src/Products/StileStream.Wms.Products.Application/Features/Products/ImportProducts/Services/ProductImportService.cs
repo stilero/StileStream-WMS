@@ -39,14 +39,14 @@ public sealed class ProductImportService : IProductImportService
 
     public async Task<Result> ProcessImport(Guid importId, CancellationToken cancellationToken)
     {
-        var import = await _productImportRepository.GetAsync(importId, cancellationToken);
+        var import = await _productImportRepository.FindAsync(importId, cancellationToken);
         if (import is null)
         {
             return ErrorResult.NotFound("ProductImportErrors.ImportNotFound", "Import not found");
         }
 
         var products = import.ProcessLinesAndReturnProducts();
-        await _productImportRepository.Update(import, cancellationToken);
+        _productImportRepository.Update(import);
         await _productRepository.AddRangeAsync(products, cancellationToken);
         return Result.Success();
     }

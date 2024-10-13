@@ -8,7 +8,7 @@ namespace StileStream.Wms.Products.Domain.ProductImport;
 public sealed class ProductImport : AggregateRoot
 {
     public Guid Id { get; private set; }
-    public ImportType Type { get; private set; } = ImportType.New;
+    public ImportType Type { get; private set; } = ImportType.Add;
     public ImportStatus Status { get; private set; } = ImportStatus.Pending;
     public ICollection<ProductImportLine> Lines { get; private set; } = [];
 
@@ -33,7 +33,7 @@ public sealed class ProductImport : AggregateRoot
     {
         Lines = importLines;
         Status = ImportStatus.Processing;
-        RaiseDomainEvent(new ProductImportLinesStagedEvent(this));
+        RaiseDomainEvent(new ProductImportStagedEvent(this));
     }
 
     private void ValidateStagedLines()
@@ -58,7 +58,7 @@ public sealed class ProductImport : AggregateRoot
     {
         ValidateStagedLines();
         var products = new List<Product>();
-        if (Type == ImportType.New)
+        if (Type == ImportType.Add)
         {
 
             foreach (var stagedData in Lines)

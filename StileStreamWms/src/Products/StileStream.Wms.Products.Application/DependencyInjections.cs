@@ -4,6 +4,8 @@ using FluentValidation;
 
 using Microsoft.Extensions.DependencyInjection;
 
+using StileStream.Wms.Products.Application.Features.Products.ImportProducts.Interfaces;
+using StileStream.Wms.Products.Application.Features.Products.ImportProducts.Services;
 using StileStream.Wms.SharedKernel.Application.MediatR.PipelineBehaviors;
 
 namespace StileStream.Wms.Products.Application;
@@ -20,7 +22,7 @@ public static class DependencyInjections
             config.AddOpenBehavior(typeof(UnitOfWorkBehavior<,>));
             config.RegisterServicesFromAssembly(thisAssembly);
         });    
-
+        services.AddScoped<IProductImportService, ProductImportService>();
         return services;
     }
 }

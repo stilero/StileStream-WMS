@@ -12,7 +12,7 @@ public class ProductImportConfiguration : IEntityTypeConfiguration<ProductImport
         ArgumentNullException.ThrowIfNull(builder, nameof(builder));
         builder.ToTable("ProductImports");
         builder.HasKey(p => p.Id);
-        builder.Property(p => p.Type).HasMaxLength(50).IsRequired();
+        builder.Property(p => p.Type).HasConversion<string>().HasMaxLength(50).IsRequired();
         builder.Property(p => p.Status).HasConversion<string>().HasMaxLength(50).IsRequired();
 
         ConfigureIndexes(builder);

@@ -2,11 +2,11 @@ using StileStream.Wms.Products.Application.Features.Products.ImportProducts.Inte
 using StileStream.Wms.Products.Domain.ProductImport;
 
 namespace StileStream.Wms.Products.Infrastructure.ProductImports.Repositories;
-public sealed class ProductImportRepository : IProductImportRepository
+public sealed class ProductImportRepository(ProductsDbContext dbContext) : IProductImportRepository
 {
-    public Task<Guid> AddAsync(ProductImport productImport, CancellationToken cancellationToken) => throw new NotImplementedException();
-    public Task AddRangeAsync(IEnumerable<ProductImport> productImports, CancellationToken cancellationToken) => throw new NotImplementedException();
-    public Task<ProductImport> GetAsync(Guid id, CancellationToken cancellationToken) => throw new NotImplementedException();
-    public Task Update(ProductImport productImport, CancellationToken cancellationToken) => throw new NotImplementedException();
-    public Task UpdateRange(IEnumerable<ProductImport> productImports, CancellationToken cancellationToken) => throw new NotImplementedException();
+    public async Task AddAsync(ProductImport productImport, CancellationToken cancellationToken) => await dbContext.AddAsync(productImport, cancellationToken);
+    public async Task AddRangeAsync(IEnumerable<ProductImport> productImports, CancellationToken cancellationToken) => await dbContext.AddRangeAsync(productImports, cancellationToken);
+    public async Task<ProductImport?> FindAsync(Guid id, CancellationToken cancellationToken) => await dbContext.FindAsync<ProductImport>(id, cancellationToken);
+    public void Update(ProductImport productImport) => dbContext.Update(productImport);
+    public void UpdateRange(IEnumerable<ProductImport> productImports) => dbContext.UpdateRange(productImports);
 }
