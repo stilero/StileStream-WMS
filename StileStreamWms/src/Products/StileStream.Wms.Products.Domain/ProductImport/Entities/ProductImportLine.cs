@@ -16,21 +16,21 @@ public sealed class ProductImportLine
     public ProductImport ProductImport { get; private set; }
     public Guid ProductImportId { get; private set; }
 
-    public ProductImportLine(string productName, string productSku, string productDescription, string productManufacturer, string productCategory, string productStatus, ProductImport productImport)
-    {
-        ArgumentNullException.ThrowIfNull(productImport, nameof(productImport));
-        ProductName = productName;
-        ProductSku = productSku;
-        ProductDescription = productDescription;
-        ProductManufacturer = productManufacturer;
-        ProductCategory = productCategory;
-        ProductStatus = productStatus;
-        ProductImport = productImport;
-        ProductImportId = productImport.Id;
-    }
+
+
 
     public static ProductImportLine CreateNew(string productName, string productSku, string productDescription, string productManufacturer, string productCategory, string productStatus, ProductImport productImport)
-        => new(productName, productSku, productDescription, productManufacturer, productCategory, productStatus, productImport);
+        => new()
+        {
+            Id = Guid.NewGuid(),
+            ProductName = productName,
+            ProductSku = productSku,
+            ProductDescription = productDescription,
+            ProductManufacturer = productManufacturer,
+            ProductCategory = productCategory,
+            ProductStatus = productStatus,
+            ProductImport = productImport
+        };
 
     public void Validate()
     {

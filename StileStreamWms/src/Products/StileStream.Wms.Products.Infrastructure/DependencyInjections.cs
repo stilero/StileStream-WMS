@@ -2,7 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using StileStream.Wms.Products.Application.Features.Products.ImportProducts.Interfaces;
 using StileStream.Wms.Products.Application.Features.Products.Repositories;
+using StileStream.Wms.Products.Infrastructure.ProductImports.Repositories;
 using StileStream.Wms.Products.Infrastructure.Products;
 using StileStream.Wms.Products.Infrastructure.Repositories;
 using StileStream.Wms.SharedKernel.Domain.Interfaces;
@@ -47,6 +49,8 @@ public static class DependencyInjections
     {
         services.AddScoped<IUnitOfWork, ProductsUnitOfWork>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IProductImportRepository, ProductImportRepository>();
+        services.AddScoped<IProductImportLineRepository, ProductImportLineRepository>();
         return services;
     }
 }

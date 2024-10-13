@@ -143,6 +143,7 @@ public class AzureFunctionFixture : SqlServerTestFixture, IAsyncLifetime
         services.AddProductsApplication();
         services.AddScoped<CreateProductsFunction>();
         services.AddScoped<DeleteProductFunction>();
+        services.AddScoped<ProductImportFunction>();
     }
 
     public override async Task DisposeAsync()

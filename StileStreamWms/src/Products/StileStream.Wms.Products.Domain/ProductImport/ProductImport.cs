@@ -12,6 +12,10 @@ public sealed class ProductImport : AggregateRoot
     public ImportStatus Status { get; private set; } = ImportStatus.Pending;
     public ICollection<ProductImportLine> Lines { get; private set; } = [];
 
+    private ProductImport()
+    {
+    }
+
     public static ProductImport CreateNew(ImportType type)
     {
         var productImport = new ProductImport

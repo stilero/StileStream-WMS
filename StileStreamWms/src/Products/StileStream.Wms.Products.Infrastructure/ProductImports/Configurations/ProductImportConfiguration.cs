@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using StileStream.Wms.Products.Domain.ProductImport;
 
-namespace StileStream.Wms.Products.Infrastructure.ProductImports;
+namespace StileStream.Wms.Products.Infrastructure.ProductImports.Configurations;
 
 public class ProductImportConfiguration : IEntityTypeConfiguration<ProductImport>
 {
@@ -13,8 +13,7 @@ public class ProductImportConfiguration : IEntityTypeConfiguration<ProductImport
         builder.ToTable("ProductImports");
         builder.HasKey(p => p.Id);
         builder.Property(p => p.Type).HasMaxLength(50).IsRequired();
-        builder.Property(p => p.Status).HasMaxLength(50).IsRequired();
-        builder.HasMany(p => p.Lines).WithOne().HasForeignKey(p => p.ProductImportId).OnDelete(DeleteBehavior.Cascade);
+        builder.Property(p => p.Status).HasConversion<string>().HasMaxLength(50).IsRequired();
 
         ConfigureIndexes(builder);
     }

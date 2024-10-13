@@ -6,7 +6,7 @@ using StileStream.Wms.Products.Domain.ProductImport.Entities;
 using StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
 using StileStream.Wms.Products.Domain.Products.ValueObjects;
 
-namespace StileStream.Wms.Products.Infrastructure.ProductImports;
+namespace StileStream.Wms.Products.Infrastructure.ProductImports.Configurations;
 
 public class ProductImportLinesConfiguration : IEntityTypeConfiguration<ProductImportLine>
 {
@@ -20,8 +20,9 @@ public class ProductImportLinesConfiguration : IEntityTypeConfiguration<ProductI
         builder.Property(p => p.ProductStatus).HasMaxLength(50).HasDefaultValue(ProductStatus.Active);
         builder.Property(p => p.ProductSku).HasMaxLength(50).IsRequired();
         builder.Property(p => p.ProductName).HasMaxLength(100).IsRequired();
-        builder.Property(p => p.Status).HasMaxLength(50).HasDefaultValue(ImportStatus.Pending);
-        builder.HasOne(p => p.ProductImport).WithMany().HasForeignKey(p => p.ProductImportId).OnDelete(DeleteBehavior.Cascade);
+        builder.Property(p => p.Status).HasMaxLength(50).HasConversion<string>().HasDefaultValue(StagingStatus.Pending);
+        
+        builder.HasOne(p => p.ProductImport).WithMany(p => p.Lines).HasForeignKey(p => p.ProductImportId).OnDelete(DeleteBehavior.Cascade);
 
         ConfigureIndexes(builder);
     }

@@ -1,7 +1,7 @@
 using StileStream.Wms.Products.Application.Features.Products.ImportProducts.Interfaces;
 using StileStream.Wms.Products.Domain.ProductImport;
 
-namespace StileStream.Wms.Products.Infrastructure.ProductImports;
+namespace StileStream.Wms.Products.Infrastructure.ProductImports.Repositories;
 public sealed class ProductImportRepository : IProductImportRepository
 {
     public Task<Guid> AddAsync(ProductImport productImport, CancellationToken cancellationToken) => throw new NotImplementedException();

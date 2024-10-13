@@ -47,10 +47,9 @@ public class ProductImportTests : IClassFixture<AzureFunctionFixture>
 
         //Assert
         response.EnsureSuccessStatusCode();
-        var products = await dbContext.Products.ToListAsync();
-        products.Should().NotBeNullOrEmpty();
-        products.Should().HaveCount(productCount);
-        //products.Where(p => requestContent.Products.Select(Products => Products.Name).Contains(p.Name)).Should().HaveCount(productCount);
+        var productImports = await dbContext.ProductImports.ToListAsync();
+        productImports.Should().NotBeNullOrEmpty();
+        productImports.Should().HaveCount(1);      
         var outboxMessages = await dbContext.OutboxMessages.ToListAsync();
         outboxMessages.Should().NotBeNullOrEmpty();
         outboxMessages.Where(o => o.Type == nameof(ProductCreatedEvent)).Should().HaveCount(productCount);
