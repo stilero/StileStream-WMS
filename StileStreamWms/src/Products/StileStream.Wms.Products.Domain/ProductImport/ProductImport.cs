@@ -10,7 +10,7 @@ public sealed class ProductImport : AggregateRoot
     public Guid Id { get; private set; }
     public ImportType Type { get; private set; } = ImportType.New;
     public ImportStatus Status { get; private set; } = ImportStatus.Pending;
-    public ICollection<StagedProductData> StagedDatas { get; private set; } = [];
+    public ICollection<ProductImportLine> Lines { get; private set; } = [];
 
     public static ProductImport CreateNew(ImportType type)
     {
@@ -25,21 +25,21 @@ public sealed class ProductImport : AggregateRoot
         return productImport;
     }
 
-    public void StageData(ICollection<StagedProductData> stagedDatas)
+    public void StageLines(ICollection<ProductImportLine> importLines)
     {
-        StagedDatas = stagedDatas;
+        Lines = importLines;
         Status = ImportStatus.Processing;
-        RaiseDomainEvent(new ProductImportStagedEvent(this));
+        RaiseDomainEvent(new ProductImportLinesStagedEvent(this));
     }
 
-    private void ValidateStagedData()
+    private void ValidateStagedLines()
     {
-        foreach (var stagedData in StagedDatas)
+        foreach (var stagedData in Lines)
         {
             stagedData.Validate();
         }
 
-        Status = StagedDatas.Any(x => x.Status == StagingStatus.Invalid) ? ImportStatus.Failed : ImportStatus.Completed;
+        Status = Lines.Any(x => x.Status == StagingStatus.Invalid) ? ImportStatus.Failed : ImportStatus.Completed;
         if (Status == ImportStatus.Completed)
         {
             RaiseDomainEvent(new ProductImportValidatedEvent(this));
@@ -50,14 +50,14 @@ public sealed class ProductImport : AggregateRoot
        
     }
 
-    public IEnumerable<Product> ProcessImportAndReturnProducts()
+    public IEnumerable<Product> ProcessLinesAndReturnProducts()
     {
-        ValidateStagedData();
+        ValidateStagedLines();
         var products = new List<Product>();
         if (Type == ImportType.New)
         {
 
-            foreach (var stagedData in StagedDatas)
+            foreach (var stagedData in Lines)
             {
                 if (stagedData.Status == StagingStatus.Validated)
                 {
@@ -68,7 +68,7 @@ public sealed class ProductImport : AggregateRoot
         }
         else
         {
-            foreach (var stagedData in StagedDatas)
+            foreach (var stagedData in Lines)
             {
                 if (stagedData.Status == StagingStatus.Validated)
                 {

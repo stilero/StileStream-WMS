@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using StileStream.Wms.Products.Application.Features.Products.Repositories;
+using StileStream.Wms.Products.Infrastructure.Products;
 using StileStream.Wms.Products.Infrastructure.Repositories;
 using StileStream.Wms.SharedKernel.Domain.Interfaces;
 using StileStream.Wms.SharedKernel.Infrastructure.Data.Interceptors;

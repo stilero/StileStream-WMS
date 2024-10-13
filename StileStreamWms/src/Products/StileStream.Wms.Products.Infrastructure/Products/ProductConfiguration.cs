@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using StileStream.Wms.Products.Domain.Products;
 using StileStream.Wms.Products.Domain.Products.ValueObjects;
 
-namespace StileStream.Wms.Products.Infrastructure.Configurations;
+namespace StileStream.Wms.Products.Infrastructure.Products;
 
 public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {

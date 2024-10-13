@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 
+using StileStream.Wms.Products.Domain.ProductImport;
+using StileStream.Wms.Products.Domain.ProductImport.Entities;
 using StileStream.Wms.Products.Domain.Products;
 using StileStream.Wms.SharedKernel.Infrastructure.Data.Configurations;
 using StileStream.Wms.SharedKernel.Infrastructure.Data.Entities.OutboxMessages;
@@ -14,6 +16,8 @@ public class ProductsDbContext : DbContext
     {
     }
     public DbSet<Product> Products { get; set; }
+    public DbSet<ProductImport> ProductImports { get; set; }
+    public DbSet<ProductImportLine> ProductImportLines { get; set; }
     public DbSet<OutboxMessage> OutboxMessages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,7 +32,13 @@ public class ProductsDbContext : DbContext
     private static void ConfigureShadowProperties(ModelBuilder modelBuilder)
     {
         AuditConfiguration.Configure<Product>(modelBuilder);
+        AuditConfiguration.Configure<ProductImport>(modelBuilder);
+        AuditConfiguration.Configure<ProductImportLine>(modelBuilder);
+
         TenantConfiguration.Configure<Product>(modelBuilder);
+        TenantConfiguration.Configure<ProductImport>(modelBuilder);
+        TenantConfiguration.Configure<ProductImportLine>(modelBuilder);
+
         SoftDeleteConfiguration.Configure<Product>(modelBuilder);
     }
  }

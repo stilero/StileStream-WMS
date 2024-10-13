@@ -62,6 +62,25 @@ public class AzureFunctionFixture : SqlServerTestFixture, IAsyncLifetime
         {
             endpoints.MapPost("api/products/import", async context =>
             {
+                var function = context.RequestServices.GetRequiredService<ProductImportFunction>();
+                var actionResult = await function.RunAsync(context.Request, CancellationToken.None);
+                switch (actionResult)
+                {
+                    case ObjectResult objectResult:
+                        context.Response.StatusCode = objectResult.StatusCode ?? StatusCodes.Status200OK;
+                        await context.Response.WriteAsJsonAsync(objectResult.Value);
+                        break;
+                    case StatusCodeResult statusCodeResult:
+                        context.Response.StatusCode = statusCodeResult.StatusCode;
+                        break;
+                    default:
+                        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+                        break;
+                }
+            });
+
+            endpoints.MapPost("api/products", async context =>
+            {
                 var function = context.RequestServices.GetRequiredService<CreateProductsFunction>();
                 var actionResult = await function.Run(context.Request, CancellationToken.None);
                 switch (actionResult)

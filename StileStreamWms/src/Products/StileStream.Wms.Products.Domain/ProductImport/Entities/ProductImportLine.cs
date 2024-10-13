@@ -2,7 +2,7 @@ using StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
 
 namespace StileStream.Wms.Products.Domain.ProductImport.Entities;
 
-public sealed class StagedProductData
+public sealed class ProductImportLine
 {
     public Guid Id { get; private set; }
     public string ProductName { get; private set; } = string.Empty;
@@ -16,7 +16,7 @@ public sealed class StagedProductData
     public ProductImport ProductImport { get; private set; }
     public Guid ProductImportId { get; private set; }
 
-    public StagedProductData(string productName, string productSku, string productDescription, string productManufacturer, string productCategory, string productStatus, ProductImport productImport)
+    public ProductImportLine(string productName, string productSku, string productDescription, string productManufacturer, string productCategory, string productStatus, ProductImport productImport)
     {
         ArgumentNullException.ThrowIfNull(productImport, nameof(productImport));
         ProductName = productName;
@@ -29,7 +29,7 @@ public sealed class StagedProductData
         ProductImportId = productImport.Id;
     }
 
-    public static StagedProductData CreateNew(string productName, string productSku, string productDescription, string productManufacturer, string productCategory, string productStatus, ProductImport productImport)
+    public static ProductImportLine CreateNew(string productName, string productSku, string productDescription, string productManufacturer, string productCategory, string productStatus, ProductImport productImport)
         => new(productName, productSku, productDescription, productManufacturer, productCategory, productStatus, productImport);
 
     public void Validate()

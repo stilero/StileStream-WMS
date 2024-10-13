@@ -9,10 +9,10 @@ namespace StileStream.Wms.Products.Application.Features.Products.ImportProducts.
 public sealed class ProductImportService : IProductImportService
 {
     private readonly IProductImportRepository _productImportRepository;
-    private readonly IStagedProductDataRepository _stagedProductDataRepository;
+    private readonly IProductImportLineRepository _stagedProductDataRepository;
     private readonly IProductRepository _productRepository;
 
-    public ProductImportService(IProductImportRepository productImportRepository, IStagedProductDataRepository stagedProductDataRepository, IProductRepository productRepository)
+    public ProductImportService(IProductImportRepository productImportRepository, IProductImportLineRepository stagedProductDataRepository, IProductRepository productRepository)
     {
         _productImportRepository = productImportRepository;
         _stagedProductDataRepository = stagedProductDataRepository;
@@ -27,10 +27,10 @@ public sealed class ProductImportService : IProductImportService
         }
 
         var import = ProductImport.CreateNew(request.ImportType);
-        var stagingData = request.Data.Select(d => StagedProductData.CreateNew(
+        var stagingData = request.Data.Select(d => ProductImportLine.CreateNew(
             d.Name, d.Sku, d.Description, d.Manufacturer, d.Category, d.Status, import)
             ).ToList();
-        import.StageData(stagingData);
+        import.StageLines(stagingData);
 
         await _productImportRepository.AddAsync(import, cancellationToken);
         await _stagedProductDataRepository.AddRangeAsync(stagingData, cancellationToken);
@@ -45,7 +45,7 @@ public sealed class ProductImportService : IProductImportService
             return ErrorResult.NotFound("ProductImportErrors.ImportNotFound", "Import not found");
         }
 
-        var products = import.ProcessImportAndReturnProducts();
+        var products = import.ProcessLinesAndReturnProducts();
         await _productImportRepository.Update(import, cancellationToken);
         await _productRepository.AddRangeAsync(products, cancellationToken);
         return Result.Success();
