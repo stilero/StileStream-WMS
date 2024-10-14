@@ -10,7 +10,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 using StileStream.Wms.Products.Application;
-using StileStream.Wms.Products.FunctionApp.Functions;
+using StileStream.Wms.Products.FunctionApp.Features.ProductImport;
+using StileStream.Wms.Products.FunctionApp.Features.Products;
 using StileStream.Wms.Products.Infrastructure;
 
 namespace StileStream.Wms.Products.Integration.Tests.Fixtures;

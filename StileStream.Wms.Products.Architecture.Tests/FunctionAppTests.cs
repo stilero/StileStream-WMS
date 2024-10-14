@@ -1,5 +1,5 @@
 ﻿using NetArchTest.Rules;
-using StileStream.Wms.Products.FunctionApp.Functions;
+using StileStream.Wms.Products.FunctionApp.Features.Products;
 
 namespace StileStream.Wms.Products.Architecture.Tests;
 
