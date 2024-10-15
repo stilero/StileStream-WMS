@@ -24,7 +24,7 @@ public sealed class ProductImport : AggregateRoot
             Type = type
         };
 
-        productImport.RaiseDomainEvent(new ProductImportCreatedEvent(productImport));
+        productImport.RaiseDomainEvent(new ProductImportCreated(productImport));
 
         return productImport;
     }
@@ -33,7 +33,7 @@ public sealed class ProductImport : AggregateRoot
     {
         Lines = importLines;
         Status = ImportStatus.Processing;
-        RaiseDomainEvent(new ProductImportStagedEvent(this));
+        RaiseDomainEvent(new ProductImportStaged(this));
     }
 
     private void ValidateStagedLines()
@@ -46,10 +46,10 @@ public sealed class ProductImport : AggregateRoot
         Status = Lines.Any(x => x.Status == StagingStatus.Invalid) ? ImportStatus.Failed : ImportStatus.Completed;
         if (Status == ImportStatus.Completed)
         {
-            RaiseDomainEvent(new ProductImportValidatedEvent(this));
+            RaiseDomainEvent(new ProductImportValidated(this));
         }else
         {
-            RaiseDomainEvent(new ProductImportValidationFailedEvent(this));
+            RaiseDomainEvent(new ProductImportValidationFailed(this));
         }
        
     }

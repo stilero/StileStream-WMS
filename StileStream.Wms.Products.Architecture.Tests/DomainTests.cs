@@ -8,7 +8,7 @@ namespace StileStream.Wms.Products.Architecture.Tests
         [Fact]
         public void All_Classes_In_DomainLayer_AreSealed()
         {
-            var result = Types.InAssembly(typeof(ProductImportCreatedEvent).Assembly)
+            var result = Types.InAssembly(typeof(ProductImportCreated).Assembly)
                 .That()
                 .AreClasses()
                 .Should()
@@ -21,7 +21,7 @@ namespace StileStream.Wms.Products.Architecture.Tests
         [Fact]
         public void DomainLayer_HasNo_ReferenceTo_OtherLayers()
         {
-            var result = Types.InAssembly(typeof(ProductImportCreatedEvent).Assembly)
+            var result = Types.InAssembly(typeof(ProductImportCreated).Assembly)
                 .Should()
                 .NotHaveDependencyOnAny("Application", "Infrastructure", "FunctionApp")
                 .GetResult();

@@ -53,7 +53,7 @@ public class ProductImportTests : IClassFixture<AzureFunctionFixture>
         productImports.Should().HaveCount(1);      
         var outboxMessages = await dbContext.OutboxMessages.ToListAsync();
         outboxMessages.Should().NotBeNullOrEmpty();
-        outboxMessages.Where(o => o.Type == nameof(ProductImportCreatedEvent)).Should().HaveCount(1);
-        outboxMessages.Where(o => o.Type == nameof(ProductImportStagedEvent)).Should().HaveCount(1);
+        outboxMessages.Where(o => o.Type == nameof(ProductImportCreated)).Should().HaveCount(1);
+        outboxMessages.Where(o => o.Type == nameof(ProductImportStaged)).Should().HaveCount(1);
     }
 }
