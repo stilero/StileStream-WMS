@@ -24,6 +24,7 @@ public static class DependencyInjections
 
         services.AddDatabase(configuration);
         services.AddRepositories();
+        services.AddMassTransit();
 
         return services;
     }
@@ -62,6 +63,12 @@ public static class DependencyInjections
     {
         services.AddMassTransit(x =>
         {
+            x.UsingRabbitMq((context, cfg) =>
+            {
+                var configuration = context.GetRequiredService<IConfiguration>();
+                cfg.Host(configuration.GetConnectionString("RabbitMq"));
+            });
+
             x.AddEntityFrameworkOutbox<ProductsDbContext>(o =>
             {
                 o.UseSqlServer().UseBusOutbox();

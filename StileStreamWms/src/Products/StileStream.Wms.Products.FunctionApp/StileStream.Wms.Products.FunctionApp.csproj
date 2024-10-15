@@ -22,7 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StileStream.Wms.Products.Application\StileStream.Wms.Products.Application.csproj" />
-    <ProjectReference Include="..\StileStream.Wms.Products.Infrastructure\StileStream.Wms.Products.Persistance.csproj" />
     <ProjectReference Include="..\StileStream.Wms.Products.Persistance\StileStream.Wms.Products.Persistance.csproj" />
   </ItemGroup>
   <ItemGroup>

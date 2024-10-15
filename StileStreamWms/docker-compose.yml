@@ -36,20 +36,20 @@ services:
       context: .
       dockerfile: src/ApiGateway/StileStream.Api.Gateway/Dockerfile
       network: default
-   # Inventory Service
-  # inventoryservice.functionapp:
-  #   container_name: "InventoryService"
-  #   image: ${DOCKER_REGISTRY-}inventoryservicefunctionapp
-  #   environment:
-  #     - ASPNETCORE_ENVIRONMENT=Development
-  #     - ConnectionStrings__SqlServer=${DB_CONNECTION_STRING}
-  #   depends_on:
-  #     sqlserver:
-  #        condition: service_healthy
-  #   build:
-  #     context: .
-  #     dockerfile: src/Inventory/StileStream.Wms.Inventory.FunctionApp/Dockerfile
-  #     network: default
+  # Message Broker
+  rabbitmq:
+        container_name: "rabbitmq"
+        image: rabbitmq:3-management
+        ports:
+        - "15672:15672"
+        - "5672:5672"
+        environment:
+          - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+          - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+        volumes:
+          - rabbitmq_data:/var/lib/rabbitmq
+        networks:
+        - default
   # Migration service for EF migrations
   ef-migrations:
     image: mcr.microsoft.com/dotnet/sdk:8.0
@@ -79,12 +79,14 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__SqlServer=${PRODUCT_DB_CONNECTION_STRING}
+      - ConnectionStrings__RabbitMq=${RABBITMQ_CONNECTION_STRING}
     depends_on:
       sqlserver:
          condition: service_healthy
 
 volumes:
   sqlvolume:
+  rabbitmq_data:
 networks:
   default:
     driver: bridge
