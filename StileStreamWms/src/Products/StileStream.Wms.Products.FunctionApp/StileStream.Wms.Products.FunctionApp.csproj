@@ -22,7 +22,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StileStream.Wms.Products.Application\StileStream.Wms.Products.Application.csproj" />
-    <ProjectReference Include="..\StileStream.Wms.Products.Infrastructure\StileStream.Wms.Products.Infrastructure.csproj" />
+    <ProjectReference Include="..\StileStream.Wms.Products.Infrastructure\StileStream.Wms.Products.Persistance.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

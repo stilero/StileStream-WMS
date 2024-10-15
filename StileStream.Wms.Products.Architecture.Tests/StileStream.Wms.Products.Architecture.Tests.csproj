@@ -21,7 +21,7 @@
     <ProjectReference Include="..\StileStreamWms\src\Products\StileStream.Wms.Products.Application\StileStream.Wms.Products.Application.csproj" />
     <ProjectReference Include="..\StileStreamWms\src\Products\StileStream.Wms.Products.Domain\StileStream.Wms.Products.Domain.csproj" />
     <ProjectReference Include="..\StileStreamWms\src\Products\StileStream.Wms.Products.FunctionApp\StileStream.Wms.Products.FunctionApp.csproj" />
-    <ProjectReference Include="..\StileStreamWms\src\Products\StileStream.Wms.Products.Infrastructure\StileStream.Wms.Products.Infrastructure.csproj" />
+    <ProjectReference Include="..\StileStreamWms\src\Products\StileStream.Wms.Products.Infrastructure\StileStream.Wms.Products.Persistance.csproj" />
   </ItemGroup>
 
   <ItemGroup>
