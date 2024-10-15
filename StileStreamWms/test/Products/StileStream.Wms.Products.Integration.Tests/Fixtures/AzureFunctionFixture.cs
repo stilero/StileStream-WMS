@@ -12,7 +12,8 @@ using Microsoft.Extensions.Logging;
 using StileStream.Wms.Products.Application;
 using StileStream.Wms.Products.FunctionApp.Features.ProductImport;
 using StileStream.Wms.Products.FunctionApp.Features.Products;
-using StileStream.Wms.Products.Infrastructure;
+using StileStream.Wms.Products.Persistance;
+using StileStream.Wms.Products.Persistance.Common;
 
 namespace StileStream.Wms.Products.Integration.Tests.Fixtures;
 public class AzureFunctionFixture : SqlServerTestFixture, IAsyncLifetime

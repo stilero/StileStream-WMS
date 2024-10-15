@@ -1,5 +1,6 @@
+using StileStream.Wms.Products.Persistance;
 using StileStream.Wms.SharedKernel.Domain.Interfaces;
-namespace StileStream.Wms.Products.Infrastructure.Common.Repositories;
+namespace StileStream.Wms.Products.Persistance.Common.Repositories;
 public class ProductsUnitOfWork : IUnitOfWork
 {
     private readonly ProductsDbContext _dbContext;

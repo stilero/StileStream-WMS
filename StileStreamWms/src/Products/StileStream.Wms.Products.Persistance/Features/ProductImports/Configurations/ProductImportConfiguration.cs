@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using StileStream.Wms.Products.Domain.ProductImport;
 
-namespace StileStream.Wms.Products.Infrastructure.Features.ProductImports.Configurations;
+namespace StileStream.Wms.Products.Persistance.Features.ProductImports.Configurations;
 
 public class ProductImportConfiguration : IEntityTypeConfiguration<ProductImport>
 {

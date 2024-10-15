@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\ProductImports\ImportProducts\**" />
+    <EmbeddedResource Remove="Features\ProductImports\ImportProducts\**" />
+    <None Remove="Features\ProductImports\ImportProducts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.10.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
   </ItemGroup>

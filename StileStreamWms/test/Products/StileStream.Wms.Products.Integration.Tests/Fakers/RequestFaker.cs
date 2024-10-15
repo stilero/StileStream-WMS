@@ -1,6 +1,6 @@
 using Bogus;
 
-using StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Contracts;
+using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Contracts;
 using StileStream.Wms.Products.Application.Features.Products.CreateProducts.Contracts;
 using StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
 

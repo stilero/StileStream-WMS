@@ -1,16 +1,19 @@
+using MassTransit;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Interfaces;
+using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Interfaces;
 using StileStream.Wms.Products.Application.Features.Products.Repositories;
-using StileStream.Wms.Products.Infrastructure.Common.Repositories;
-using StileStream.Wms.Products.Infrastructure.Features.ProductImports.Repositories;
-using StileStream.Wms.Products.Infrastructure.Features.Products;
+using StileStream.Wms.Products.Persistance.Common;
+using StileStream.Wms.Products.Persistance.Common.Repositories;
+using StileStream.Wms.Products.Persistance.Features.ProductImports.Repositories;
+using StileStream.Wms.Products.Persistance.Features.Products;
 using StileStream.Wms.SharedKernel.Domain.Interfaces;
 using StileStream.Wms.SharedKernel.Infrastructure.Data.Interceptors;
 
-namespace StileStream.Wms.Products.Infrastructure.Common;
+namespace StileStream.Wms.Products.Persistance.Common;
 
 public static class DependencyInjections
 {
@@ -52,6 +55,20 @@ public static class DependencyInjections
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IProductImportRepository, ProductImportRepository>();
         services.AddScoped<IProductImportLineRepository, ProductImportLineRepository>();
+        return services;
+    }
+
+    public static IServiceCollection AddMassTransit(this IServiceCollection services)
+    {
+        services.AddMassTransit(x =>
+        {
+            x.AddEntityFrameworkOutbox<ProductsDbContext>(o =>
+            {
+                o.UseSqlServer().UseBusOutbox();
+                o.QueryDelay = TimeSpan.FromMilliseconds(100);
+            });
+        });
+
         return services;
     }
 }

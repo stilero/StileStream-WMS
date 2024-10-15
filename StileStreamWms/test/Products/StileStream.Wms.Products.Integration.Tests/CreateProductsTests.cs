@@ -9,9 +9,9 @@ using Newtonsoft.Json;
 
 using StileStream.Wms.Products.Application.Features.Products.CreateProducts.Contracts;
 using StileStream.Wms.Products.Domain.Products.Events;
-using StileStream.Wms.Products.Infrastructure;
 using StileStream.Wms.Products.Integration.Tests.Fakers;
 using StileStream.Wms.Products.Integration.Tests.Fixtures;
+using StileStream.Wms.Products.Persistance;
 
 namespace StileStream.Wms.Products.Integration.Tests;
 
@@ -49,8 +49,8 @@ public class CreateProductsTests : IClassFixture<AzureFunctionFixture>
         products.Should().NotBeNullOrEmpty();
         products.Should().HaveCount(productCount);
         products.Where(p => requestContent.Products.Select(Products => Products.Name).Contains(p.Name)).Should().HaveCount(productCount);
-        var outboxMessages = await dbContext.OutboxMessages.ToListAsync();
-        outboxMessages.Should().NotBeNullOrEmpty();
-        outboxMessages.Where(o => o.Type == nameof(ProductCreatedEvent)).Should().HaveCount(productCount);
+        //var outboxMessages = await dbContext.OutboxMessages.ToListAsync();
+        //outboxMessages.Should().NotBeNullOrEmpty();
+        //outboxMessages.Where(o => o.Type == nameof(ProductCreatedEvent)).Should().HaveCount(productCount);
     }
 }

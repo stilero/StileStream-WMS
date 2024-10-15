@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using StileStream.Wms.Products.Application.Features.Products.Repositories;
 using StileStream.Wms.Products.Domain.Products;
 
-namespace StileStream.Wms.Products.Infrastructure.Features.Products;
+namespace StileStream.Wms.Products.Persistance.Features.Products;
 
 public class ProductRepository(ProductsDbContext productsDbContext) : IProductRepository
 {

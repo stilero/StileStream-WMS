@@ -1,6 +1,6 @@
 using StileStream.Wms.Products.Domain.ProductImport.Entities;
 
-namespace StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Interfaces;
+namespace StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Interfaces;
 public interface IProductImportLineRepository
 {
     Task AddAsync(ProductImportLine productLine, CancellationToken cancellationToken);

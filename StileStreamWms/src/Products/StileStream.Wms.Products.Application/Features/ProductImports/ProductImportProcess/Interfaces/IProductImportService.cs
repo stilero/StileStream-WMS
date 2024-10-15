@@ -1,7 +1,7 @@
-﻿using StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Contracts;
+﻿using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Contracts;
 using StileStream.Wms.SharedKernel.Application.Models.Results;
 
-namespace StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Interfaces;
+namespace StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Interfaces;
 
 public interface IProductImportService
 {

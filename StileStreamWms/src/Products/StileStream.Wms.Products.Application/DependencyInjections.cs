@@ -4,8 +4,8 @@ using FluentValidation;
 
 using Microsoft.Extensions.DependencyInjection;
 
-using StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Interfaces;
-using StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Services;
+using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Interfaces;
+using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Services;
 using StileStream.Wms.SharedKernel.Application.MediatR.PipelineBehaviors;
 
 namespace StileStream.Wms.Products.Application;

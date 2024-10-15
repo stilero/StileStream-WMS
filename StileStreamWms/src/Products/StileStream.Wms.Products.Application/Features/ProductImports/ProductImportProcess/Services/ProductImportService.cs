@@ -1,11 +1,11 @@
-using StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Contracts;
-using StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Interfaces;
+using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Contracts;
+using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Interfaces;
 using StileStream.Wms.Products.Application.Features.Products.Repositories;
 using StileStream.Wms.Products.Domain.ProductImport;
 using StileStream.Wms.Products.Domain.ProductImport.Entities;
 using StileStream.Wms.SharedKernel.Application.Models.Results;
 
-namespace StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Services;
+namespace StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Services;
 public sealed class ProductImportService : IProductImportService
 {
     private readonly IProductImportRepository _productImportRepository;

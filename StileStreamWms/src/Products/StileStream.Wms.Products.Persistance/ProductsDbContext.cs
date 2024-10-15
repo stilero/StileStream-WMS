@@ -1,13 +1,15 @@
 
+using MassTransit;
+using MassTransit.EntityFrameworkCoreIntegration;
+
 using Microsoft.EntityFrameworkCore;
 
 using StileStream.Wms.Products.Domain.ProductImport;
 using StileStream.Wms.Products.Domain.ProductImport.Entities;
 using StileStream.Wms.Products.Domain.Products;
 using StileStream.Wms.SharedKernel.Infrastructure.Data.Configurations;
-using StileStream.Wms.SharedKernel.Infrastructure.Data.Entities.OutboxMessages;
 
-namespace StileStream.Wms.Products.Infrastructure;
+namespace StileStream.Wms.Products.Persistance;
 
 public class ProductsDbContext : DbContext
 {
@@ -18,14 +20,16 @@ public class ProductsDbContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductImport> ProductImports { get; set; }
     public DbSet<ProductImportLine> ProductImportLines { get; set; }
-    public DbSet<OutboxMessage> OutboxMessages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         ArgumentNullException.ThrowIfNull(modelBuilder, nameof(modelBuilder));
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductsDbContext).Assembly);
-        modelBuilder.ApplyConfiguration(new OutboxMessageConfiguration());
+        modelBuilder.AddInboxStateEntity();
+        modelBuilder.AddOutboxStateEntity();
+        modelBuilder.AddOutboxMessageEntity();
+        //modelBuilder.ApplyConfiguration(new OutboxMessageConfiguration());
         ConfigureShadowProperties(modelBuilder);
     }
 
@@ -41,5 +45,5 @@ public class ProductsDbContext : DbContext
 
         SoftDeleteConfiguration.Configure<Product>(modelBuilder);
     }
- }
+}
 

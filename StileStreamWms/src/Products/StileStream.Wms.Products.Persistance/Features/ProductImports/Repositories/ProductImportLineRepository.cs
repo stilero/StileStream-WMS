@@ -1,7 +1,7 @@
-using StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Interfaces;
+using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Interfaces;
 using StileStream.Wms.Products.Domain.ProductImport.Entities;
 
-namespace StileStream.Wms.Products.Infrastructure.Features.ProductImports.Repositories;
+namespace StileStream.Wms.Products.Persistance.Features.ProductImports.Repositories;
 public sealed class ProductImportLineRepository(ProductsDbContext dbContext) : IProductImportLineRepository
 {
     public async Task AddAsync(ProductImportLine productLine, CancellationToken cancellationToken) => await dbContext.AddAsync(productLine, cancellationToken);

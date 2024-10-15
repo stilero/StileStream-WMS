@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace StileStream.Wms.Products.Infrastructure;
+namespace StileStream.Wms.Products.Persistance;
 
 public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ProductsDbContext>
 {

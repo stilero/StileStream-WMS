@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Products\StileStream.Wms.Products.FunctionApp\StileStream.Wms.Products.FunctionApp.csproj" />
+    <ProjectReference Include="..\..\..\src\Products\StileStream.Wms.Products.Persistance\StileStream.Wms.Products.Persistance.csproj" />
   </ItemGroup>
 
   <ItemGroup>

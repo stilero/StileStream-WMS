@@ -1,9 +1,9 @@
-using StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Errors;
-using StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Interfaces;
+using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Errors;
+using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Interfaces;
 using StileStream.Wms.SharedKernel.Application.MediatR.Interfaces;
 using StileStream.Wms.SharedKernel.Application.Models.Results;
 
-namespace StileStream.Wms.Products.Application.Features.ProductImport.ImportProducts.Commands;
+namespace StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Commands;
 public sealed class ImportProductsCommandHandler : ICommandHandler<ImportProductsCommand, Guid>
 {
     private readonly IProductImportService _productImportService;

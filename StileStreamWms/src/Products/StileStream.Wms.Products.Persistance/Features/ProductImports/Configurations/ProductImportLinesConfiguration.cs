@@ -6,7 +6,7 @@ using StileStream.Wms.Products.Domain.ProductImport.Entities;
 using StileStream.Wms.Products.Domain.ProductImport.ValueObjects;
 using StileStream.Wms.Products.Domain.Products.ValueObjects;
 
-namespace StileStream.Wms.Products.Infrastructure.Features.ProductImports.Configurations;
+namespace StileStream.Wms.Products.Persistance.Features.ProductImports.Configurations;
 
 public class ProductImportLinesConfiguration : IEntityTypeConfiguration<ProductImportLine>
 {
