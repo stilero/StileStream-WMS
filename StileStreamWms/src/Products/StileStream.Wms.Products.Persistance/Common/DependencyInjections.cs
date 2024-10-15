@@ -63,17 +63,22 @@ public static class DependencyInjections
     {
         services.AddMassTransit(x =>
         {
+            x.AddEntityFrameworkOutbox<ProductsDbContext>(o =>
+            {
+               
+                o.QueryDelay = TimeSpan.FromSeconds(1);
+                o.UseSqlServer();
+                o.UseBusOutbox();
+            });
+
             x.UsingRabbitMq((context, cfg) =>
             {
                 var configuration = context.GetRequiredService<IConfiguration>();
                 cfg.Host(configuration.GetConnectionString("RabbitMq"));
+                cfg.ConfigureEndpoints(context);
             });
 
-            x.AddEntityFrameworkOutbox<ProductsDbContext>(o =>
-            {
-                o.UseSqlServer().UseBusOutbox();
-                o.QueryDelay = TimeSpan.FromMilliseconds(100);
-            });
+            
         });
 
         return services;

@@ -4,11 +4,10 @@ using StileStream.Wms.SharedKernel.Domain.Interfaces;
 
 namespace StileStream.Wms.SharedKernel.Application.MediatR.PipelineBehaviors;
 
-public class UnitOfWorkBehavior<TRequest, TResponse>(IUnitOfWork unitOfWork, IMediator mediator) : IPipelineBehavior<TRequest, TResponse>
+public class UnitOfWorkBehavior<TRequest, TResponse>(IUnitOfWork unitOfWork) : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
 {
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
-    private readonly IMediator _mediator = mediator;
 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
@@ -19,7 +18,6 @@ public class UnitOfWorkBehavior<TRequest, TResponse>(IUnitOfWork unitOfWork, IMe
             var response = await next();
             await _unitOfWork.SaveChangesAsync();
             await _unitOfWork.CommitTransactionAsync();
-            await DispatchDomainEvents(cancellationToken);
             return response;
         }
         catch
@@ -27,16 +25,5 @@ public class UnitOfWorkBehavior<TRequest, TResponse>(IUnitOfWork unitOfWork, IMe
             await _unitOfWork.RollbackTransactionAsync();
             throw;
         }
-    }
-
-    private async Task DispatchDomainEvents(CancellationToken cancellationToken)
-    {
-        var domainEntities = _unitOfWork.GetTrackedEntities();
-        var domainEvents = domainEntities.SelectMany(x => x.GetDomainEvents()).ToList();
-        domainEntities.ToList().ForEach(entity => entity.ClearDomainEvents());
-
-        var tasks = domainEvents.Select(async domainEvent => await _mediator.Publish(domainEvent, cancellationToken));
-
-        await Task.WhenAll(tasks);
     }
 }

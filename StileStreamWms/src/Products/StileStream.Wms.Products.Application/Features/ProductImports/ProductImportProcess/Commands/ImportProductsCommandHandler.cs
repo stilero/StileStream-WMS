@@ -1,3 +1,5 @@
+using MassTransit;
+
 using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Errors;
 using StileStream.Wms.Products.Application.Features.ProductImports.ProductImportProcess.Interfaces;
 using StileStream.Wms.SharedKernel.Application.MediatR.Interfaces;
@@ -19,7 +21,10 @@ public sealed class ImportProductsCommandHandler : ICommandHandler<ImportProduct
         {
             return ImportProductsErrors.InvalidRequest;
         }
+
         var result = await _productImportService.CreateNew(request.Request, cancellationToken);
         return result;
     }
 }
+
+public record TestEvent(Guid Id, string Name);
