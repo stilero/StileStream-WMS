@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\ProductImportProcess\**" />
     <Compile Remove="Features\ProductImports\ImportProducts\**" />
+    <EmbeddedResource Remove="Features\ProductImportProcess\**" />
     <EmbeddedResource Remove="Features\ProductImports\ImportProducts\**" />
+    <None Remove="Features\ProductImportProcess\**" />
     <None Remove="Features\ProductImports\ImportProducts\**" />
   </ItemGroup>
 
