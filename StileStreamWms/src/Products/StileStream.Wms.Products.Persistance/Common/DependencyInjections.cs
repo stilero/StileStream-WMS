@@ -24,7 +24,7 @@ public static class DependencyInjections
 
         services.AddDatabase(configuration);
         services.AddRepositories();
-        services.AddMassTransit();
+        services.AddEventBroker();
 
         return services;
     }
@@ -37,15 +37,15 @@ public static class DependencyInjections
             ?? configuration["ConnectionStrings__SqlServer"]
             ?? throw new ArgumentException("Connection string not found");
 
-        services.AddSingleton<DomainEventsInterceptor>();
+        //services.AddSingleton<DomainEventsInterceptor>();
         services.AddSingleton<AuditSaveChangesInterceptor>();
 
         services.AddDbContext<ProductsDbContext>((sp, options) =>
         {
-            var domainEventsInterceptor = sp.GetRequiredService<DomainEventsInterceptor>();
+            //var domainEventsInterceptor = sp.GetRequiredService<DomainEventsInterceptor>();
             var auditSaveChangesInterceptor = sp.GetRequiredService<AuditSaveChangesInterceptor>();
             options.UseSqlServer(connectionString)
-                .AddInterceptors(domainEventsInterceptor, auditSaveChangesInterceptor);
+                .AddInterceptors(auditSaveChangesInterceptor);
         });
         return services;
     }
@@ -59,10 +59,18 @@ public static class DependencyInjections
         return services;
     }
 
-    public static IServiceCollection AddMassTransit(this IServiceCollection services)
+    public static IServiceCollection AddEventBroker(this IServiceCollection services)
     {
         services.AddMassTransit(x =>
         {
+            x.SetKebabCaseEndpointNameFormatter();
+            x.SetInMemorySagaRepositoryProvider();
+            var applicationAssembly = typeof(IProductImportService).Assembly;
+            x.AddConsumers(applicationAssembly);
+            x.AddSagaStateMachines(applicationAssembly);
+            x.AddSagas(applicationAssembly);
+            x.AddActivities(applicationAssembly);
+
             x.AddEntityFrameworkOutbox<ProductsDbContext>(o =>
             {
                
@@ -71,12 +79,13 @@ public static class DependencyInjections
                 o.UseBusOutbox();
             });
 
-            x.UsingRabbitMq((context, cfg) =>
-            {
-                var configuration = context.GetRequiredService<IConfiguration>();
-                cfg.Host(configuration.GetConnectionString("RabbitMq"));
-                cfg.ConfigureEndpoints(context);
-            });
+            x.UsingInMemory((context, cfg) => cfg.ConfigureEndpoints(context));
+            //x.UsingRabbitMq((context, cfg) =>
+            //{
+            //    var configuration = context.GetRequiredService<IConfiguration>();
+            //    cfg.Host(configuration.GetConnectionString("RabbitMq"));
+            //    cfg.ConfigureEndpoints(context);
+            //});
 
             
         });

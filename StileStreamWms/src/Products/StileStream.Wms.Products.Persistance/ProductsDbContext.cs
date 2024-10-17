@@ -1,6 +1,5 @@
 
 using MassTransit;
-using MassTransit.EntityFrameworkCoreIntegration;
 
 using Microsoft.EntityFrameworkCore;
 

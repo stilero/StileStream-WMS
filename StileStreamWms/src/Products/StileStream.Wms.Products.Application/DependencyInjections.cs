@@ -19,7 +19,7 @@ public static class DependencyInjections
         {
 
             config.AddOpenBehavior(typeof(FluentValidationBehavior<,>));
-            config.AddOpenBehavior(typeof(UnitOfWorkBehavior<,>));
+            //config.AddOpenBehavior(typeof(UnitOfWorkBehavior<,>));
             config.RegisterServicesFromAssembly(thisAssembly);
         });    
         services.AddScoped<IProductImportService, ProductImportService>();
